@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>32768</length>
+      <used>26516</used>
+      <free>6252</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>2048</length>
+      <used>688</used>
+      <free>1360</free>
+    </memory>
+  </executable>
+</project>

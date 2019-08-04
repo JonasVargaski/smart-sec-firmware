@@ -1,0 +1,1546 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"458 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\doprnt.c
+[v __doprnt _doprnt `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strchr.c
+[v _strchr strchr `(*.35uc  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strcpy.c
+[v _strcpy strcpy `(*.35uc  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strcspn.c
+[v _strcspn strcspn `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strncpy.c
+[v _strncpy strncpy `(*.39uc  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strspn.c
+[v _strspn strspn `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strstr.c
+[v _strstr strstr `(*.35uc  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strtok.c
+[v _strtok strtok `(*.35uc  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"10 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/ADC.h
+[v _readADC readADC `(ui  1 e 2 0 ]
+"22
+[v _getSensors getSensors `(i  1 e 2 0 ]
+"21 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+[v _limpaBuffer limpaBuffer `(v  1 e 1 0 ]
+"28
+[v _getMac getMac `(v  1 e 1 0 ]
+"44
+[v _filtroStr filtroStr `(v  1 e 1 0 ]
+"67
+[v _alterarConfigWifi alterarConfigWifi `(v  1 e 1 0 ]
+"189
+[v _enviaDadosWifi enviaDadosWifi `(v  1 e 1 0 ]
+"39 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Controle.h
+[v _timer timer `(v  1 e 1 0 ]
+"123
+[v _acaoFlap acaoFlap `(v  1 e 1 0 ]
+"148
+[v _controle controle `(v  1 e 1 0 ]
+"14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+[v _writeEEPROM_ext writeEEPROM_ext `(v  1 e 1 0 ]
+[v i2_writeEEPROM_ext writeEEPROM_ext `(v  1 e 1 0 ]
+"26
+[v _readEEPROM_ext readEEPROM_ext `(uc  1 e 1 0 ]
+"8 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
+[v _faseAtual faseAtual `(*.25uc  1 e 2 0 ]
+"34
+[v _climaAtual climaAtual `(*.25uc  1 e 2 0 ]
+"44
+[v _setUmidade setUmidade `(v  1 e 1 0 ]
+"76
+[v _setRangeValor setRangeValor `(v  1 e 1 0 ]
+[v i2_setRangeValor setRangeValor `(v  1 e 1 0 ]
+"18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/function.c
+[v _delay delay `(v  1 e 1 0 ]
+[v i2_delay delay `(v  1 e 1 0 ]
+"11 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/I2C.c
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+"21
+[v _I2C_Wait I2C_Wait `(v  1 e 1 0 ]
+[v i2_I2C_Wait I2C_Wait `(v  1 e 1 0 ]
+"25
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+[v i2_I2C_Start I2C_Start `(v  1 e 1 0 ]
+"30
+[v _I2C_Restart I2C_Restart `(v  1 e 1 0 ]
+"35
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+[v i2_I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+"41
+[v _I2C_Write I2C_Write `(v  1 e 1 0 ]
+[v i2_I2C_Write I2C_Write `(v  1 e 1 0 ]
+"46
+[v _I2C_Read I2C_Read `(us  1 e 2 0 ]
+[v i2_I2C_Read I2C_Read `(us  1 e 2 0 ]
+"17 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+"52
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+"74
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"82
+[v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
+"87
+[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
+"122
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+"137
+[v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
+"159
+[v _atualizaLCD atualizaLCD `(v  1 e 1 0 ]
+"180
+[v _criaCaracteresCGRAM criaCaracteresCGRAM `(v  1 e 1 0 ]
+"212
+[v _blink blink `(v  1 e 1 0 ]
+"18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Led_display.h
+[v _setLed setLed `(v  1 e 1 0 ]
+"27
+[v _updateLeds updateLeds `(v  1 e 1 0 ]
+"15 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/main.c
+[v _TIMER0 TIMER0 `II(v  1 e 1 0 ]
+"35
+[v _main main `(v  1 e 1 0 ]
+"4 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/TabelasUmidade.h
+[v _tabelaUmidade tabelaUmidade `(ui  1 e 2 0 ]
+"19 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Teclado.h
+[v _readButtons readButtons `(v  1 e 1 0 ]
+"26
+[v _btPress btPress `(uc  1 e 1 0 ]
+"9 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
+[v _UART_Init UART_Init `(v  1 e 1 0 ]
+"36
+[v _putch putch `(v  1 e 1 0 ]
+[s S756 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+"2351 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic18f4550.h
+[s S812 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+]
+[s S820 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S826 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S829 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S831 . 1 `S756 1 . 1 0 `S812 1 . 1 0 `S820 1 . 1 0 `S826 1 . 1 0 `S829 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES831  1 e 1 @3968 ]
+[s S142 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2481
+[s S151 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S159 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S162 . 1 `S142 1 . 1 0 `S151 1 . 1 0 `S159 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES162  1 e 1 @3969 ]
+[s S865 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"2603
+[s S874 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S881 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S888 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S892 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S895 . 1 `S865 1 . 1 0 `S874 1 . 1 0 `S881 1 . 1 0 `S888 1 . 1 0 `S892 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES895  1 e 1 @3970 ]
+[s S43 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"2734
+[s S99 . 1 `uc 1 SPP0 1 0 :1:0 
+`uc 1 SPP1 1 0 :1:1 
+`uc 1 SPP2 1 0 :1:2 
+`uc 1 SPP3 1 0 :1:3 
+`uc 1 SPP4 1 0 :1:4 
+`uc 1 SPP5 1 0 :1:5 
+`uc 1 SPP6 1 0 :1:6 
+`uc 1 SPP7 1 0 :1:7 
+]
+[s S108 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S111 . 1 `S43 1 . 1 0 `S99 1 . 1 0 `S108 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES111  1 e 1 @3971 ]
+[s S932 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+`uc 1 RE3 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 RDPU 1 0 :1:7 
+]
+"2866
+[s S939 . 1 `uc 1 CK1SPP 1 0 :1:0 
+`uc 1 CK2SPP 1 0 :1:1 
+`uc 1 OESPP 1 0 :1:2 
+]
+[s S943 . 1 `uc 1 PD2 1 0 :1:0 
+`uc 1 PC2 1 0 :1:1 
+`uc 1 CCP10 1 0 :1:2 
+`uc 1 CCP9E 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 CCP2E 1 0 :1:7 
+]
+[s S950 . 1 `uc 1 RDE 1 0 :1:0 
+`uc 1 WRE 1 0 :1:1 
+`uc 1 CS 1 0 :1:2 
+`uc 1 PC3E 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 PA2E 1 0 :1:7 
+]
+[s S957 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PB2 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RE7 1 0 :1:7 
+]
+[u S962 . 1 `S932 1 . 1 0 `S939 1 . 1 0 `S943 1 . 1 0 `S950 1 . 1 0 `S957 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES962  1 e 1 @3972 ]
+[s S244 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+]
+"2996
+[s S252 . 1 `uc 1 LA0 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+`uc 1 LA2 1 0 :1:2 
+`uc 1 LA3 1 0 :1:3 
+`uc 1 LA4 1 0 :1:4 
+`uc 1 LA5 1 0 :1:5 
+`uc 1 LA6 1 0 :1:6 
+]
+[u S260 . 1 `S244 1 . 1 0 `S252 1 . 1 0 ]
+[v _LATAbits LATAbits `VES260  1 e 1 @3977 ]
+[s S312 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"3098
+[s S321 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S330 . 1 `S312 1 . 1 0 `S321 1 . 1 0 ]
+[v _LATBbits LATBbits `VES330  1 e 1 @3978 ]
+[s S280 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"3206
+[s S287 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S294 . 1 `S280 1 . 1 0 `S287 1 . 1 0 ]
+[v _LATCbits LATCbits `VES294  1 e 1 @3979 ]
+[s S372 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"3288
+[s S381 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S390 . 1 `S372 1 . 1 0 `S381 1 . 1 0 ]
+[v _LATDbits LATDbits `VES390  1 e 1 @3980 ]
+[s S352 . 1 `uc 1 LATE0 1 0 :1:0 
+`uc 1 LATE1 1 0 :1:1 
+`uc 1 LATE2 1 0 :1:2 
+]
+"3390
+[s S356 . 1 `uc 1 LE0 1 0 :1:0 
+`uc 1 LE1 1 0 :1:1 
+`uc 1 LE2 1 0 :1:2 
+]
+[u S360 . 1 `S352 1 . 1 0 `S356 1 . 1 0 ]
+[v _LATEbits LATEbits `VES360  1 e 1 @3981 ]
+[s S748 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+]
+"3455
+[u S764 . 1 `S748 1 . 1 0 `S756 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES764  1 e 1 @3986 ]
+[s S999 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"3655
+[u S1017 . 1 `S999 1 . 1 0 `S142 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES1017  1 e 1 @3987 ]
+[s S412 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3873
+[s S419 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S426 . 1 `S412 1 . 1 0 `S419 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES426  1 e 1 @3988 ]
+[s S34 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"4031
+[u S52 . 1 `S34 1 . 1 0 `S43 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES52  1 e 1 @3989 ]
+[s S784 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+]
+"4243
+[s S788 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+]
+[u S792 . 1 `S784 1 . 1 0 `S788 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES792  1 e 1 @3990 ]
+[s S634 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 SPPIE 1 0 :1:7 
+]
+"4406
+[s S643 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 PSPIE 1 0 :1:7 
+]
+[u S649 . 1 `S634 1 . 1 0 `S643 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES649  1 e 1 @3997 ]
+[s S600 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 SPPIF 1 0 :1:7 
+]
+"4490
+[s S609 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+[u S615 . 1 `S600 1 . 1 0 `S609 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES615  1 e 1 @3998 ]
+[s S496 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4975
+[s S505 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S508 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S511 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S514 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S517 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S519 . 1 `S496 1 . 1 0 `S505 1 . 1 0 `S508 1 . 1 0 `S511 1 . 1 0 `S514 1 . 1 0 `S517 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES519  1 e 1 @4011 ]
+[s S444 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"5183
+[s S453 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S462 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S465 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S467 . 1 `S444 1 . 1 0 `S453 1 . 1 0 `S462 1 . 1 0 `S465 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES467  1 e 1 @4012 ]
+"5400
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5412
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5424
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"6508
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"6579
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"6664
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S674 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"6708
+[s S677 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S681 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S688 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S691 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S694 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S697 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S700 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S703 . 1 `S674 1 . 1 0 `S677 1 . 1 0 `S681 1 . 1 0 `S688 1 . 1 0 `S691 1 . 1 0 `S694 1 . 1 0 `S697 1 . 1 0 `S700 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES703  1 e 1 @4034 ]
+"6790
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"6797
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+"6804
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
+"6866
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+"6936
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+"7184
+[v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
+"7191
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+"8067
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"8144
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"8151
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S1078 . 1 `uc 1 INT1IF 1 0 :1:0 
+`uc 1 INT2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1IE 1 0 :1:3 
+`uc 1 INT2IE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1IP 1 0 :1:6 
+`uc 1 INT2IP 1 0 :1:7 
+]
+"8438
+[s S1087 . 1 `uc 1 INT1F 1 0 :1:0 
+`uc 1 INT2F 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 INT1E 1 0 :1:3 
+`uc 1 INT2E 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 INT1P 1 0 :1:6 
+`uc 1 INT2P 1 0 :1:7 
+]
+[u S1096 . 1 `S1078 1 . 1 0 `S1087 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES1096  1 e 1 @4080 ]
+[s S1039 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"8530
+[s S1042 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S1051 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S1056 . 1 `S1039 1 . 1 0 `S1042 1 . 1 0 `S1051 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1056  1 e 1 @4081 ]
+"8580
+[v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+[s S551 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"8612
+[s S560 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S569 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S573 . 1 `S551 1 . 1 0 `S560 1 . 1 0 `S569 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES573  1 e 1 @4082 ]
+"8905
+[v _ACKDT ACKDT `VEb  1 e 0 @32301 ]
+"8907
+[v _ACKEN ACKEN `VEb  1 e 0 @32300 ]
+"8953
+[v _ADON ADON `VEb  1 e 0 @32272 ]
+"9467
+[v _GO GO `VEb  1 e 0 @32273 ]
+"9541
+[v _INT2IF INT2IF `VEb  1 e 0 @32641 ]
+"9815
+[v _PEN PEN `VEb  1 e 0 @32298 ]
+"9921
+[v _RCEN RCEN `VEb  1 e 0 @32299 ]
+"9927
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"9975
+[v _RSEN RSEN `VEb  1 e 0 @32297 ]
+"10005
+[v _SEN SEN `VEb  1 e 0 @32296 ]
+"10175
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\doprnt.c
+[v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
+"6 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/ADC.h
+[v _media_adc media_adc `uc  1 e 1 0 ]
+"7
+[v __temp _temp `[11]f  1 e 33 0 ]
+"8
+[v __umid _umid `[11]f  1 e 33 0 ]
+"14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+[v _t_wifi_restart t_wifi_restart `uc  1 e 1 0 ]
+"15
+[v _f_wifi_processo f_wifi_processo `uc  1 e 1 0 ]
+"16
+[v _cbf cbf `uc  1 e 1 0 ]
+"17
+[v _bufferSerial bufferSerial `[80]uc  1 e 80 0 ]
+"18
+[v _ssid ssid `[15]uc  1 e 15 0 ]
+"19
+[v _senha senha `[15]uc  1 e 15 0 ]
+"11 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Controle.h
+[v __acao_flap _acao_flap `uc  1 e 1 0 ]
+"12
+[v _f_buzzer_falta_energia f_buzzer_falta_energia `uc  1 e 1 0 ]
+"14
+[v _t_controle_fim_fases t_controle_fim_fases `uc  1 e 1 0 ]
+"15
+[v _t_controle_flap t_controle_flap `ui  1 e 2 0 ]
+"16
+[v _t_controle_buzzer t_controle_buzzer `uc  1 e 1 0 ]
+"17
+[v _t_controle_religar_buzzer t_controle_religar_buzzer `ui  1 e 2 0 ]
+"18
+[v _t_controle_religar_ventoinha t_controle_religar_ventoinha `ui  1 e 2 0 ]
+"19
+[v _t_controle_modo_seguranca t_controle_modo_seguranca `ui  1 e 2 0 ]
+"20
+[v _t_controle_blink t_controle_blink `uc  1 e 1 0 ]
+"21
+[v _t_controle_temp_automatica t_controle_temp_automatica `uc  1 e 1 0 ]
+"22
+[v _t_leitura_adc t_leitura_adc `uc  1 e 1 0 ]
+"23
+[v _md_seguranca md_seguranca `b  1 e 0 0 ]
+"8 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Led_display.h
+[v _leds leds `uc  1 e 1 0 ]
+"9
+[v __led _led `uc  1 e 1 0 ]
+"14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Teclado.h
+[v _bt_flag bt_flag `uc  1 e 1 0 ]
+"4 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/variaveisGlobais.h
+[v _base_sec base_sec `uc  1 e 1 0 ]
+"9
+[v _buzzer buzzer `uc  1 e 1 0 ]
+"10
+[v _fornalha fornalha `uc  1 e 1 0 ]
+"11
+[v _trava_fase trava_fase `uc  1 e 1 0 ]
+"12
+[v _wifi_conectado wifi_conectado `uc  1 e 1 0 ]
+"13
+[v _tipo_sensor_umidade tipo_sensor_umidade `uc  1 e 1 0 ]
+"14
+[v _tipo_modo_trabalho tipo_modo_trabalho `uc  1 e 1 0 ]
+"15
+[v _f_falta_energia f_falta_energia `uc  1 e 1 0 ]
+"18
+[v _sec sec `uc  1 e 1 0 ]
+"19
+[v _min min `uc  1 e 1 0 ]
+"20
+[v _hor hor `uc  1 e 1 0 ]
+"22
+[v _t_fim_fase1 t_fim_fase1 `uc  1 e 1 0 ]
+"23
+[v _t_fim_fase2 t_fim_fase2 `uc  1 e 1 0 ]
+"24
+[v _t_fim_fase3 t_fim_fase3 `uc  1 e 1 0 ]
+"25
+[v _t_flap_ligado t_flap_ligado `uc  1 e 1 0 ]
+"26
+[v _t_flap_intervalo t_flap_intervalo `uc  1 e 1 0 ]
+"27
+[v _t_buzzer_religar t_buzzer_religar `uc  1 e 1 0 ]
+"28
+[v _t_temp_automatica t_temp_automatica `uc  1 e 1 0 ]
+"29
+[v _t_religar_ventoinha_automatica t_religar_ventoinha_automatica `uc  1 e 1 0 ]
+"34
+[v _h_modo_seguranca h_modo_seguranca `uc  1 e 1 0 ]
+"35
+[v _h_venotinha h_venotinha `uc  1 e 1 0 ]
+"36
+[v _h_abafador h_abafador `uc  1 e 1 0 ]
+"37
+[v _h_flap h_flap `uc  1 e 1 0 ]
+"38
+[v _h_buzzer h_buzzer `uc  1 e 1 0 ]
+"39
+[v _h_subir_temp_automatica h_subir_temp_automatica `uc  1 e 1 0 ]
+"42
+[v _wifi_habilita_alteracao wifi_habilita_alteracao `ui  1 e 2 0 ]
+"43
+[v _wifi_MAC wifi_MAC `[12]ui  1 e 24 0 ]
+"44
+[v _wifi_SENHA wifi_SENHA `ui  1 e 2 0 ]
+"47
+[v _fase fase `uc  1 e 1 0 ]
+"48
+[v _clima clima `uc  1 e 1 0 ]
+"49
+[v _temp temp `uc  1 e 1 0 ]
+"50
+[v _tempajt tempajt `uc  1 e 1 0 ]
+"51
+[v _umid umid `uc  1 e 1 0 ]
+"52
+[v _umidajt umidajt `uc  1 e 1 0 ]
+"53
+[v _blinkk blinkk `b  1 e 0 0 ]
+"55
+[v _line1 line1 `[21]uc  1 e 21 0 ]
+"56
+[v _line2 line2 `[21]uc  1 e 21 0 ]
+"57
+[v _line3 line3 `[21]uc  1 e 21 0 ]
+"58
+[v _line4 line4 `[21]uc  1 e 21 0 ]
+"62
+[v _menu menu `uc  1 e 1 0 ]
+"63
+[v _opcaomenu opcaomenu `uc  1 e 1 0 ]
+"64
+[v _ajuste_parametro ajuste_parametro `uc  1 e 1 0 ]
+"65
+[v _senha_desbloqueio_func senha_desbloqueio_func `uc  1 e 1 0 ]
+"35 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"135
+[v main@i i `uc  1 a 1 138 ]
+"516
+} 0
+"27 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Led_display.h
+[v _updateLeds updateLeds `(v  1 e 1 0 ]
+{
+"36
+} 0
+"44 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
+[v _setUmidade setUmidade `(v  1 e 1 0 ]
+{
+[v setUmidade@tp tp `uc  1 a 1 wreg ]
+"45
+[v setUmidade@_umd _umd `uc  1 a 1 25 ]
+"47
+[v setUmidade@_clim _clim `uc  1 a 1 24 ]
+"46
+[v setUmidade@_tmpajt _tmpajt `uc  1 a 1 23 ]
+"44
+[v setUmidade@tp tp `uc  1 a 1 wreg ]
+[v setUmidade@_umdajt _umdajt `*.39uc  1 p 2 8 ]
+[v setUmidade@_tempajt _tempajt `*.39uc  1 p 2 10 ]
+[v setUmidade@_clima _clima `*.39uc  1 p 2 12 ]
+[v setUmidade@tp tp `uc  1 a 1 14 ]
+"74
+} 0
+"4 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/TabelasUmidade.h
+[v _tabelaUmidade tabelaUmidade `(ui  1 e 2 0 ]
+{
+"5
+[v tabelaUmidade@_umd _umd `uc  1 a 1 7 ]
+"4
+[v tabelaUmidade@_tmp _tmp `i  1 p 2 0 ]
+[v tabelaUmidade@_clima _clima `i  1 p 2 2 ]
+[v tabelaUmidade@_tipo_sensor _tipo_sensor `uc  1 p 1 4 ]
+"514
+} 0
+"76 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
+[v _setRangeValor setRangeValor `(v  1 e 1 0 ]
+{
+[v setRangeValor@_acao _acao `uc  1 a 1 wreg ]
+"77
+[v setRangeValor@_aux _aux `i  1 a 2 14 ]
+"76
+[v setRangeValor@_acao _acao `uc  1 a 1 wreg ]
+[v setRangeValor@_var_ajt _var_ajt `*.39uc  1 p 2 5 ]
+[v setRangeValor@_min _min `uc  1 p 1 7 ]
+[v setRangeValor@_max _max `uc  1 p 1 8 ]
+[v setRangeValor@end_eeprom end_eeprom `uc  1 p 1 9 ]
+[v setRangeValor@_acao _acao `uc  1 a 1 13 ]
+"90
+} 0
+"26 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+[v _readEEPROM_ext readEEPROM_ext `(uc  1 e 1 0 ]
+{
+[v readEEPROM_ext@adress adress `uc  1 a 1 wreg ]
+"33
+[v readEEPROM_ext@data data `uc  1 a 1 6 ]
+"26
+[v readEEPROM_ext@adress adress `uc  1 a 1 wreg ]
+[v readEEPROM_ext@adress adress `uc  1 a 1 5 ]
+"36
+} 0
+"30 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/I2C.c
+[v _I2C_Restart I2C_Restart `(v  1 e 1 0 ]
+{
+"33
+} 0
+"46
+[v _I2C_Read I2C_Read `(us  1 e 2 0 ]
+{
+"47
+[v I2C_Read@temp temp `us  1 a 2 3 ]
+"46
+[v I2C_Read@a a `us  1 p 2 1 ]
+"56
+} 0
+"22 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/ADC.h
+[v _getSensors getSensors `(i  1 e 2 0 ]
+{
+"42
+[v getSensors@auxx auxx `f  1 a 3 77 ]
+"24
+[v getSensors@aux aux `f  1 a 3 84 ]
+"23
+[v getSensors@i i `uc  1 a 1 83 ]
+"82
+} 0
+"10
+[v _readADC readADC `(ui  1 e 2 0 ]
+{
+[v readADC@canal canal `uc  1 a 1 wreg ]
+"13
+[v readADC@digital digital `i  1 a 2 6 ]
+"10
+[v readADC@canal canal `uc  1 a 1 wreg ]
+[v readADC@canal canal `uc  1 a 1 8 ]
+"20
+} 0
+"28 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 9 ]
+"31
+} 0
+"44 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 64 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 68 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 63 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 54 ]
+"73
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 22 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 26 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 25 ]
+[v ___ftmul@exp exp `uc  1 a 1 21 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 12 ]
+[v ___ftmul@f2 f2 `f  1 p 3 15 ]
+"157
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+{
+[v ___ftge@ff1 ff1 `f  1 p 3 0 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 3 ]
+"13
+} 0
+"54 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"60
+[v ___ftdiv@f3 f3 `f  1 a 3 49 ]
+"59
+[v ___ftdiv@sign sign `uc  1 a 1 53 ]
+[v ___ftdiv@exp exp `uc  1 a 1 52 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 48 ]
+"54
+[v ___ftdiv@f1 f1 `f  1 p 3 39 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 42 ]
+"86
+} 0
+"86 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+{
+"88
+[v ___ftadd@exp1 exp1 `uc  1 a 1 38 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 37 ]
+[v ___ftadd@sign sign `uc  1 a 1 36 ]
+"86
+[v ___ftadd@f1 f1 `f  1 p 3 27 ]
+[v ___ftadd@f2 f2 `f  1 p 3 30 ]
+"148
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"8 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
+[v _faseAtual faseAtual `(*.25uc  1 e 2 0 ]
+{
+[v faseAtual@tp tp `uc  1 a 1 wreg ]
+"10
+[v faseAtual@tmpajt tmpajt `uc  1 a 1 6 ]
+"9
+[v faseAtual@_fasee _fasee `uc  1 a 1 4 ]
+"8
+[v faseAtual@tp tp `uc  1 a 1 wreg ]
+[v faseAtual@_fase _fase `*.39uc  1 p 2 0 ]
+[v faseAtual@_tempajt _tempajt `*.39uc  1 p 2 2 ]
+[v faseAtual@tp tp `uc  1 a 1 5 ]
+"32
+} 0
+"189 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+[v _enviaDadosWifi enviaDadosWifi `(v  1 e 1 0 ]
+{
+"266
+[v enviaDadosWifi@AUX AUX `[15]uc  1 a 15 103 ]
+"265
+[v enviaDadosWifi@i i `uc  1 a 1 120 ]
+"314
+} 0
+"28
+[v _getMac getMac `(v  1 e 1 0 ]
+{
+"29
+[v getMac@i i `uc  1 a 1 27 ]
+"31
+[v getMac@men men `uc  1 a 1 26 ]
+"30
+[v getMac@j j `uc  1 a 1 25 ]
+"28
+[v getMac@mac mac `*.35uc  1 p 2 19 ]
+[v getMac@var var `*.39uc  1 p 2 21 ]
+"42
+} 0
+"180 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
+[v _criaCaracteresCGRAM criaCaracteresCGRAM `(v  1 e 1 0 ]
+{
+"187
+[v criaCaracteresCGRAM@character character `C[7][8]uc  1 a 56 7 ]
+"200
+[v criaCaracteresCGRAM@i i `uc  1 a 1 67 ]
+[v criaCaracteresCGRAM@j j `uc  1 a 1 66 ]
+[v criaCaracteresCGRAM@k k `uc  1 a 1 65 ]
+"180
+[v criaCaracteresCGRAM@F3896 F3896 `C[7][8]uc  1 s 56 F3896 ]
+"208
+} 0
+"148 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Controle.h
+[v _controle controle `(v  1 e 1 0 ]
+{
+"266
+} 0
+"123
+[v _acaoFlap acaoFlap `(v  1 e 1 0 ]
+{
+[v acaoFlap@acao acao `uc  1 a 1 wreg ]
+[v acaoFlap@acao acao `uc  1 a 1 wreg ]
+[v acaoFlap@tempo_ativado tempo_ativado `i  1 p 2 2 ]
+[v acaoFlap@tempo_aguardar tempo_aguardar `i  1 p 2 4 ]
+[v acaoFlap@acao acao `uc  1 a 1 7 ]
+"146
+} 0
+"18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Led_display.h
+[v _setLed setLed `(v  1 e 1 0 ]
+{
+[v setLed@led led `uc  1 a 1 wreg ]
+[v setLed@led led `uc  1 a 1 wreg ]
+[v setLed@acao acao `uc  1 p 1 0 ]
+[v setLed@led led `uc  1 a 1 1 ]
+"25
+} 0
+"34 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
+[v _climaAtual climaAtual `(*.25uc  1 e 2 0 ]
+{
+[v climaAtual@c c `uc  1 a 1 wreg ]
+[v climaAtual@c c `uc  1 a 1 wreg ]
+[v climaAtual@c c `uc  1 a 1 2 ]
+"42
+} 0
+"26 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Teclado.h
+[v _btPress btPress `(uc  1 e 1 0 ]
+{
+[v btPress@bt bt `uc  1 a 1 wreg ]
+[v btPress@bt bt `uc  1 a 1 wreg ]
+[v btPress@bt bt `uc  1 a 1 0 ]
+"34
+} 0
+"212 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
+[v _blink blink `(v  1 e 1 0 ]
+{
+"214
+[v blink@i i `uc  1 a 1 4 ]
+"212
+[v blink@line line `*.39uc  1 p 2 0 ]
+[v blink@start start `uc  1 p 1 2 ]
+[v blink@end end `uc  1 p 1 3 ]
+"219
+} 0
+"67 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+[v _alterarConfigWifi alterarConfigWifi `(v  1 e 1 0 ]
+{
+"172
+[v alterarConfigWifi@i i `uc  1 a 1 101 ]
+"187
+} 0
+"14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+[v _writeEEPROM_ext writeEEPROM_ext `(v  1 e 1 0 ]
+{
+[v writeEEPROM_ext@adress adress `uc  1 a 1 wreg ]
+[v writeEEPROM_ext@adress adress `uc  1 a 1 wreg ]
+[v writeEEPROM_ext@data data `uc  1 p 1 3 ]
+"16
+[v writeEEPROM_ext@adress adress `uc  1 a 1 4 ]
+"23
+} 0
+"41 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/I2C.c
+[v _I2C_Write I2C_Write `(v  1 e 1 0 ]
+{
+[v I2C_Write@d d `ui  1 p 2 1 ]
+"44
+} 0
+"35
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+{
+"39
+} 0
+"25
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+{
+"28
+} 0
+"21
+[v _I2C_Wait I2C_Wait `(v  1 e 1 0 ]
+{
+"23
+} 0
+"13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+[s S1734 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"21
+[v printf@pb pb `S1734  1 a 4 97 ]
+"15
+[v printf@ap ap `[1]*.39v  1 a 2 95 ]
+"13
+[v printf@f f `*.25Cuc  1 p 2 33 ]
+"28
+} 0
+"21 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+[v _limpaBuffer limpaBuffer `(v  1 e 1 0 ]
+{
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"15
+[v memset@p p `*.39uc  1 a 2 6 ]
+"8
+[v memset@p1 p1 `*.39v  1 p 2 0 ]
+[v memset@c c `i  1 p 2 2 ]
+[v memset@n n `ui  1 p 2 4 ]
+"22
+} 0
+"18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/function.c
+[v _delay delay `(v  1 e 1 0 ]
+{
+[v delay@x x `i  1 p 2 0 ]
+"23
+} 0
+"44 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+[v _filtroStr filtroStr `(v  1 e 1 0 ]
+{
+"50
+[v filtroStr@_str _str `[82]uc  1 a 82 0 ]
+"51
+[v filtroStr@aux aux `[60]uc  1 a 60 82 ]
+"49
+[v filtroStr@p p `*.35uc  1 a 2 147 ]
+"45
+[v filtroStr@i i `uc  1 a 1 149 ]
+"46
+[v filtroStr@x x `uc  1 a 1 146 ]
+"48
+[v filtroStr@count count `uc  1 a 1 145 ]
+"47
+[v filtroStr@y y `uc  1 a 1 144 ]
+"44
+[v filtroStr@inicio inicio `*.25uc  1 p 2 49 ]
+[v filtroStr@fim fim `*.25uc  1 p 2 51 ]
+[v filtroStr@str str `*.39uc  1 p 2 53 ]
+[v filtroStr@strdest strdest `*.39uc  1 p 2 55 ]
+"65
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strtok.c
+[v _strtok strtok `(*.35uc  1 e 2 0 ]
+{
+[v strtok@s1 s1 `*.35uc  1 p 2 13 ]
+[v strtok@s2 s2 `*.25Cuc  1 p 2 15 ]
+"15
+[v strtok@sp sp `*.35uc  1 s 2 sp ]
+"31
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strspn.c
+[v _strspn strspn `(ui  1 e 2 0 ]
+{
+"6
+[v strspn@i i `ui  1 a 2 11 ]
+"4
+[v strspn@s1 s1 `*.35Cuc  1 p 2 6 ]
+[v strspn@s2 s2 `*.25Cuc  1 p 2 8 ]
+"14
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strcspn.c
+[v _strcspn strcspn `(ui  1 e 2 0 ]
+{
+"6
+[v strcspn@i i `ui  1 a 2 11 ]
+"4
+[v strcspn@s1 s1 `*.35Cuc  1 p 2 6 ]
+[v strcspn@s2 s2 `*.25Cuc  1 p 2 8 ]
+"14
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strstr.c
+[v _strstr strstr `(*.35uc  1 e 2 0 ]
+{
+[v strstr@s1 s1 `*.35Cuc  1 p 2 15 ]
+[v strstr@s2 s2 `*.25Cuc  1 p 2 17 ]
+"12
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+{
+[v strncmp@s1 s1 `*.35Cuc  1 p 2 6 ]
+[v strncmp@s2 s2 `*.25Cuc  1 p 2 8 ]
+[v strncmp@len len `ui  1 p 2 10 ]
+"14
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+"6
+[v strlen@cp cp `*.35Cuc  1 a 2 4 ]
+"4
+[v strlen@s s `*.35Cuc  1 p 2 0 ]
+"13
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strchr.c
+[v _strchr strchr `(*.35uc  1 e 2 0 ]
+{
+[v strchr@ptr ptr `*.35Cuc  1 p 2 0 ]
+[v strchr@chr chr `i  1 p 2 2 ]
+"11
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strncpy.c
+[v _strncpy strncpy `(*.39uc  1 e 2 0 ]
+{
+"15
+[v strncpy@cp cp `*.39uc  1 a 2 6 ]
+"8
+[v strncpy@to to `*.39uc  1 p 2 0 ]
+[v strncpy@from from `*.39Cuc  1 p 2 2 ]
+[v strncpy@size size `ui  1 p 2 4 ]
+"27
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\strcpy.c
+[v _strcpy strcpy `(*.35uc  1 e 2 0 ]
+{
+"15
+[v strcpy@cp cp `*.35uc  1 a 2 22 ]
+"8
+[v strcpy@to to `*.35uc  1 p 2 17 ]
+[v strcpy@from from `*.35Cuc  1 p 2 19 ]
+"24
+} 0
+"13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[s S1734 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"29
+[v sprintf@pb pb `S1734  1 a 4 45 ]
+"28
+[v sprintf@ap ap `[1]*.39v  1 a 2 43 ]
+"13
+[v sprintf@wh wh `*.39uc  1 p 2 33 ]
+[v sprintf@f f `*.25Cuc  1 p 2 35 ]
+"38
+} 0
+"458 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\doprnt.c
+[v __doprnt _doprnt `(i  1 e 2 0 ]
+{
+"501
+[v __doprnt@width width `i  1 a 2 30 ]
+"530
+[v __doprnt@cp cp `*.35Cuc  1 a 2 28 ]
+"529
+[v __doprnt@len len `ui  1 a 2 26 ]
+"528
+[v __doprnt@val val `ui  1 a 2 24 ]
+"499
+[v __doprnt@c c `c  1 a 1 32 ]
+"508
+[v __doprnt@flag flag `uc  1 a 1 23 ]
+"506
+[v __doprnt@prec prec `c  1 a 1 22 ]
+[s S1734 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+"458
+[v __doprnt@pb pb `*.39S1734  1 p 2 12 ]
+[v __doprnt@f f `*.25Cuc  1 p 2 14 ]
+[v __doprnt@ap ap `*.39*.39v  1 p 2 16 ]
+"1541
+} 0
+"36 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@c c `uc  1 a 1 wreg ]
+[v putch@c c `uc  1 a 1 wreg ]
+[v putch@c c `uc  1 a 1 0 ]
+"40
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 2 ]
+"15
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 7 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 9 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
+"31
+} 0
+"159 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
+[v _atualizaLCD atualizaLCD `(v  1 e 1 0 ]
+{
+"171
+[v atualizaLCD@i i `uc  1 a 1 16 ]
+"159
+[v atualizaLCD@line1 line1 `*.39uc  1 p 2 8 ]
+[v atualizaLCD@line2 line2 `*.39uc  1 p 2 10 ]
+[v atualizaLCD@line3 line3 `*.39uc  1 p 2 12 ]
+[v atualizaLCD@line4 line4 `*.39uc  1 p 2 14 ]
+"178
+} 0
+"137
+[v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
+{
+"138
+[v Lcd_Write_String@i i `uc  1 a 1 6 ]
+"137
+[v Lcd_Write_String@a a `*.39uc  1 p 2 4 ]
+"144
+} 0
+"122
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+{
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+"123
+[v Lcd_Write_Char@y y `uc  1 a 1 2 ]
+[v Lcd_Write_Char@tempp tempp `uc  1 a 1 1 ]
+"122
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+"124
+[v Lcd_Write_Char@a a `uc  1 a 1 3 ]
+"135
+} 0
+"87
+[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
+{
+[v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
+[v Lcd_Set_Cursor@temp temp `uc  1 a 1 7 ]
+"88
+[v Lcd_Set_Cursor@y y `uc  1 a 1 6 ]
+[v Lcd_Set_Cursor@z z `uc  1 a 1 5 ]
+"87
+[v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
+[v Lcd_Set_Cursor@b b `uc  1 p 1 3 ]
+[v Lcd_Set_Cursor@a a `uc  1 a 1 4 ]
+"120
+} 0
+"9 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
+[v _UART_Init UART_Init `(v  1 e 1 0 ]
+{
+"34
+} 0
+"17 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+{
+"50
+} 0
+"82
+[v _Lcd_Clear Lcd_Clear `(v  1 e 1 0 ]
+{
+"85
+} 0
+"74
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+{
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 2 ]
+"80
+} 0
+"52
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+{
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+[v Lcd_Port@a a `uc  1 a 1 0 ]
+"72
+} 0
+"11 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/I2C.c
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+{
+[v I2C_Master_Init@c c `Cul  1 p 4 13 ]
+"19
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 8 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 12 ]
+"8
+[v ___lldiv@dividend dividend `ul  1 p 4 0 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 4 ]
+"31
+} 0
+"15 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/main.c
+[v _TIMER0 TIMER0 `II(v  1 e 1 0 ]
+{
+"23
+[v TIMER0@c c `uc  1 a 1 47 ]
+"33
+} 0
+"39 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Controle.h
+[v _timer timer `(v  1 e 1 0 ]
+{
+"121
+} 0
+"76 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
+[v i2_setRangeValor setRangeValor `(v  1 e 1 0 ]
+{
+[v i2setRangeValor@_acao _acao `uc  1 a 1 wreg ]
+[v i2setRangeValor@_aux setRangeValor `i  1 a 2 14 ]
+[v i2setRangeValor@_acao _acao `uc  1 a 1 wreg ]
+[v i2setRangeValor@_var_ajt _var_ajt `*.39uc  1 p 2 5 ]
+[v i2setRangeValor@_min _min `uc  1 p 1 7 ]
+[v i2setRangeValor@_max _max `uc  1 p 1 8 ]
+[v i2setRangeValor@end_eeprom end_eeprom `uc  1 p 1 9 ]
+[v i2setRangeValor@_acao _acao `uc  1 a 1 13 ]
+"90
+} 0
+"14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+[v i2_writeEEPROM_ext writeEEPROM_ext `(v  1 e 1 0 ]
+{
+[v i2writeEEPROM_ext@adress adress `uc  1 a 1 wreg ]
+[v i2writeEEPROM_ext@adress adress `uc  1 a 1 wreg ]
+[v i2writeEEPROM_ext@data data `uc  1 p 1 3 ]
+"16
+[v i2writeEEPROM_ext@adress adress `uc  1 a 1 4 ]
+"23
+} 0
+"18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/function.c
+[v i2_delay delay `(v  1 e 1 0 ]
+{
+[v i2delay@x x `i  1 p 2 0 ]
+"23
+} 0
+"19 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Teclado.h
+[v _readButtons readButtons `(v  1 e 1 0 ]
+{
+"24
+} 0
+"41 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/I2C.c
+[v i2_I2C_Write I2C_Write `(v  1 e 1 0 ]
+{
+[v i2I2C_Write@d d `ui  1 p 2 1 ]
+"44
+} 0
+"35
+[v i2_I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+{
+"39
+} 0
+"25
+[v i2_I2C_Start I2C_Start `(v  1 e 1 0 ]
+{
+"28
+} 0
+"46
+[v i2_I2C_Read I2C_Read `(us  1 e 2 0 ]
+{
+[v i2I2C_Read@temp I2C_Read `us  1 a 2 3 ]
+[v i2I2C_Read@a a `us  1 p 2 1 ]
+"56
+} 0
+"21
+[v i2_I2C_Wait I2C_Wait `(v  1 e 1 0 ]
+{
+"23
+} 0
