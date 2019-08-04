@@ -19,7 +19,6 @@ void UART_Init() {
     RCSTAbits.SPEN = 1; // Configura pinos tx/rx
     RCSTAbits.CREN = 1; //Habilita Recepçao pela EUSART
 
-
     //9600 = 51  0.160% err @8mhz
     //19200 = 25  0.160% err @8mhz
 

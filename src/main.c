@@ -157,7 +157,10 @@ void main() {
 
 
         /////////////////////////////// FIM ESPAÇO TESTEs //////////////////////////////////////////////
-
+        if (RCSTAbits.OERR) { // reset da serial caso travar
+            RCSTAbits.CREN = 0;
+            RCSTAbits.CREN = 1;
+        }
         asm("CLRWDT"); // WTD 5 segundos  
         getSensors(); //Leitura dos sensores
         controle(); // controle de saidas e logica
