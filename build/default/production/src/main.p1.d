@@ -3,6 +3,7 @@
  src/main.c  \
 src/config.h  \
 src/lcd.h  \
+src/Controle.h\   \
 src/FuncoesControlador.h  \
 src/Controle.h  \
 src/Teclado.h  \

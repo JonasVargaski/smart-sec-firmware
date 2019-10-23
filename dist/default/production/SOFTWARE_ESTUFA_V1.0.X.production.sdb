@@ -157,7 +157,7 @@
 [v _btPress btPress `(uc  1 e 1 0 ]
 "9 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
-"36
+"35
 [v _putch putch `(v  1 e 1 0 ]
 [s S756 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
@@ -836,8 +836,8 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "135
-[v main@i i `uc  1 a 1 138 ]
-"516
+[v main@i i `uc  1 a 1 136 ]
+"519
 } 0
 "27 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Led_display.h
 [v _updateLeds updateLeds `(v  1 e 1 0 ]
@@ -1026,11 +1026,11 @@
 "189 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
 [v _enviaDadosWifi enviaDadosWifi `(v  1 e 1 0 ]
 {
-"266
-[v enviaDadosWifi@AUX AUX `[15]uc  1 a 15 103 ]
 "265
-[v enviaDadosWifi@i i `uc  1 a 1 120 ]
-"314
+[v enviaDadosWifi@AUX AUX `[15]uc  1 a 15 101 ]
+"264
+[v enviaDadosWifi@i i `uc  1 a 1 118 ]
+"310
 } 0
 "28
 [v _getMac getMac `(v  1 e 1 0 ]
@@ -1114,7 +1114,7 @@
 [v _alterarConfigWifi alterarConfigWifi `(v  1 e 1 0 ]
 {
 "172
-[v alterarConfigWifi@i i `uc  1 a 1 101 ]
+[v alterarConfigWifi@i i `uc  1 a 1 99 ]
 "187
 } 0
 "14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
@@ -1153,9 +1153,9 @@
 {
 [s S1734 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "21
-[v printf@pb pb `S1734  1 a 4 97 ]
+[v printf@pb pb `S1734  1 a 4 95 ]
 "15
-[v printf@ap ap `[1]*.39v  1 a 2 95 ]
+[v printf@ap ap `[1]*.39v  1 a 2 93 ]
 "13
 [v printf@f f `*.25Cuc  1 p 2 33 ]
 "28
@@ -1324,13 +1324,13 @@
 [v __doprnt@ap ap `*.39*.39v  1 p 2 16 ]
 "1541
 } 0
-"36 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
+"35 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@c c `uc  1 a 1 wreg ]
 [v putch@c c `uc  1 a 1 wreg ]
 [v putch@c c `uc  1 a 1 0 ]
-"40
+"39
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\isdigit.c
 [v _isdigit isdigit `(b  1 e 0 0 ]
@@ -1424,7 +1424,7 @@
 "9 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/USART.h
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
 {
-"34
+"33
 } 0
 "17 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]

@@ -6151,8 +6151,7 @@ break;
 case 8:
 limpaBuffer();
 
-
-printf("AT+CIPSTART=\"TCP\",\"api-technow.herokuapp.com\",80\r\n");
+printf("AT+CIPSTART=\"TCP\",\"https://smartsec-node.herokuapp.com/\",80\r\n");
 f_wifi_processo++;
 break;
 case 9:
@@ -6162,7 +6161,7 @@ f_wifi_processo++;
 break;
 case 10:
 limpaBuffer();
-printf("AT+CIPSENDEX=250\r\n");
+printf("AT+CIPSENDEX=260\r\n");
 f_wifi_processo++;
 break;
 case 11:
@@ -6174,18 +6173,15 @@ case 12:
 limpaBuffer();
 char i = 0;
 char AUX[15];
-sprintf(AUX, "%s", "May 14 2019");
+sprintf(AUX, "%s", "Oct 22 2019");
 for (i = 0; i < strlen(AUX); i++) {
 if (AUX[i] == ' ') AUX[i] = '-';
 }
 
-
-printf("GET /api/controller?i=%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%s/%d/%s/%d&p=%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%d/%d HTTP/1.1\r\nHost: api-technow.herokuapp.com\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalho, trava_fase, fase, clima, tipo_sensor_umidade,wifi_MAC, (wifi_SENHA * 39), AUX, f_falta_energia, senha_desbloqueio_func,tipo_sensor_umidade,h_abafador,h_flap,h_venotinha,h_modo_seguranca,h_buzzer,t_flap_ligado,t_flap_intervalo,t_buzzer_religar,t_temp_automatica,wifi_habilita_alteracao,wifi_SENHA,h_subir_temp_automatica,t_religar_ventoinha_automatica);
+printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: https://smartsec-node.herokuapp.com\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalho, trava_fase, fase, clima, tipo_sensor_umidade,wifi_MAC, (wifi_SENHA * 39), AUX, f_falta_energia, tipo_sensor_umidade,h_abafador,h_flap,h_venotinha,h_modo_seguranca,h_buzzer,t_flap_ligado,t_flap_intervalo,t_buzzer_religar,t_temp_automatica,wifi_habilita_alteracao,wifi_SENHA,h_subir_temp_automatica,t_religar_ventoinha_automatica);
 f_wifi_processo++;
 break;
 case 13:
-
-
 if (strstr(bufferSerial, "200") != (0) | strstr(bufferSerial, "save") != (0)) {
 f_wifi_processo++;
 }
@@ -6478,7 +6474,9 @@ TXSTAbits.SYNC = 0;
 RCSTAbits.SPEN = 1;
 RCSTAbits.CREN = 1;
 
-# 26
+
+
+
 SPBRG = 25;
 
 
@@ -6663,7 +6661,7 @@ delay(150);
 
 sprintf(line1, " TECHNOW Tecnologia");
 sprintf(line3, "Versao Soft.:");
-sprintf(&line4[9], "%s", "May 14 2019");
+sprintf(&line4[9], "%s", "Oct 22 2019");
 atualizaLCD(line1, line2, line3, line4);
 delay(300);
 LATBbits.LATB5 = 1;
@@ -6716,7 +6714,11 @@ delay(3000);
 
 while (1) {
 
-# 161
+# 160
+if (RCSTAbits.OERR) {
+RCSTAbits.CREN = 0;
+RCSTAbits.CREN = 1;
+}
 asm("CLRWDT");
 getSensors();
 controle();
