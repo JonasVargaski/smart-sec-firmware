@@ -51,7 +51,7 @@ void setUmidade(char tp, char *_umdajt, char *_tempajt, char *_clima) {
             if (tipo_sensor_umidade == 1) {
                 _umd = (_umd >= 100) ? 10 : ++_umd;
             } else {
-                _umd = (_umd >= 120) ? 90 : ++_umd;
+                _umd = (_umd >= 120) ? 60 : ++_umd;
             }
             writeEEPROM_ext(2, _umd);
 
@@ -60,7 +60,7 @@ void setUmidade(char tp, char *_umdajt, char *_tempajt, char *_clima) {
             if (tipo_sensor_umidade == 1) {
                 _umd = (_umd <= 10) ? 100 : --_umd;
             } else {
-                _umd = (_umd <= 90) ? 120 : --_umd;
+                _umd = (_umd <= 60) ? 120 : --_umd;
             }
             writeEEPROM_ext(2, _umd);
 

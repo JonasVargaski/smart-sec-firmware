@@ -240,8 +240,8 @@ void enviaDadosWifi() {
                 break;
             case 8:
                 limpaBuffer();
-             //printf("AT+CIPSTART=\"TCP\",\"192.168.0.125\",3333\r\n"); /// trocar servidor
-               printf("AT+CIPSTART=\"TCP\",\"https://smartsec-node.herokuapp.com/\",80\r\n"); /// trocar servidor;
+//             printf("AT+CIPSTART=\"TCP\",\"192.168.0.125\",3333\r\n"); /// trocar servidor;
+               printf("AT+CIPSTART=\"TCP\",\"18.228.154.248\",80\r\n"); /// trocar servidor;
                 f_wifi_processo++;
                 break;
             case 9:
@@ -267,8 +267,8 @@ void enviaDadosWifi() {
                 for (i = 0; i < strlen(AUX); i++) {
                     if (AUX[i] == ' ') AUX[i] = '-';
                 }
-                //printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: 192.168.0.125\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalho, trava_fase, fase, clima, tipo_sensor_umidade,wifi_MAC, (wifi_SENHA * 39), AUX, f_falta_energia, tipo_sensor_umidade,h_abafador,h_flap,h_venotinha,h_modo_seguranca,h_buzzer,t_flap_ligado,t_flap_intervalo,t_buzzer_religar,t_temp_automatica,wifi_habilita_alteracao,wifi_SENHA,h_subir_temp_automatica,t_religar_ventoinha_automatica);
-                printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: https://smartsec-node.herokuapp.com\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalho, trava_fase, fase, clima, tipo_sensor_umidade,wifi_MAC, (wifi_SENHA * 39), AUX, f_falta_energia, tipo_sensor_umidade,h_abafador,h_flap,h_venotinha,h_modo_seguranca,h_buzzer,t_flap_ligado,t_flap_intervalo,t_buzzer_religar,t_temp_automatica,wifi_habilita_alteracao,wifi_SENHA,h_subir_temp_automatica,t_religar_ventoinha_automatica);
+//                printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: 192.168.0.125\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalho, trava_fase, fase, clima, tipo_sensor_umidade,wifi_MAC, (wifi_SENHA * 39), AUX, f_falta_energia, tipo_sensor_umidade,h_abafador,h_flap,h_venotinha,h_modo_seguranca,h_buzzer,t_flap_ligado,t_flap_intervalo,t_buzzer_religar,t_temp_automatica,wifi_habilita_alteracao,wifi_SENHA,h_subir_temp_automatica,t_religar_ventoinha_automatica);
+                printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: 18.228.154.248\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalho, trava_fase, fase, clima, tipo_sensor_umidade,wifi_MAC, (wifi_SENHA * 39), AUX, f_falta_energia, tipo_sensor_umidade,h_abafador,h_flap,h_venotinha,h_modo_seguranca,h_buzzer,t_flap_ligado,t_flap_intervalo,t_buzzer_religar,t_temp_automatica,wifi_habilita_alteracao,wifi_SENHA,h_subir_temp_automatica,t_religar_ventoinha_automatica);
                 f_wifi_processo++;
                 break;
             case 13:

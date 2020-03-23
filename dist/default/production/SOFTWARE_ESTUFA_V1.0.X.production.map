@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.44\dat\en_msgs.txt -cs \
   -h+dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.sym \
   --cmf=dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.cmf -z \
-  -Q18F4550 -oC:\Users\jonas\AppData\Local\Temp\sbrk.2 \
+  -Q18F4550 -oC:\Users\jonas\AppData\Local\Temp\s70s.2 \
   -Mdist/default/production/SOFTWARE_ESTUFA_V1.0.X.production.map -E1 \
   -ver=XC8 -ASTACK=02C8h-07ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\jonas\AppData\Local\Temp\sbrk.obj \
+  C:\Users\jonas\AppData\Local\Temp\s70s.obj \
   dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+C:\Users\jonas\AppData\Local\Temp\s70s.obj
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -44,7 +44,7 @@ C:\Users\jonas\AppData\Local\Temp\sbrk.obj
 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
                 intcode                               8        8        6        4       0
                 temp                                 51       51        1        1       1
-                mediumconst                        776E     776E      892     3BB7       0
+                mediumconst                        7798     7798      868     3BCC       0
                 text75                             5EB6     5EB6       12        4       0
                 text74                             5CFA     5CFA       2E        4       0
                 text73                             5F18     5F18        8        4       0
@@ -230,7 +230,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        776E     776E      892         0
+                mediumconst                        7798     7798      868         0
 
         CLASS   COMRAM         
                 temp                                 51       51        1         1
@@ -290,7 +290,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackBANK0                    000060  0000A0  000100        60       1  BANK0   
                 cstackBANK1                    000100  0000F5  0001F5       100       1  BANK1   
                 bssBANK2                       000200  0000C8  0002C8       200       1  BANK2   
-                mediumconst                    00776E  000892  008000      3BB7       0  MEDIUMCO
+                mediumconst                    007798  000868  008000      3BCC       0  MEDIUMCO
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -309,16 +309,16 @@ UNUSED ADDRESS RANGES
                          0001F5-0001FF                B
                          0002C8-0007FF              538
         CODE             000004-000007                4
-                         005F26-00776D             1848
+                         005F26-007797             1872
         COMRAM           000052-00005F                E
         CONST            000004-000007                4
-                         005F26-00776D             1848
+                         005F26-007797             1872
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      005F26-00776D             1848
+        MEDIUMCONST      005F26-007797             1872
         RAM              0001F5-0001FF                B
                          0002C8-0007FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       005F26-00776D              100
+        SMALLCONST       005F26-007797              100
         STACK            0002C8-0007FF              538
 
                                   Symbol Table
@@ -667,7 +667,7 @@ __Lintentry                       intentry     000000
 __Lintret                         intret       000000
 __Lintsave_regs                   intsave_regs 000000
 __Lirdata                         irdata       000000
-__Lmediumconst                    mediumconst  00776E
+__Lmediumconst                    mediumconst  007798
 __LnvFARRAM                       nvFARRAM     000000
 __Lnvbit                          nvbit        000000
 __Lnvrram                         nvrram       000000
@@ -877,7 +877,7 @@ __end_of_climaAtual               text24       005A20
 __end_of_controle                 text21       003F16
 __end_of_criaCaracteresCGRAM      text20       0050FE
 __end_of_delay                    text36       005D52
-__end_of_dpowers                  mediumconst  0077B1
+__end_of_dpowers                  mediumconst  0077DB
 __end_of_enviaDadosWifi           text18       003108
 __end_of_faseAtual                text17       004794
 __end_of_filtroStr                text37       004656
@@ -909,7 +909,7 @@ __end_of_tabelaUmidade            text3        002616
 __end_of_timer                    text66       0041CA
 __end_of_updateLeds               text1        005C6C
 __end_of_writeEEPROM_ext          text28       005AEA
-__end_ofcriaCaracteresCGRAM@F3896 mediumconst  0077A7
+__end_ofcriaCaracteresCGRAM@F3896 mediumconst  0077D1
 __end_ofi2_I2C_Read               text74       005D28
 __end_ofi2_I2C_Start              text73       005F20
 __end_ofi2_I2C_Stop               text72       005F18
@@ -920,7 +920,7 @@ __end_ofi2_setRangeValor          text67       005372
 __end_ofi2_writeEEPROM_ext        text68       005BD8
 __initialization                  cinit        005372
 __led                             dataCOMRAM   000050
-__mediumconst                     mediumconst  00776E
+__mediumconst                     mediumconst  007798
 __pbitbssCOMRAM                   bitbssCOMRAM 000278
 __pbssBANK0                       bssBANK0     0000E9
 __pbssBANK1                       bssBANK1     000196
@@ -938,7 +938,7 @@ __pidataBANK2                     idataBANK2   005E8A
 __pidataCOMRAM                    idataCOMRAM  005F25
 __pintcode                        intcode      000008
 __pintcode_body                   intcode_body 004B86
-__pmediumconst                    mediumconst  00776E
+__pmediumconst                    mediumconst  007798
 __ptext0                          text0        000012
 __ptext1                          text1        005C3C
 __ptext10                         text10       005DA2
@@ -1115,7 +1115,7 @@ _controle                         text21       003AEC
 _criaCaracteresCGRAM              text20       005052
 _criaCaracteresCGRAM$1229         cstackBANK0  00009F
 _delay                            text36       005D28
-_dpowers                          mediumconst  0077A7
+_dpowers                          mediumconst  0077D1
 _enviaDadosWifi                   text18       002BD6
 _enviaDadosWifi$2490              cstackBANK0  0000D4
 _f_buzzer_falta_energia           bssCOMRAM    000041
@@ -1241,7 +1241,7 @@ blink@start                       cstackBANK0  000062
 btPress@bt                        cstackBANK0  000060
 btemp                             temp         000051
 climaAtual@c                      cstackBANK0  000062
-criaCaracteresCGRAM@F3896         mediumconst  00776F
+criaCaracteresCGRAM@F3896         mediumconst  007799
 criaCaracteresCGRAM@character     cstackBANK0  000067
 criaCaracteresCGRAM@i             cstackBANK0  0000A3
 criaCaracteresCGRAM@j             cstackBANK0  0000A2
@@ -2507,8 +2507,8 @@ Total ram usage:        1 bytes
 		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\printf.c"
  Parameters:    Size  Location     Type
   f               2   33[BANK0 ] PTR const unsigned char 
-		 -> STR_68(9), STR_65(11), STR_62(14), STR_59(189), 
-		 -> STR_55(19), STR_53(62), STR_50(15), STR_49(21), 
+		 -> STR_68(9), STR_65(11), STR_62(14), STR_59(168), 
+		 -> STR_55(19), STR_53(40), STR_50(15), STR_49(21), 
 		 -> STR_46(14), STR_44(14), STR_33(16), STR_32(704), 
 		 -> STR_31(45), STR_29(21), STR_20(22), STR_18(22), 
 		 -> STR_16(35), STR_14(14), STR_12(14), 
@@ -3104,8 +3104,8 @@ Total ram usage:       16 bytes
 		 -> STR_81(9), STR_80(15), STR_79(18), STR_78(20), 
 		 -> STR_77(10), STR_76(22), STR_75(21), STR_74(15), 
 		 -> STR_73(12), STR_71(3), STR_70(14), STR_69(20), 
-		 -> STR_68(9), STR_65(11), STR_62(14), STR_59(189), 
-		 -> STR_57(3), STR_55(19), STR_53(62), STR_50(15), 
+		 -> STR_68(9), STR_65(11), STR_62(14), STR_59(168), 
+		 -> STR_57(3), STR_55(19), STR_53(40), STR_50(15), 
 		 -> STR_49(21), STR_46(14), STR_44(14), STR_43(14), 
 		 -> STR_42(3), STR_41(3), STR_34(14), STR_33(16), 
 		 -> STR_32(704), STR_31(45), STR_29(21), STR_25(14), 
@@ -4170,8 +4170,8 @@ C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\fttol.c estimated size
 shared
 		i2_I2C_Wait    		CODE           	5EB6	0000	19
 		i2_I2C_Write   		CODE           	5EEE	0000	11
-		_dpowers       		MEDIUMCONST    	77A7	0000	11
-		criaCaracteresCGRAM@F3896		MEDIUMCONST    	776F	0000	57
+		_dpowers       		MEDIUMCONST    	77D1	0000	11
+		criaCaracteresCGRAM@F3896		MEDIUMCONST    	7799	0000	57
 		i2_I2C_Stop    		CODE           	5F10	0000	9
 		i2_writeEEPROM_ext		CODE           	5BA0	0000	57
 		i2_I2C_Start   		CODE           	5F18	0000	9

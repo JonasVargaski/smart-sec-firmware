@@ -105,8 +105,8 @@ dataBANK0 BANK0 1 FB FB 5 1
 dataBANK2 BANK2 1 2B0 2B0 18 1
 dataCOMRAM COMRAM 1 50 50 1 1
 bssCOMRAM COMRAM 1 31 31 1E 1
-mediumconst MEDIUMCONST 0 776E 776E 892 1
-$C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+mediumconst MEDIUMCONST 0 7798 7798 868 1
+$C:\Users\jonas\AppData\Local\Temp\s70s.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -128,17 +128,17 @@ BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
 CONST 4-7 1
-CONST 5F26-776D 1
+CONST 5F26-7797 1
 STACK 2C8-7FF 1
-SMALLCONST 5F26-776D 1
+SMALLCONST 5F26-7797 1
 CODE 4-7 1
-CODE 5F26-776D 1
+CODE 5F26-7797 1
 BIGRAM 52-5F 1
 BIGRAM 1F5-1FF 1
 BIGRAM 2C8-7FF 1
 COMRAM 52-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 5F26-776D 1
+MEDIUMCONST 5F26-7797 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -2163,77 +2163,77 @@ FEE text0 CODE >397:C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/mai
 1616 text0 CODE >516:C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/main.c
 161A text0 CODE >517:C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/main.c
 1640 text0 CODE >154:C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/main.c
-5372 cinit CODE >3917:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5372 cinit CODE >3919:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5372 cinit CODE >3922:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5372 cinit CODE >4186:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5374 cinit CODE >4187:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5376 cinit CODE >4188:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5378 cinit CODE >4189:C:\Users\jonas\AppData\Local\Temp\sbrk.
-537A cinit CODE >4190:C:\Users\jonas\AppData\Local\Temp\sbrk.
-537C cinit CODE >4191:C:\Users\jonas\AppData\Local\Temp\sbrk.
-537E cinit CODE >4192:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5382 cinit CODE >4193:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5386 cinit CODE >4194:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5386 cinit CODE >4195:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5388 cinit CODE >4196:C:\Users\jonas\AppData\Local\Temp\sbrk.
-538C cinit CODE >4197:C:\Users\jonas\AppData\Local\Temp\sbrk.
-538E cinit CODE >4198:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5390 cinit CODE >4199:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5392 cinit CODE >4203:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5394 cinit CODE >4204:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5396 cinit CODE >4205:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5398 cinit CODE >4206:C:\Users\jonas\AppData\Local\Temp\sbrk.
-539A cinit CODE >4207:C:\Users\jonas\AppData\Local\Temp\sbrk.
-539C cinit CODE >4208:C:\Users\jonas\AppData\Local\Temp\sbrk.
-539E cinit CODE >4209:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53A2 cinit CODE >4210:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53A6 cinit CODE >4211:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53A6 cinit CODE >4212:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53A8 cinit CODE >4213:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53AC cinit CODE >4214:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53AE cinit CODE >4215:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53B0 cinit CODE >4216:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53B2 cinit CODE >4220:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53B4 cinit CODE >4221:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53B6 cinit CODE >4222:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53B8 cinit CODE >4223:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53BA cinit CODE >4224:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53BC cinit CODE >4225:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53BE cinit CODE >4226:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53C0 cinit CODE >4227:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53C4 cinit CODE >4231:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53C8 cinit CODE >4232:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53CA cinit CODE >4233:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53CA cinit CODE >4234:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53CC cinit CODE >4235:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53CE cinit CODE >4236:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53D0 cinit CODE >4239:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53D4 cinit CODE >4240:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53D6 cinit CODE >4241:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53D6 cinit CODE >4242:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53D8 cinit CODE >4243:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53DA cinit CODE >4244:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53DC cinit CODE >4247:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53E0 cinit CODE >4248:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53E2 cinit CODE >4249:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53E2 cinit CODE >4250:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53E4 cinit CODE >4251:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53E6 cinit CODE >4252:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53E8 cinit CODE >4255:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53EA cinit CODE >4258:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53EE cinit CODE >4259:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F0 cinit CODE >4260:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F0 cinit CODE >4261:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F2 cinit CODE >4262:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F4 cinit CODE >4263:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F6 cinit CODE >4269:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F6 cinit CODE >4271:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53F8 cinit CODE >4272:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53FA cinit CODE >4274:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53FC cinit CODE >4275:C:\Users\jonas\AppData\Local\Temp\sbrk.
-53FE cinit CODE >4276:C:\Users\jonas\AppData\Local\Temp\sbrk.
-5400 cinit CODE >4277:C:\Users\jonas\AppData\Local\Temp\sbrk.
+5372 cinit CODE >3874:C:\Users\jonas\AppData\Local\Temp\s70s.
+5372 cinit CODE >3876:C:\Users\jonas\AppData\Local\Temp\s70s.
+5372 cinit CODE >3879:C:\Users\jonas\AppData\Local\Temp\s70s.
+5372 cinit CODE >4143:C:\Users\jonas\AppData\Local\Temp\s70s.
+5374 cinit CODE >4144:C:\Users\jonas\AppData\Local\Temp\s70s.
+5376 cinit CODE >4145:C:\Users\jonas\AppData\Local\Temp\s70s.
+5378 cinit CODE >4146:C:\Users\jonas\AppData\Local\Temp\s70s.
+537A cinit CODE >4147:C:\Users\jonas\AppData\Local\Temp\s70s.
+537C cinit CODE >4148:C:\Users\jonas\AppData\Local\Temp\s70s.
+537E cinit CODE >4149:C:\Users\jonas\AppData\Local\Temp\s70s.
+5382 cinit CODE >4150:C:\Users\jonas\AppData\Local\Temp\s70s.
+5386 cinit CODE >4151:C:\Users\jonas\AppData\Local\Temp\s70s.
+5386 cinit CODE >4152:C:\Users\jonas\AppData\Local\Temp\s70s.
+5388 cinit CODE >4153:C:\Users\jonas\AppData\Local\Temp\s70s.
+538C cinit CODE >4154:C:\Users\jonas\AppData\Local\Temp\s70s.
+538E cinit CODE >4155:C:\Users\jonas\AppData\Local\Temp\s70s.
+5390 cinit CODE >4156:C:\Users\jonas\AppData\Local\Temp\s70s.
+5392 cinit CODE >4160:C:\Users\jonas\AppData\Local\Temp\s70s.
+5394 cinit CODE >4161:C:\Users\jonas\AppData\Local\Temp\s70s.
+5396 cinit CODE >4162:C:\Users\jonas\AppData\Local\Temp\s70s.
+5398 cinit CODE >4163:C:\Users\jonas\AppData\Local\Temp\s70s.
+539A cinit CODE >4164:C:\Users\jonas\AppData\Local\Temp\s70s.
+539C cinit CODE >4165:C:\Users\jonas\AppData\Local\Temp\s70s.
+539E cinit CODE >4166:C:\Users\jonas\AppData\Local\Temp\s70s.
+53A2 cinit CODE >4167:C:\Users\jonas\AppData\Local\Temp\s70s.
+53A6 cinit CODE >4168:C:\Users\jonas\AppData\Local\Temp\s70s.
+53A6 cinit CODE >4169:C:\Users\jonas\AppData\Local\Temp\s70s.
+53A8 cinit CODE >4170:C:\Users\jonas\AppData\Local\Temp\s70s.
+53AC cinit CODE >4171:C:\Users\jonas\AppData\Local\Temp\s70s.
+53AE cinit CODE >4172:C:\Users\jonas\AppData\Local\Temp\s70s.
+53B0 cinit CODE >4173:C:\Users\jonas\AppData\Local\Temp\s70s.
+53B2 cinit CODE >4177:C:\Users\jonas\AppData\Local\Temp\s70s.
+53B4 cinit CODE >4178:C:\Users\jonas\AppData\Local\Temp\s70s.
+53B6 cinit CODE >4179:C:\Users\jonas\AppData\Local\Temp\s70s.
+53B8 cinit CODE >4180:C:\Users\jonas\AppData\Local\Temp\s70s.
+53BA cinit CODE >4181:C:\Users\jonas\AppData\Local\Temp\s70s.
+53BC cinit CODE >4182:C:\Users\jonas\AppData\Local\Temp\s70s.
+53BE cinit CODE >4183:C:\Users\jonas\AppData\Local\Temp\s70s.
+53C0 cinit CODE >4184:C:\Users\jonas\AppData\Local\Temp\s70s.
+53C4 cinit CODE >4188:C:\Users\jonas\AppData\Local\Temp\s70s.
+53C8 cinit CODE >4189:C:\Users\jonas\AppData\Local\Temp\s70s.
+53CA cinit CODE >4190:C:\Users\jonas\AppData\Local\Temp\s70s.
+53CA cinit CODE >4191:C:\Users\jonas\AppData\Local\Temp\s70s.
+53CC cinit CODE >4192:C:\Users\jonas\AppData\Local\Temp\s70s.
+53CE cinit CODE >4193:C:\Users\jonas\AppData\Local\Temp\s70s.
+53D0 cinit CODE >4196:C:\Users\jonas\AppData\Local\Temp\s70s.
+53D4 cinit CODE >4197:C:\Users\jonas\AppData\Local\Temp\s70s.
+53D6 cinit CODE >4198:C:\Users\jonas\AppData\Local\Temp\s70s.
+53D6 cinit CODE >4199:C:\Users\jonas\AppData\Local\Temp\s70s.
+53D8 cinit CODE >4200:C:\Users\jonas\AppData\Local\Temp\s70s.
+53DA cinit CODE >4201:C:\Users\jonas\AppData\Local\Temp\s70s.
+53DC cinit CODE >4204:C:\Users\jonas\AppData\Local\Temp\s70s.
+53E0 cinit CODE >4205:C:\Users\jonas\AppData\Local\Temp\s70s.
+53E2 cinit CODE >4206:C:\Users\jonas\AppData\Local\Temp\s70s.
+53E2 cinit CODE >4207:C:\Users\jonas\AppData\Local\Temp\s70s.
+53E4 cinit CODE >4208:C:\Users\jonas\AppData\Local\Temp\s70s.
+53E6 cinit CODE >4209:C:\Users\jonas\AppData\Local\Temp\s70s.
+53E8 cinit CODE >4212:C:\Users\jonas\AppData\Local\Temp\s70s.
+53EA cinit CODE >4215:C:\Users\jonas\AppData\Local\Temp\s70s.
+53EE cinit CODE >4216:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F0 cinit CODE >4217:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F0 cinit CODE >4218:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F2 cinit CODE >4219:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F4 cinit CODE >4220:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F6 cinit CODE >4226:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F6 cinit CODE >4228:C:\Users\jonas\AppData\Local\Temp\s70s.
+53F8 cinit CODE >4229:C:\Users\jonas\AppData\Local\Temp\s70s.
+53FA cinit CODE >4231:C:\Users\jonas\AppData\Local\Temp\s70s.
+53FC cinit CODE >4232:C:\Users\jonas\AppData\Local\Temp\s70s.
+53FE cinit CODE >4233:C:\Users\jonas\AppData\Local\Temp\s70s.
+5400 cinit CODE >4234:C:\Users\jonas\AppData\Local\Temp\s70s.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -2250,7 +2250,7 @@ alterarConfigWifi@i C3 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ES
 ___lwmod@counter 6B 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __LdataBANK2 0 0 ABS 0 dataBANK2 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__Lmediumconst 776E 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
+__Lmediumconst 7798 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 setUmidade@_umd 79 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hspace_1 2C8 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2270,7 +2270,7 @@ strncpy@cp 66 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0
 strncpy@to 60 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 ___ftdiv@exp 94 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__mediumconst 776E 0 MEDIUMCONST 0 mediumconst C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+__mediumconst 7798 0 MEDIUMCONST 0 mediumconst C:\Users\jonas\AppData\Local\Temp\s70s.obj
 _timer$1417 18 0 COMRAM 1 cstackCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _timer$1418 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _timer$1419 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2295,7 +2295,7 @@ _ADON 7E10 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.o
 _RCEN 7E2B 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _RCIF 7CF5 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _RSEN 7E29 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+___sp 0 0 STACK 2 stack C:\Users\jonas\AppData\Local\Temp\s70s.obj
 __led 50 0 COMRAM 1 dataCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __sec 49 0 COMRAM 1 bssCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _fase EC 0 BANK0 1 bssBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2312,7 +2312,7 @@ _Lcd_Write_Char 5B2A 0 CODE 0 text56 dist/default/production\SOFTWARE_ESTUFA_V1.
 i2setRangeValor@_var_ajt 6 0 COMRAM 1 cstackCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 ___ftadd@f1 7B 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 ___ftadd@f2 7E 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-start E 0 CODE 0 init C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+start E 0 CODE 0 init C:\Users\jonas\AppData\Local\Temp\s70s.obj
 __size_of___ftadd 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_of___ftdiv 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_of___ftmul 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2322,7 +2322,7 @@ __size_of___lldiv 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.pro
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_of___lwmod 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 Lcd_Port@a 60 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-criaCaracteresCGRAM@F3896 776F 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
+criaCaracteresCGRAM@F3896 7799 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_ofi2_setRangeValor 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 enviaDadosWifi@AUX C5 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2365,11 +2365,11 @@ __size_ofi2_I2C_Stop 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.
 __size_ofi2_I2C_Wait 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 I2C_Write@d 61 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\jonas\AppData\Local\Temp\sbrk.obj
-intlevel0 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\sbrk.obj
-intlevel1 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\sbrk.obj
-intlevel2 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\sbrk.obj
-intlevel3 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+__accesstop 60 0 ABS 0 - C:\Users\jonas\AppData\Local\Temp\s70s.obj
+intlevel0 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\s70s.obj
+intlevel1 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\s70s.obj
+intlevel2 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\s70s.obj
+intlevel3 0 0 CODE 0 text C:\Users\jonas\AppData\Local\Temp\s70s.obj
 filtroStr@_str 100 0 BANK1 1 cstackBANK1 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __CFG_USBDIV$1 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2406,8 +2406,8 @@ _ADCON2 FC0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.
 _ADRESH FC4 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _ADRESL FC3 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _limpaBuffer 5AEA 0 CODE 0 text34 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\jonas\AppData\Local\Temp\sbrk.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\jonas\AppData\Local\Temp\s70s.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\jonas\AppData\Local\Temp\s70s.obj
 __size_of_updateLeds 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _h_modo_seguranca F1 0 BANK0 1 bssBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2466,7 +2466,7 @@ _filtroStr$1335 18E 0 BANK1 1 cstackBANK1 dist/default/production\SOFTWARE_ESTUF
 __size_of_strcspn 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_of_strncmp 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_of_strncpy 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-_dpowers 77A7 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
+_dpowers 77D1 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 readADC@canal 68 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 tabelaUmidade@_clima 62 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 I2C_Read@a 61 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2578,7 +2578,7 @@ _main$2492 D8 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0
 ___lwdiv@counter 66 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\jonas\AppData\Local\Temp\s70s.obj
 readADC@digital 66 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _t_fim_fase1 4E 0 COMRAM 1 bssCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _t_fim_fase2 4D 0 COMRAM 1 bssCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2661,7 +2661,7 @@ __LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\SOFTWARE_ESTUFA_V1.
 int$flags 51 0 COMRAM 1 temp dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __size_of_alterarConfigWifi 0 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__end_ofcriaCaracteresCGRAM@F3896 77A7 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
+__end_ofcriaCaracteresCGRAM@F3896 77D1 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _PEN 7E2A 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -2942,8 +2942,8 @@ i2_I2C_Read 5CFA 0 CODE 0 text74 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.
 i2_I2C_Stop 5F10 0 CODE 0 text72 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 i2_I2C_Wait 5EB6 0 CODE 0 text75 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 ___lwtoft@c 69 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-stackhi 7FF 0 ABS 0 - C:\Users\jonas\AppData\Local\Temp\sbrk.obj
-stacklo 2C8 0 ABS 0 - C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+stackhi 7FF 0 ABS 0 - C:\Users\jonas\AppData\Local\Temp\s70s.obj
+stacklo 2C8 0 ABS 0 - C:\Users\jonas\AppData\Local\Temp\s70s.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 strspn@s1 66 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 strspn@s2 68 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -3121,7 +3121,7 @@ __Ltext73 0 0 ABS 0 text73 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.produc
 __Ltext74 0 0 ABS 0 text74 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Ltext75 0 0 ABS 0 text75 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __Ltext76 0 0 ABS 0 text76 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__ramtop 800 0 RAM 0 ramtop C:\Users\jonas\AppData\Local\Temp\sbrk.obj
+__ramtop 800 0 RAM 0 ramtop C:\Users\jonas\AppData\Local\Temp\s70s.obj
 _sprintf 5A20 0 CODE 0 text47 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 putch@c 60 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _f_falta_energia FE 0 BANK0 1 dataBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -3196,7 +3196,7 @@ ___ftdiv@sign 95 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V
 _TXSTAbits FAC 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 i2delay@x 1 0 COMRAM 1 cstackCOMRAM dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 i2_setRangeValor 52D8 0 CODE 0 text67 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__pmediumconst 776E 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
+__pmediumconst 7798 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __end_of_updateLeds 5C6C 0 CODE 0 text1 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _SSPCON1 FC6 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _SSPCON2 FC5 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -3217,7 +3217,7 @@ getMac@men 7A 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0
 getMac@var 75 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _ACKDT 7E2D 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 _ACKEN 7E2C 0 ABS 0 - dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
-__end_of_dpowers 77B1 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
+__end_of_dpowers 77DB 0 MEDIUMCONST 0 mediumconst dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __end_of_blink 5C3C 0 CODE 0 text26 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 __end_of_delay 5D52 0 CODE 0 text36 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
 ?_sprintf 81 0 BANK0 1 cstackBANK0 dist/default/production\SOFTWARE_ESTUFA_V1.0.X.production.obj
@@ -3323,5 +3323,5 @@ cstackBANK1 1 100 100 F5 1
 reset_vec 0 0 0 4 1
 bssBANK2 1 200 200 C8 1
 intcode 0 8 8 5F1E 1
-mediumconst 0 776E 776E 892 1
+mediumconst 0 7798 7798 868 1
 config 0 300000 300000 E 1

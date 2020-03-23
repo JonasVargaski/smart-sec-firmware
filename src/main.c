@@ -291,8 +291,8 @@ void main() {
                 case 1: // ação ajuste temperatura
                     menu = 1;
                     line1[0] = '>';
-                    if (btPress(B_MAIS)) setRangeValor('+', &tempajt, 85, 160, 1);
-                    if (btPress(B_MENOS)) setRangeValor('-', &tempajt, 85, 160, 1);
+                    if (btPress(B_MAIS)) setRangeValor('+', &tempajt, 60, 160, 1);
+                    if (btPress(B_MENOS)) setRangeValor('-', &tempajt, 60, 160, 1);
                     break;
                 case 2: //ação ajuste umidade
                     line2[0] = '>';
