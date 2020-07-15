@@ -5,12 +5,13 @@
 #include "lcd.h"
 #include "Teclado.h"
 #include <stdio.h>
-#include "Controle.h"
+#include "controle.h"
 #include "FuncoesControlador.h"
 #include "USART.h"
 #include "conexaoWifi.h"
 #include "Eeprom_ext.h"
 #include "ADC.h"
+#include "serial.h"
 
 void interrupt TIMER0() { // INTERRUPÇÂO TIMER 0
     if (TMR0IF) {
@@ -21,10 +22,7 @@ void interrupt TIMER0() { // INTERRUPÇÂO TIMER 0
     }
     if (RCIF) { //INTERRUPÇÂO SERIAL
         char c = RCREG;
-        if (c != '\n' && c != '\r') {
-            bufferSerial[cbf++] = c;
-        }
-        if (cbf >= 80) cbf = 0;
+        receiveByteSerial(c);
     }
     if (INT2IF) { // INTERRUPÇÃO PCF LEITURA DOS BOTOES   
         INT2IF = 0;
@@ -157,10 +155,12 @@ void main() {
 
 
         /////////////////////////////// FIM ESPAÇO TESTEs //////////////////////////////////////////////
+        
         if (RCSTAbits.OERR) { // reset da serial caso travar
             RCSTAbits.CREN = 0;
             RCSTAbits.CREN = 1;
         }
+        
         asm("CLRWDT"); // WTD 5 segundos  
         getSensors(); //Leitura dos sensores
         controle(); // controle de saidas e logica
@@ -257,17 +257,16 @@ void main() {
                 sprintf(&line4[1], "P12:%4d |", wifi_habilita_alteracao);
                 break;
             case 8: // submenu WIFI 1
-                sprintf(line1, "REDE:%s", ssid);
-                sprintf(line2, "SENHA:%s", senha);
-                //                sprintf(line3, "NUMERO SERIE: %d", (int) (wifi_NS * 39));
+                sprintf(line1, "SID: %s", ssid);
+                sprintf(line2, "PSW: %s", senha);
                 sprintf(line3, "NS: %s", wifi_MAC);
-                sprintf(line4, "SENHA REMOTA: %d", (int) (wifi_SENHA * 39));
+                sprintf(line4, "AUTH: %d", (int) (wifi_SENHA * 39));
                 break;
             case 9: // Sub menu ajuste de configuraçoes do wifi 2.
                 sprintf(&line1[1], "CONFIGURAR       >>");
                 break;
             case 10: // CONFIGURAÇAO DO WIFI EM ANDAMENTO
-                alterarConfigWifi();
+                alterarDadosConexaoConfigWifi();
                 break;
             case 11: // Sub menu ajuste de tempos de fim de fase.
                 sprintf(&line1[1], "Amarelacao : %d hr", t_fim_fase1);

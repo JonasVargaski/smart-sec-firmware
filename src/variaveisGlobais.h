@@ -4,8 +4,6 @@
 unsigned char lcd_rfsh, base_sec, _sec = 0;
 
 
-
-
 unsigned char buzzer = 0; //Status de alarme 1=ligado  0=desligado
 unsigned char fornalha = 0; //Status de ventoinha  1=ligado  0=desligado
 unsigned char trava_fase = 0; //Status de trava de fase 1=ligado  0=desligado
@@ -29,7 +27,6 @@ unsigned char t_temp_automatica = 0; // tempo Para subir de temperatura automati
 unsigned char t_religar_ventoinha_automatica = 0; // tempo Para religar a ventoinha apos ter sido desligada (TEMPO EM M)
 
 
-
 //unsigned char f_falta_energia = 0; // flag para sinalizar falta de energia
 unsigned char h_modo_seguranca = 0; // histerise para entrar no modo de segurança
 unsigned char h_venotinha = 0; // histerise de diferença de ligar a ventoinha
@@ -39,9 +36,11 @@ unsigned char h_buzzer = 0; // histerise de diferenca para tocar alarme
 unsigned char h_subir_temp_automatica = 0; // histerise de diferenca para subir a temperatura sozinha (Modo automatico)
 
 
-unsigned int wifi_habilita_alteracao = 0; // variavel de controle para habilitar alterar configuraçao do controlador pela internet
-unsigned int wifi_MAC[12] = '?'; // Endereço MAC da placa wifi usado para conexao remota wifi
-unsigned int wifi_SENHA = 0; // Senha usada para ocneexao remota wifi
+unsigned char wifi_habilita_alteracao = 0; // variavel de controle para habilitar alterar configuraçao do controlador pela internet
+unsigned char wifi_MAC[12] = "?"; // Endereço MAC da placa wifi usado para conexao remota wifi
+unsigned int wifi_SENHA = 0; // Senha usada para conexao remota wifi
+unsigned char ssid[15] = "";
+unsigned char senha[15] = "";
 
 
 unsigned char fase = 0; // Fases
@@ -52,11 +51,10 @@ unsigned char umid = 100; // Umidade lida do sensor
 unsigned char umidajt = 0; // Setpiont de ajuste de umidade 
 bit blinkk = 0; // flag para piscar o display, inverte o estado pelo timer
 
-unsigned char line1[21]; // linhas do lcd
-unsigned char line2[21]; // linhas do lcd
-unsigned char line3[21]; // linhas do lcd
-unsigned char line4[21]; // linhas do lcd
-
+unsigned char line1[21] = ""; // linhas do lcd
+unsigned char line2[21] = ""; // linhas do lcd
+unsigned char line3[21] = ""; // linhas do lcd
+unsigned char line4[21] = ""; // linhas do lcd
 
 
 unsigned char menu = 15;

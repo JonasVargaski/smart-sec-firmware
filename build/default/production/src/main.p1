@@ -58,22 +58,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _delay `(v ~T0 @X0 0 ef1`i ]
 "16 src/I2C.h
 [v _I2C_Restart `(v ~T0 @X0 0 ef ]
-"16 C:\Program Files (x86)\Microchip\xc8\v1.44\include\string.h
-[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"56
+"56 C:\Program Files (x86)\Microchip\xc8\v1.44\include\string.h
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
-"39
-[v _strncpy `(*uc ~T0 @X0 0 ef3`*uc`*Cuc`ui ]
-"53
-[v _strstr `(*uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
-"37
-[v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
-"41
-[v _strtok `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"14 src/serial.h
+[v _setKeyStartReceiveSerial `(v ~T0 @X0 0 ef1`*uc ]
+"195 C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"16 src/serial.h
+[v _findBufferSerial `(uc ~T0 @X0 0 ef1`*uc ]
 "194 C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"195
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"53 C:\Program Files (x86)\Microchip\xc8\v1.44\include\string.h
+[v _strstr `(*uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
+"5 src/json.h
+[v _getStringJSON `(v ~T0 @X0 0 ef3`*uc`*uc`*uc ]
 "2977 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic18f4550.h
 [s S122 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S122 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 ]
@@ -269,7 +267,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
 "5412
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"9541
+"15 src/serial.h
+[v _receiveByteSerial `(v ~T0 @X0 0 ef1`uc ]
+"9541 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic18f4550.h
 [v _INT2IF `Vb ~T0 @X0 0 e@32641 ]
 [p mainexit ]
 "3436
@@ -4139,103 +4139,140 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;variaveisGlobais.h: 39: unsigned char h_subir_temp_automatica = 0;
 "42
-[v _wifi_habilita_alteracao `ui ~T0 @X0 1 e ]
+[v _wifi_habilita_alteracao `uc ~T0 @X0 1 e ]
 [i _wifi_habilita_alteracao
--> -> 0 `i `ui
+-> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 42: unsigned int wifi_habilita_alteracao = 0;
+[; ;variaveisGlobais.h: 42: unsigned char wifi_habilita_alteracao = 0;
 "43
-[v _wifi_MAC `ui ~T0 @X0 -> 12 `i e ]
+[v _wifi_MAC `uc ~T0 @X0 -> 12 `i e ]
 [i _wifi_MAC
 :U ..
--> 63 `ui
+-> 63 `c
+-> 0 `c
 ..
 ]
-[; ;variaveisGlobais.h: 43: unsigned int wifi_MAC[12] = '?';
+[; ;variaveisGlobais.h: 43: unsigned char wifi_MAC[12] = "?";
 "44
 [v _wifi_SENHA `ui ~T0 @X0 1 e ]
 [i _wifi_SENHA
 -> -> 0 `i `ui
 ]
 [; ;variaveisGlobais.h: 44: unsigned int wifi_SENHA = 0;
-"47
+"45
+[v _ssid `uc ~T0 @X0 -> 15 `i e ]
+[i _ssid
+:U ..
+-> 0 `c
+..
+]
+[; ;variaveisGlobais.h: 45: unsigned char ssid[15] = "";
+"46
+[v _senha `uc ~T0 @X0 -> 15 `i e ]
+[i _senha
+:U ..
+-> 0 `c
+..
+]
+[; ;variaveisGlobais.h: 46: unsigned char senha[15] = "";
+"49
 [v _fase `uc ~T0 @X0 1 e ]
 [i _fase
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 47: unsigned char fase = 0;
-"48
+[; ;variaveisGlobais.h: 49: unsigned char fase = 0;
+"50
 [v _clima `uc ~T0 @X0 1 e ]
 [i _clima
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 48: unsigned char clima = 0;
-"49
+[; ;variaveisGlobais.h: 50: unsigned char clima = 0;
+"51
 [v _temp `uc ~T0 @X0 1 e ]
 [i _temp
 -> -> 99 `i `uc
 ]
-[; ;variaveisGlobais.h: 49: unsigned char temp = 99;
-"50
+[; ;variaveisGlobais.h: 51: unsigned char temp = 99;
+"52
 [v _tempajt `uc ~T0 @X0 1 e ]
 [i _tempajt
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 50: unsigned char tempajt = 0;
-"51
+[; ;variaveisGlobais.h: 52: unsigned char tempajt = 0;
+"53
 [v _umid `uc ~T0 @X0 1 e ]
 [i _umid
 -> -> 100 `i `uc
 ]
-[; ;variaveisGlobais.h: 51: unsigned char umid = 100;
-"52
+[; ;variaveisGlobais.h: 53: unsigned char umid = 100;
+"54
 [v _umidajt `uc ~T0 @X0 1 e ]
 [i _umidajt
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 52: unsigned char umidajt = 0;
-"53
+[; ;variaveisGlobais.h: 54: unsigned char umidajt = 0;
+"55
 [v _blinkk `b ~T0 @X0 1 e ]
 [i _blinkk
 -> 0 `i
 ]
-[; ;variaveisGlobais.h: 53: bit blinkk = 0;
-"55
-[v _line1 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 55: unsigned char line1[21];
-"56
-[v _line2 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 56: unsigned char line2[21];
+[; ;variaveisGlobais.h: 55: bit blinkk = 0;
 "57
-[v _line3 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 57: unsigned char line3[21];
+[v _line1 `uc ~T0 @X0 -> 21 `i e ]
+[i _line1
+:U ..
+-> 0 `c
+..
+]
+[; ;variaveisGlobais.h: 57: unsigned char line1[21] = "";
 "58
+[v _line2 `uc ~T0 @X0 -> 21 `i e ]
+[i _line2
+:U ..
+-> 0 `c
+..
+]
+[; ;variaveisGlobais.h: 58: unsigned char line2[21] = "";
+"59
+[v _line3 `uc ~T0 @X0 -> 21 `i e ]
+[i _line3
+:U ..
+-> 0 `c
+..
+]
+[; ;variaveisGlobais.h: 59: unsigned char line3[21] = "";
+"60
 [v _line4 `uc ~T0 @X0 -> 21 `i e ]
-[; ;variaveisGlobais.h: 58: unsigned char line4[21];
-"62
+[i _line4
+:U ..
+-> 0 `c
+..
+]
+[; ;variaveisGlobais.h: 60: unsigned char line4[21] = "";
+"64
 [v _menu `uc ~T0 @X0 1 e ]
 [i _menu
 -> -> 15 `i `uc
 ]
-[; ;variaveisGlobais.h: 62: unsigned char menu = 15;
-"63
+[; ;variaveisGlobais.h: 64: unsigned char menu = 15;
+"65
 [v _opcaomenu `uc ~T0 @X0 1 e ]
 [i _opcaomenu
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 63: char opcaomenu = 0;
-"64
+[; ;variaveisGlobais.h: 65: char opcaomenu = 0;
+"66
 [v _ajuste_parametro `uc ~T0 @X0 1 e ]
 [i _ajuste_parametro
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 64: unsigned char ajuste_parametro = 0;
-"65
+[; ;variaveisGlobais.h: 66: unsigned char ajuste_parametro = 0;
+"67
 [v _senha_desbloqueio_func `uc ~T0 @X0 1 e ]
 [i _senha_desbloqueio_func
 -> -> 0 `i `uc
 ]
-[; ;variaveisGlobais.h: 65: unsigned char senha_desbloqueio_func = 0;
+[; ;variaveisGlobais.h: 67: unsigned char senha_desbloqueio_func = 0;
 [; ;I2C.h: 13: void I2C_Master_Init(const unsigned long c);
 [; ;I2C.h: 14: void I2C_Wait();
 [; ;I2C.h: 15: void I2C_Start();
@@ -4788,9 +4825,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 180: void criaCaracteresCGRAM() {
 [e :U _criaCaracteresCGRAM ]
 [f ]
-[v F3895 `Cuc ~T0 @X0 -> 8 `i t ]
-[v F3896 `F3895 ~T0 @X0 -> 7 `i s ]
-[i F3896
+[v F3897 `Cuc ~T0 @X0 -> 8 `i t ]
+[v F3898 `F3897 ~T0 @X0 -> 7 `i s ]
+[i F3898
 :U ..
 :U ..
 "188
@@ -4851,7 +4888,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 "187
-[v _character `F3895 ~T0 @X0 -> 7 `i a ]
+[v _character `F3897 ~T0 @X0 -> 7 `i a ]
 [; ;lcd.h: 187: const char character[7][8] = {
 [; ;lcd.h: 188: 14, 17, 17, 31, 27, 27, 31, 31,
 [; ;lcd.h: 189: 1, 3, 7, 29, 29, 7, 3, 1,
@@ -4860,7 +4897,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd.h: 193: 0, 14, 17, 4, 10, 0, 4, 0
 [; ;lcd.h: 196: };
 "196
-[e = _character F3896 ]
+[e = _character F3898 ]
 [; ;lcd.h: 197: Lcd_Cmd(0b0100);
 "197
 [e ( _Lcd_Cmd (1 -> -> 4 `i `uc ]
@@ -7875,1884 +7912,1810 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 58: extern char * strichr(const char *, int);
 [; ;string.h: 59: extern char * strrchr(const char *, int);
 [; ;string.h: 60: extern char * strrichr(const char *, int);
-"14 src/conexaoWifi.h
+[; ;stdbool.h: 12: typedef unsigned char bool;
+"8 src/serial.h
+[v _bufferSerial `uc ~T0 @X0 -> 100 `i e ]
+[i _bufferSerial
+:U ..
+-> 0 `c
+..
+]
+[; ;serial.h: 8: unsigned char bufferSerial[100] = "";
+"9
+[v __BF_start `uc ~T0 @X0 -> 10 `i e ]
+[i __BF_start
+:U ..
+-> 0 `c
+..
+]
+[; ;serial.h: 9: unsigned char _BF_start[10] = "";
+"10
+[v __BF_enable_receive `uc ~T0 @X0 1 e ]
+[i __BF_enable_receive
+-> -> 0 `i `uc
+]
+[; ;serial.h: 10: unsigned bool _BF_enable_receive = 0;
+"11
+[v __BF_i_count `uc ~T0 @X0 1 e ]
+[i __BF_i_count
+-> -> 0 `i `uc
+]
+[; ;serial.h: 11: unsigned char _BF_i_count = 0;
+"12
+[v __BF_current `uc ~T0 @X0 1 e ]
+[i __BF_current
+-> -> 0 `i `uc
+]
+[; ;serial.h: 12: unsigned char _BF_current = 0;
+[; ;serial.h: 14: void setKeyStartReceiveSerial(char start[]);
+[; ;serial.h: 15: void receiveByteSerial(char byte);
+[; ;serial.h: 16: bool findBufferSerial(char key[]);
+[; ;json.h: 4: int getIntJSON(char buff[], char key[]);
+[; ;json.h: 5: void getStringJSON(char buff[], char key[], char *ret);
+"15 src/conexaoWifi.h
 [v _t_wifi_restart `uc ~T0 @X0 1 e ]
 [i _t_wifi_restart
 -> -> 0 `i `uc
 ]
-[; ;conexaoWifi.h: 14: unsigned char t_wifi_restart = 0;
-"15
+[; ;conexaoWifi.h: 15: unsigned char t_wifi_restart = 0;
+"16
 [v _f_wifi_processo `uc ~T0 @X0 1 e ]
 [i _f_wifi_processo
 -> -> 0 `i `uc
 ]
-[; ;conexaoWifi.h: 15: unsigned char f_wifi_processo = 0;
-"16
-[v _cbf `uc ~T0 @X0 1 e ]
-[i _cbf
--> -> 0 `i `uc
-]
-[; ;conexaoWifi.h: 16: unsigned char cbf = 0;
-"17
-[v _bufferSerial `uc ~T0 @X0 -> 80 `i e ]
-[; ;conexaoWifi.h: 17: unsigned char bufferSerial[80];
+[; ;conexaoWifi.h: 16: unsigned char f_wifi_processo = 0;
 "18
-[v _ssid `uc ~T0 @X0 -> 15 `i e ]
-[; ;conexaoWifi.h: 18: unsigned char ssid[15];
-"19
-[v _senha `uc ~T0 @X0 -> 15 `i e ]
-[; ;conexaoWifi.h: 19: unsigned char senha[15];
-"21
-[v _limpaBuffer `(v ~T0 @X0 1 ef ]
+[v _getMacAdress `(v ~T0 @X0 1 ef2`*uc`*uc ]
 {
-[; ;conexaoWifi.h: 21: void limpaBuffer() {
-[e :U _limpaBuffer ]
-[f ]
-[; ;conexaoWifi.h: 22: delay(5);
-"22
-[e ( _delay (1 -> 5 `i ]
-[; ;conexaoWifi.h: 23: memset(bufferSerial, 0, sizeof (bufferSerial));
-"23
-[e ( _memset (3 , , -> &U _bufferSerial `*v -> 0 `i -> # _bufferSerial `ui ]
-[; ;conexaoWifi.h: 24: cbf = 0;
-"24
-[e = _cbf -> -> 0 `i `uc ]
-[; ;conexaoWifi.h: 25: delay(5);
-"25
-[e ( _delay (1 -> 5 `i ]
-[; ;conexaoWifi.h: 26: }
-"26
-[e :UE 969 ]
-}
-"28
-[v _getMac `(v ~T0 @X0 1 ef2`*uc`*uc ]
-{
-[; ;conexaoWifi.h: 28: void getMac(char mac[], char var[]) {
-[e :U _getMac ]
+[; ;conexaoWifi.h: 18: void getMacAdress(char mac[], char var[]) {
+[e :U _getMacAdress ]
 [v _mac `*uc ~T0 @X0 1 r1 ]
 [v _var `*uc ~T0 @X0 1 r2 ]
 [f ]
-"29
+"19
 [v _i `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 29: unsigned char i = 0;
+[; ;conexaoWifi.h: 19: unsigned char i = 0;
 [e = _i -> -> 0 `i `uc ]
-"30
+"20
 [v _j `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 30: unsigned char j = 0;
+[; ;conexaoWifi.h: 20: unsigned char j = 0;
 [e = _j -> -> 0 `i `uc ]
-"31
+"21
 [v _men `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 31: unsigned char men = 0;
+[; ;conexaoWifi.h: 21: unsigned char men = 0;
 [e = _men -> -> 0 `i `uc ]
-[; ;conexaoWifi.h: 32: for (i = 0; i < strlen(mac); i++) {
-"32
+[; ;conexaoWifi.h: 22: for (i = 0; i < strlen(mac); i++) {
+"22
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 974  ]
-[e :U 971 ]
+[e $U 973  ]
+[e :U 970 ]
 {
-[; ;conexaoWifi.h: 33: if (mac[i] == '"' && men == 0) {
-"33
-[e $ ! && == -> *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux `ui -> 34 `ui == -> _men `i -> 0 `i 975  ]
+[; ;conexaoWifi.h: 23: if (mac[i] == '"' && men == 0) {
+"23
+[e $ ! && == -> *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux `ui -> 34 `ui == -> _men `i -> 0 `i 974  ]
 {
-[; ;conexaoWifi.h: 34: men = 1;
-"34
+[; ;conexaoWifi.h: 24: men = 1;
+"24
 [e = _men -> -> 1 `i `uc ]
-"35
+"25
 }
-[; ;conexaoWifi.h: 35: } else if (mac[i] == '"' && men == 1) {
-[e $U 976  ]
-[e :U 975 ]
-[e $ ! && == -> *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux `ui -> 34 `ui == -> _men `i -> 1 `i 977  ]
-{
-[; ;conexaoWifi.h: 36: var[j] = '\0';
-"36
-[e = *U + _var * -> _j `ux -> -> # *U _var `ui `ux -> -> 0 `ui `uc ]
-[; ;conexaoWifi.h: 37: return;
-"37
-[e $UE 970  ]
-"38
-}
-[; ;conexaoWifi.h: 38: } else if (men && mac[i] != ':' && j < 12) {
-[e $U 978  ]
-[e :U 977 ]
-[e $ ! && && != -> _men `i -> -> -> 0 `i `uc `i != -> *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux `ui -> 58 `ui < -> _j `i -> 12 `i 979  ]
-{
-[; ;conexaoWifi.h: 39: var[j++] = mac[i];
-"39
-[e = *U + _var * -> ++ _j -> -> 1 `i `uc `ux -> -> # *U _var `ui `ux *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux ]
-"40
-}
-[e :U 979 ]
-"41
-[e :U 978 ]
-[e :U 976 ]
-}
-"32
-[e ++ _i -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 25: } else if (mac[i] == '"' && men == 1) {
+[e $U 975  ]
 [e :U 974 ]
-[e $ < -> _i `ui ( _strlen (1 -> _mac `*Cuc 971  ]
-[e :U 972 ]
-"41
-}
-[; ;conexaoWifi.h: 40: }
-[; ;conexaoWifi.h: 41: }
-[; ;conexaoWifi.h: 42: }
-"42
-[e :UE 970 ]
-}
-"44
-[v _filtroStr `(v ~T0 @X0 1 ef4`*uc`*uc`*uc`*uc ]
+[e $ ! && == -> *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux `ui -> 34 `ui == -> _men `i -> 1 `i 976  ]
 {
-[; ;conexaoWifi.h: 44: void filtroStr(char inicio[], char fim[], char str[], char strdest[]) {
-[e :U _filtroStr ]
-[v _inicio `*uc ~T0 @X0 1 r1 ]
-[v _fim `*uc ~T0 @X0 1 r2 ]
-[v _str `*uc ~T0 @X0 1 r3 ]
-[v _strdest `*uc ~T0 @X0 1 r4 ]
-[f ]
-"45
-[v _i `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 45: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-"46
-[v _x `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 46: char x = 0;
-[e = _x -> -> 0 `i `uc ]
-"47
-[v _y `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 47: char y = 0;
-[e = _y -> -> 0 `i `uc ]
-"48
-[v _count `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 48: char count = 0;
-[e = _count -> -> 0 `i `uc ]
-"49
-[v _p `*uc ~T0 @X0 1 a ]
-"50
-[v __str `uc ~T0 @X0 -> 82 `i a ]
-"51
-[v _aux `uc ~T0 @X0 -> 60 `i a ]
-[; ;conexaoWifi.h: 49: char *p;
-[; ;conexaoWifi.h: 50: char _str[82];
-[; ;conexaoWifi.h: 51: char aux[60];
-[; ;conexaoWifi.h: 53: strncpy(_str, str, 80);
-"53
-[e ( _strncpy (3 , , &U __str -> _str `*Cuc -> -> 80 `i `ui ]
-[; ;conexaoWifi.h: 54: p = strstr(_str, inicio);
-"54
-[e = _p ( _strstr (2 , -> &U __str `*Cuc -> _inicio `*Cuc ]
-[; ;conexaoWifi.h: 55: strcpy(p, strtok(p, fim));
-"55
-[e ( _strcpy (2 , _p -> ( _strtok (2 , _p -> _fim `*Cuc `*Cuc ]
-[; ;conexaoWifi.h: 56: sprintf(aux, "%s", p);
-"56
-[e ( _sprintf (1 , (. , &U _aux :s 10C -> _p `*Cuc ]
-[; ;conexaoWifi.h: 58: x = strlen(inicio);
-"58
-[e = _x -> ( _strlen (1 -> _inicio `*Cuc `uc ]
-[; ;conexaoWifi.h: 59: y = strlen(aux);
-"59
-[e = _y -> ( _strlen (1 -> &U _aux `*Cuc `uc ]
-[; ;conexaoWifi.h: 61: for (i = x; i < (x + y); i++) {
-"61
-{
-[e = _i _x ]
-[e $U 984  ]
-[e :U 981 ]
-{
-[; ;conexaoWifi.h: 62: strdest[count++] = (char) (aux[i] == '+') ? ' ' : aux[i];
-"62
-[e = *U + _strdest * -> ++ _count -> -> 1 `i `uc `ux -> -> # *U _strdest `ui `ux -> ? != -> -> -> == -> *U + &U _aux * -> _i `ux -> -> # *U &U _aux `ui `ux `ui -> 43 `ui `i `uc `i -> -> -> 0 `i `uc `i : -> 32 `ui -> *U + &U _aux * -> _i `ux -> -> # *U &U _aux `ui `ux `ui `uc ]
-"63
+[; ;conexaoWifi.h: 26: var[j] = '\0';
+"26
+[e = *U + _var * -> _j `ux -> -> # *U _var `ui `ux -> -> 0 `ui `uc ]
+[; ;conexaoWifi.h: 27: return;
+"27
+[e $UE 969  ]
+"28
 }
-"61
+[; ;conexaoWifi.h: 28: } else if (men && mac[i] != ':' && j < 12) {
+[e $U 977  ]
+[e :U 976 ]
+[e $ ! && && != -> _men `i -> -> -> 0 `i `uc `i != -> *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux `ui -> 58 `ui < -> _j `i -> 12 `i 978  ]
+{
+[; ;conexaoWifi.h: 29: var[j++] = mac[i];
+"29
+[e = *U + _var * -> ++ _j -> -> 1 `i `uc `ux -> -> # *U _var `ui `ux *U + _mac * -> _i `ux -> -> # *U _mac `ui `ux ]
+"30
+}
+[e :U 978 ]
+"31
+[e :U 977 ]
+[e :U 975 ]
+}
+"22
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 984 ]
-[e $ < -> _i `i + -> _x `i -> _y `i 981  ]
-[e :U 982 ]
-"63
+[e :U 973 ]
+[e $ < -> _i `ui ( _strlen (1 -> _mac `*Cuc 970  ]
+[e :U 971 ]
+"31
 }
-[; ;conexaoWifi.h: 63: }
-[; ;conexaoWifi.h: 64: sprintf(strdest, "%s", strdest);
-"64
-[e ( _sprintf (1 , (. , _strdest :s 11C -> _strdest `*Cuc ]
-[; ;conexaoWifi.h: 65: }
-"65
-[e :UE 980 ]
+[; ;conexaoWifi.h: 30: }
+[; ;conexaoWifi.h: 31: }
+[; ;conexaoWifi.h: 32: }
+"32
+[e :UE 969 ]
 }
-"67
-[v _alterarConfigWifi `(v ~T0 @X0 1 ef ]
+"34
+[v _alterarDadosConexaoConfigWifi `(v ~T0 @X0 1 ef ]
 {
-[; ;conexaoWifi.h: 67: void alterarConfigWifi() {
-[e :U _alterarConfigWifi ]
+[; ;conexaoWifi.h: 34: void alterarDadosConexaoConfigWifi() {
+[e :U _alterarDadosConexaoConfigWifi ]
 [f ]
-[; ;conexaoWifi.h: 69: if (t_wifi_restart == 0) {
-"69
-[e $ ! == -> _t_wifi_restart `i -> 0 `i 986  ]
+[; ;conexaoWifi.h: 35: if (t_wifi_restart == 0) {
+"35
+[e $ ! == -> _t_wifi_restart `i -> 0 `i 980  ]
 {
-[; ;conexaoWifi.h: 70: menu = 8;
-"70
+[; ;conexaoWifi.h: 36: menu = 8;
+"36
 [e = _menu -> -> 8 `i `uc ]
-[; ;conexaoWifi.h: 71: opcaomenu = 1;
-"71
+[; ;conexaoWifi.h: 37: opcaomenu = 1;
+"37
 [e = _opcaomenu -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 72: return;
-"72
-[e $UE 985  ]
-"73
+[; ;conexaoWifi.h: 38: return;
+"38
+[e $UE 979  ]
+"39
 }
-[; ;conexaoWifi.h: 73: } else {
-[e $U 987  ]
-[e :U 986 ]
+[; ;conexaoWifi.h: 39: } else {
+[e $U 981  ]
+[e :U 980 ]
 {
-[; ;conexaoWifi.h: 74: delay(10);
-"74
+[; ;conexaoWifi.h: 40: delay(10);
+"40
 [e ( _delay (1 -> 10 `i ]
-[; ;conexaoWifi.h: 75: switch (f_wifi_processo) {
-"75
-[e $U 989  ]
+[; ;conexaoWifi.h: 41: switch (f_wifi_processo) {
+"41
+[e $U 983  ]
 {
-[; ;conexaoWifi.h: 76: case 0:
-"76
-[e :U 990 ]
-[; ;conexaoWifi.h: 77: limpaBuffer();
-"77
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 78: printf("AT+CWMODE=2\r\n");
-"78
-[e ( _printf :s 12C ]
-[; ;conexaoWifi.h: 79: wifi_conectado = 0;
-"79
+[; ;conexaoWifi.h: 42: case 0:
+"42
+[e :U 984 ]
+[; ;conexaoWifi.h: 43: setKeyStartReceiveSerial("ALL");
+"43
+[e ( _setKeyStartReceiveSerial (1 -> :s 10C `*uc ]
+[; ;conexaoWifi.h: 44: printf("AT+CWMODE=2\r\n");
+"44
+[e ( _printf :s 11C ]
+[; ;conexaoWifi.h: 45: wifi_conectado = 0;
+"45
 [e = _wifi_conectado -> -> 0 `i `uc ]
+[; ;conexaoWifi.h: 46: f_wifi_processo++;
+"46
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 47: break;
+"47
+[e $U 982  ]
+[; ;conexaoWifi.h: 48: case 1:
+"48
+[e :U 985 ]
+[; ;conexaoWifi.h: 49: if (findBufferSerial("OK")) {
+"49
+[e $ ! != -> ( _findBufferSerial (1 -> :s 12C `*uc `i -> -> -> 0 `i `uc `i 986  ]
+{
+[; ;conexaoWifi.h: 50: f_wifi_processo++;
+"50
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"51
+}
+[e :U 986 ]
+[; ;conexaoWifi.h: 51: }
+[; ;conexaoWifi.h: 52: break;
+"52
+[e $U 982  ]
+[; ;conexaoWifi.h: 53: case 2:
+"53
+[e :U 987 ]
+[; ;conexaoWifi.h: 54: setKeyStartReceiveSerial("ALL");
+"54
+[e ( _setKeyStartReceiveSerial (1 -> :s 13C `*uc ]
+[; ;conexaoWifi.h: 55: printf("AT+CIPMUX=1\r\n");
+"55
+[e ( _printf :s 14C ]
+[; ;conexaoWifi.h: 56: f_wifi_processo++;
+"56
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 57: break;
+"57
+[e $U 982  ]
+[; ;conexaoWifi.h: 58: case 3:
+"58
+[e :U 988 ]
+[; ;conexaoWifi.h: 59: if (findBufferSerial("OK")) {
+"59
+[e $ ! != -> ( _findBufferSerial (1 -> :s 15C `*uc `i -> -> -> 0 `i `uc `i 989  ]
+{
+[; ;conexaoWifi.h: 60: f_wifi_processo++;
+"60
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"61
+}
+[e :U 989 ]
+[; ;conexaoWifi.h: 61: }
+[; ;conexaoWifi.h: 62: break;
+"62
+[e $U 982  ]
+[; ;conexaoWifi.h: 63: case 4:
+"63
+[e :U 990 ]
+[; ;conexaoWifi.h: 64: setKeyStartReceiveSerial("ALL");
+"64
+[e ( _setKeyStartReceiveSerial (1 -> :s 16C `*uc ]
+[; ;conexaoWifi.h: 65: printf("AT+CWSAP=\"CONTROLADOR\",\"\",11,0,4\r\n");
+"65
+[e ( _printf :s 17C ]
+[; ;conexaoWifi.h: 66: f_wifi_processo++;
+"66
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 67: break;
+"67
+[e $U 982  ]
+[; ;conexaoWifi.h: 68: case 5:
+"68
+[e :U 991 ]
+[; ;conexaoWifi.h: 69: if (findBufferSerial("OK")) {
+"69
+[e $ ! != -> ( _findBufferSerial (1 -> :s 18C `*uc `i -> -> -> 0 `i `uc `i 992  ]
+{
+[; ;conexaoWifi.h: 70: f_wifi_processo++;
+"70
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"71
+}
+[e :U 992 ]
+[; ;conexaoWifi.h: 71: }
+[; ;conexaoWifi.h: 72: break;
+"72
+[e $U 982  ]
+[; ;conexaoWifi.h: 73: case 6:
+"73
+[e :U 993 ]
+[; ;conexaoWifi.h: 74: setKeyStartReceiveSerial("ALL");
+"74
+[e ( _setKeyStartReceiveSerial (1 -> :s 19C `*uc ]
+[; ;conexaoWifi.h: 75: printf("AT+CIPAP=\"10.1.1.1\"\r\n");
+"75
+[e ( _printf :s 20C ]
+[; ;conexaoWifi.h: 76: f_wifi_processo++;
+"76
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 77: break;
+"77
+[e $U 982  ]
+[; ;conexaoWifi.h: 78: case 7:
+"78
+[e :U 994 ]
+[; ;conexaoWifi.h: 79: if (findBufferSerial("OK")) {
+"79
+[e $ ! != -> ( _findBufferSerial (1 -> :s 21C `*uc `i -> -> -> 0 `i `uc `i 995  ]
+{
 [; ;conexaoWifi.h: 80: f_wifi_processo++;
 "80
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 81: break;
 "81
-[e $U 988  ]
-[; ;conexaoWifi.h: 82: case 1:
-"82
-[e :U 991 ]
-[; ;conexaoWifi.h: 83: if (strstr(bufferSerial, "OK") != (0)) {
-"83
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 13C -> -> 0 `i `*uc 992  ]
-{
-[; ;conexaoWifi.h: 84: f_wifi_processo++;
-"84
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"85
-}
-[e :U 992 ]
-[; ;conexaoWifi.h: 85: }
-[; ;conexaoWifi.h: 86: break;
-"86
-[e $U 988  ]
-[; ;conexaoWifi.h: 87: case 2:
-"87
-[e :U 993 ]
-[; ;conexaoWifi.h: 88: limpaBuffer();
-"88
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 89: printf("AT+CIPMUX=1\r\n");
-"89
-[e ( _printf :s 14C ]
-[; ;conexaoWifi.h: 90: f_wifi_processo++;
-"90
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 91: break;
-"91
-[e $U 988  ]
-[; ;conexaoWifi.h: 92: case 3:
-"92
-[e :U 994 ]
-[; ;conexaoWifi.h: 93: if (strstr(bufferSerial, "OK") != (0)) {
-"93
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 15C -> -> 0 `i `*uc 995  ]
-{
-[; ;conexaoWifi.h: 94: f_wifi_processo++;
-"94
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"95
 }
 [e :U 995 ]
-[; ;conexaoWifi.h: 95: }
-[; ;conexaoWifi.h: 96: break;
-"96
-[e $U 988  ]
-[; ;conexaoWifi.h: 97: case 4:
-"97
+[; ;conexaoWifi.h: 81: }
+[; ;conexaoWifi.h: 82: break;
+"82
+[e $U 982  ]
+[; ;conexaoWifi.h: 83: case 8:
+"83
 [e :U 996 ]
-[; ;conexaoWifi.h: 98: limpaBuffer();
-"98
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 99: printf("AT+CWSAP=\"CONTROLADOR\",\"\",11,0,4\r\n");
-"99
-[e ( _printf :s 16C ]
-[; ;conexaoWifi.h: 100: f_wifi_processo++;
-"100
+[; ;conexaoWifi.h: 84: setKeyStartReceiveSerial("ALL");
+"84
+[e ( _setKeyStartReceiveSerial (1 -> :s 22C `*uc ]
+[; ;conexaoWifi.h: 85: printf("AT+CIPSERVER=1,80\r\n");
+"85
+[e ( _printf :s 23C ]
+[; ;conexaoWifi.h: 86: f_wifi_processo++;
+"86
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 101: break;
-"101
-[e $U 988  ]
-[; ;conexaoWifi.h: 102: case 5:
-"102
+[; ;conexaoWifi.h: 87: break;
+"87
+[e $U 982  ]
+[; ;conexaoWifi.h: 88: case 9:
+"88
 [e :U 997 ]
-[; ;conexaoWifi.h: 103: if (strstr(bufferSerial, "OK") != (0)) {
-"103
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 17C -> -> 0 `i `*uc 998  ]
+[; ;conexaoWifi.h: 89: if (findBufferSerial("OK")) {
+"89
+[e $ ! != -> ( _findBufferSerial (1 -> :s 24C `*uc `i -> -> -> 0 `i `uc `i 998  ]
 {
-[; ;conexaoWifi.h: 104: f_wifi_processo++;
-"104
+[; ;conexaoWifi.h: 90: setKeyStartReceiveSerial("Accept");
+"90
+[e ( _setKeyStartReceiveSerial (1 -> :s 25C `*uc ]
+[; ;conexaoWifi.h: 91: f_wifi_processo++;
+"91
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"105
+[; ;conexaoWifi.h: 92: t_wifi_restart = 180;
+"92
+[e = _t_wifi_restart -> -> 180 `i `uc ]
+"93
 }
 [e :U 998 ]
-[; ;conexaoWifi.h: 105: }
-[; ;conexaoWifi.h: 106: break;
-"106
-[e $U 988  ]
-[; ;conexaoWifi.h: 107: case 6:
-"107
+[; ;conexaoWifi.h: 93: }
+[; ;conexaoWifi.h: 94: break;
+"94
+[e $U 982  ]
+[; ;conexaoWifi.h: 95: case 10:
+"95
 [e :U 999 ]
-[; ;conexaoWifi.h: 108: limpaBuffer();
-"108
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 109: printf("AT+CIPAP=\"10.1.1.1\"\r\n");
-"109
-[e ( _printf :s 18C ]
-[; ;conexaoWifi.h: 110: f_wifi_processo++;
-"110
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 111: break;
-"111
-[e $U 988  ]
-[; ;conexaoWifi.h: 112: case 7:
-"112
-[e :U 1000 ]
-[; ;conexaoWifi.h: 113: if (strstr(bufferSerial, "OK") != (0)) {
-"113
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 19C -> -> 0 `i `*uc 1001  ]
+[; ;conexaoWifi.h: 96: sprintf(line1, "Conecte-se a rede e");
+"96
+[e ( _sprintf (1 , &U _line1 :s 26C ]
+[; ;conexaoWifi.h: 97: sprintf(line2, "acesse o IP para");
+"97
+[e ( _sprintf (1 , &U _line2 :s 27C ]
+[; ;conexaoWifi.h: 98: sprintf(line3, "configurar o WIFI...");
+"98
+[e ( _sprintf (1 , &U _line3 :s 28C ]
+[; ;conexaoWifi.h: 99: sprintf(line4, "10.1.1.1");
+"99
+[e ( _sprintf (1 , &U _line4 :s 29C ]
+[; ;conexaoWifi.h: 100: if (findBufferSerial("Accept")) {
+"100
+[e $ ! != -> ( _findBufferSerial (1 -> :s 30C `*uc `i -> -> -> 0 `i `uc `i 1000  ]
 {
-[; ;conexaoWifi.h: 114: f_wifi_processo++;
-"114
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"115
-}
-[e :U 1001 ]
-[; ;conexaoWifi.h: 115: }
-[; ;conexaoWifi.h: 116: break;
-"116
-[e $U 988  ]
-[; ;conexaoWifi.h: 117: case 8:
-"117
-[e :U 1002 ]
-[; ;conexaoWifi.h: 118: limpaBuffer();
-"118
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 119: printf("AT+CIPSERVER=1,8080\r\n");
-"119
-[e ( _printf :s 20C ]
-[; ;conexaoWifi.h: 120: f_wifi_processo++;
-"120
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 121: break;
-"121
-[e $U 988  ]
-[; ;conexaoWifi.h: 122: case 9:
-"122
-[e :U 1003 ]
-[; ;conexaoWifi.h: 123: if (strstr(bufferSerial, "OK") != (0)) {
-"123
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 21C -> -> 0 `i `*uc 1004  ]
-{
-[; ;conexaoWifi.h: 124: f_wifi_processo++;
-"124
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 125: t_wifi_restart = 180;
-"125
-[e = _t_wifi_restart -> -> 180 `i `uc ]
-"126
-}
-[e :U 1004 ]
-[; ;conexaoWifi.h: 126: }
-[; ;conexaoWifi.h: 127: break;
-"127
-[e $U 988  ]
-[; ;conexaoWifi.h: 128: case 10:
-"128
-[e :U 1005 ]
-[; ;conexaoWifi.h: 129: sprintf(line1, "Conecte-se a rede e");
-"129
-[e ( _sprintf (1 , &U _line1 :s 22C ]
-[; ;conexaoWifi.h: 130: sprintf(line2, "acesse o IP para");
-"130
-[e ( _sprintf (1 , &U _line2 :s 23C ]
-[; ;conexaoWifi.h: 131: sprintf(line3, "configurar o WIFI...");
-"131
-[e ( _sprintf (1 , &U _line3 :s 24C ]
-[; ;conexaoWifi.h: 132: sprintf(line4, "10.1.1.1:8080");
-"132
-[e ( _sprintf (1 , &U _line4 :s 25C ]
-[; ;conexaoWifi.h: 133: if ((strstr(bufferSerial, "+IPD") != (0)) || (strstr(bufferSerial, "Accept") != (0)) || (strstr(bufferSerial, "CONNECT") != (0))) {
-"133
-[e $ ! || || != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 26C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 27C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 28C -> -> 0 `i `*uc 1006  ]
-{
-[; ;conexaoWifi.h: 134: delay(400);
-"134
+[; ;conexaoWifi.h: 101: delay(400);
+"101
 [e ( _delay (1 -> 400 `i ]
-[; ;conexaoWifi.h: 135: f_wifi_processo++;
-"135
+[; ;conexaoWifi.h: 102: f_wifi_processo++;
+"102
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"136
+"103
 }
-[e :U 1006 ]
-[; ;conexaoWifi.h: 136: }
-[; ;conexaoWifi.h: 137: break;
-"137
-[e $U 988  ]
-[; ;conexaoWifi.h: 138: case 11:
-"138
-[e :U 1007 ]
-[; ;conexaoWifi.h: 139: limpaBuffer();
-"139
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 140: printf("AT+CIPSENDEX=0,800\r\n");
-"140
-[e ( _printf :s 29C ]
-[; ;conexaoWifi.h: 141: f_wifi_processo++;
-"141
+[e :U 1000 ]
+[; ;conexaoWifi.h: 103: }
+[; ;conexaoWifi.h: 104: break;
+"104
+[e $U 982  ]
+[; ;conexaoWifi.h: 105: case 11:
+"105
+[e :U 1001 ]
+[; ;conexaoWifi.h: 106: setKeyStartReceiveSerial("ALL");
+"106
+[e ( _setKeyStartReceiveSerial (1 -> :s 31C `*uc ]
+[; ;conexaoWifi.h: 107: printf("AT+CIPSENDEX=0,800\r\n");
+"107
+[e ( _printf :s 32C ]
+[; ;conexaoWifi.h: 108: f_wifi_processo++;
+"108
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 142: break;
-"142
-[e $U 988  ]
-[; ;conexaoWifi.h: 143: case 12:
-"143
-[e :U 1008 ]
-[; ;conexaoWifi.h: 144: if (strstr(bufferSerial, ">") != (0)) {
-"144
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 30C -> -> 0 `i `*uc 1009  ]
+[; ;conexaoWifi.h: 109: break;
+"109
+[e $U 982  ]
+[; ;conexaoWifi.h: 110: case 12:
+"110
+[e :U 1002 ]
+[; ;conexaoWifi.h: 111: if (strstr(bufferSerial, ">") != (0)) {
+"111
+[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 33C -> -> 0 `i `*uc 1003  ]
 {
-[; ;conexaoWifi.h: 145: f_wifi_processo++;
-"145
+[; ;conexaoWifi.h: 112: f_wifi_processo++;
+"112
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"113
+}
+[e :U 1003 ]
+[; ;conexaoWifi.h: 113: }
+[; ;conexaoWifi.h: 114: break;
+"114
+[e $U 982  ]
+[; ;conexaoWifi.h: 115: case 13:
+"115
+[e :U 1004 ]
+[; ;conexaoWifi.h: 116: setKeyStartReceiveSerial("ALL");
+"116
+[e ( _setKeyStartReceiveSerial (1 -> :s 34C `*uc ]
+[; ;conexaoWifi.h: 117: printf("HTTP 1.1/200 OK\r\nContent-type: text/html\r\n\r\n");
+"117
+[e ( _printf :s 35C ]
+[; ;conexaoWifi.h: 118: delay(100);
+"118
+[e ( _delay (1 -> 100 `i ]
+[; ;conexaoWifi.h: 119: printf("<html><style>div{margin:25px auto;max-width:350px;display:flex;flex-direction:column;}input,button{padding:7px;margin-bottom:25px;border:1px solid #777;}</style><body><div> <h2>Configuração Wifi</h2> SSID: <input id='s'>Senha: <input id='p'><
+"119
+[e ( _printf :s 36C ]
+[; ;conexaoWifi.h: 120: delay(800);
+"120
+[e ( _delay (1 -> 800 `i ]
+[; ;conexaoWifi.h: 121: printf("AT+CIPCLOSE=0\r\n");
+"121
+[e ( _printf :s 37C ]
+[; ;conexaoWifi.h: 122: delay(300);
+"122
+[e ( _delay (1 -> 300 `i ]
+[; ;conexaoWifi.h: 123: t_wifi_restart = 180;
+"123
+[e = _t_wifi_restart -> -> 180 `i `uc ]
+[; ;conexaoWifi.h: 124: setKeyStartReceiveSerial("$#");
+"124
+[e ( _setKeyStartReceiveSerial (1 -> :s 38C `*uc ]
+[; ;conexaoWifi.h: 125: f_wifi_processo++;
+"125
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 126: break;
+"126
+[e $U 982  ]
+[; ;conexaoWifi.h: 127: case 14:
+"127
+[e :U 1005 ]
+[; ;conexaoWifi.h: 128: sprintf(line4, "Aguardando...");
+"128
+[e ( _sprintf (1 , &U _line4 :s 39C ]
+[; ;conexaoWifi.h: 129: if (findBufferSerial("#$")) {
+"129
+[e $ ! != -> ( _findBufferSerial (1 -> :s 40C `*uc `i -> -> -> 0 `i `uc `i 1006  ]
+{
+[; ;conexaoWifi.h: 130: getStringJSON(bufferSerial, "ss", ssid);
+"130
+[e ( _getStringJSON (3 , , &U _bufferSerial -> :s 41C `*uc &U _ssid ]
+[; ;conexaoWifi.h: 131: getStringJSON(bufferSerial, "pw", senha);
+"131
+[e ( _getStringJSON (3 , , &U _bufferSerial -> :s 42C `*uc &U _senha ]
+[; ;conexaoWifi.h: 133: sprintf(line1, "%s", ssid);
+"133
+[e ( _sprintf (1 , (. , &U _line1 :s 43C -> &U _ssid `*Cuc ]
+[; ;conexaoWifi.h: 134: sprintf(line2, "%s", senha);
+"134
+[e ( _sprintf (1 , (. , &U _line2 :s 44C -> &U _senha `*Cuc ]
+[; ;conexaoWifi.h: 135: sprintf(line4, "OK reiniciando...");
+"135
+[e ( _sprintf (1 , &U _line4 :s 45C ]
+[; ;conexaoWifi.h: 136: atualizaLCD(line1, line2, line3, line4);
+"136
+[e ( _atualizaLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
+[; ;conexaoWifi.h: 138: if (strlen(ssid) > 3) {
+"138
+[e $ ! > ( _strlen (1 -> &U _ssid `*Cuc -> -> 3 `i `ui 1007  ]
+{
+"139
+[v _i `uc ~T0 @X0 1 a ]
+[; ;conexaoWifi.h: 139: unsigned char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;conexaoWifi.h: 140: for (i = 0; i < 15; i++) {
+"140
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1008  ]
+[e $U 1009  ]
+[e :U 1008 ]
+{
+[; ;conexaoWifi.h: 141: writeEEPROM_ext((40 + i), ssid[i]);
+"141
+[e ( _writeEEPROM_ext (2 , -> + -> 40 `i -> _i `i `uc *U + &U _ssid * -> _i `ux -> -> # *U &U _ssid `ui `ux ]
+"142
+}
+"140
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1008  ]
+[e :U 1009 ]
+"142
+}
+[; ;conexaoWifi.h: 142: }
+[; ;conexaoWifi.h: 143: for (i = 0; i < 15; i++) {
+"143
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1011  ]
+[e $U 1012  ]
+[e :U 1011 ]
+{
+[; ;conexaoWifi.h: 144: writeEEPROM_ext((60 + i), senha[i]);
+"144
+[e ( _writeEEPROM_ext (2 , -> + -> 60 `i -> _i `i `uc *U + &U _senha * -> _i `ux -> -> # *U &U _senha `ui `ux ]
+"145
+}
+"143
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1011  ]
+[e :U 1012 ]
+"145
+}
 "146
 }
-[e :U 1009 ]
+[e :U 1007 ]
+[; ;conexaoWifi.h: 145: }
 [; ;conexaoWifi.h: 146: }
-[; ;conexaoWifi.h: 147: break;
+[; ;conexaoWifi.h: 147: while (1) {
 "147
-[e $U 988  ]
-[; ;conexaoWifi.h: 148: case 13:
-"148
-[e :U 1010 ]
-[; ;conexaoWifi.h: 149: limpaBuffer();
-"149
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 150: printf("HTTP 1.1/200 OK\r\nContent-type: text/html\r\n\r\n");
-"150
-[e ( _printf :s 31C ]
-[; ;conexaoWifi.h: 151: delay(100);
-"151
-[e ( _delay (1 -> 100 `i ]
-[; ;conexaoWifi.h: 152: printf("<html><head><title>WIFI</title><style>*{font-size: 35px;font-family:sans-serif;}form{height:450px;display:flex;flex-direction:column;justify-content:space-around;align-items:center;margin:0 auto;}button{width:280px;height:60px;color:White;bac
-"152
-[e ( _printf :s 32C ]
-[; ;conexaoWifi.h: 153: delay(800);
-"153
-[e ( _delay (1 -> 800 `i ]
-[; ;conexaoWifi.h: 154: printf("AT+CIPCLOSE=0\r\n");
-"154
-[e ( _printf :s 33C ]
-[; ;conexaoWifi.h: 155: delay(300);
-"155
-[e ( _delay (1 -> 300 `i ]
-[; ;conexaoWifi.h: 156: t_wifi_restart = 180;
-"156
-[e = _t_wifi_restart -> -> 180 `i `uc ]
-[; ;conexaoWifi.h: 157: limpaBuffer();
-"157
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 158: f_wifi_processo++;
-"158
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 159: break;
-"159
-[e $U 988  ]
-[; ;conexaoWifi.h: 160: case 14:
-"160
-[e :U 1011 ]
-[; ;conexaoWifi.h: 161: sprintf(line4, "Aguardando...");
-"161
-[e ( _sprintf (1 , &U _line4 :s 34C ]
-[; ;conexaoWifi.h: 162: if ((strstr(bufferSerial, "ssid") != (0)) && (strstr(bufferSerial, "fimstr") != (0))) {
-"162
-[e $ ! && != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 35C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 36C -> -> 0 `i `*uc 1012  ]
-{
-[; ;conexaoWifi.h: 163: filtroStr("ssid=", "&", bufferSerial, ssid);
-"163
-[e ( _filtroStr (4 , , , -> :s 37C `*uc -> :s 38C `*uc &U _bufferSerial &U _ssid ]
-[; ;conexaoWifi.h: 164: filtroStr("senha=", "&", bufferSerial, senha);
-"164
-[e ( _filtroStr (4 , , , -> :s 39C `*uc -> :s 40C `*uc &U _bufferSerial &U _senha ]
-[; ;conexaoWifi.h: 166: sprintf(line1, "%s", ssid);
-"166
-[e ( _sprintf (1 , (. , &U _line1 :s 41C -> &U _ssid `*Cuc ]
-[; ;conexaoWifi.h: 167: sprintf(line2, "%s", senha);
-"167
-[e ( _sprintf (1 , (. , &U _line2 :s 42C -> &U _senha `*Cuc ]
-[; ;conexaoWifi.h: 168: sprintf(line4, "OK...        ");
-"168
-[e ( _sprintf (1 , &U _line4 :s 43C ]
-[; ;conexaoWifi.h: 169: atualizaLCD(line1, line2, line3, line4);
-"169
-[e ( _atualizaLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
-[; ;conexaoWifi.h: 171: if (strlen(ssid) > 3) {
-"171
-[e $ ! > ( _strlen (1 -> &U _ssid `*Cuc -> -> 3 `i `ui 1013  ]
-{
-"172
-[v _i `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 172: unsigned char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;conexaoWifi.h: 173: for (i = 0; i < 15; i++) {
-"173
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1014  ]
-[e $U 1015  ]
-[e :U 1014 ]
-{
-[; ;conexaoWifi.h: 174: writeEEPROM_ext((40 + i), ssid[i]);
-"174
-[e ( _writeEEPROM_ext (2 , -> + -> 40 `i -> _i `i `uc *U + &U _ssid * -> _i `ux -> -> # *U &U _ssid `ui `ux ]
-"175
-}
-"173
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1014  ]
 [e :U 1015 ]
-"175
-}
-[; ;conexaoWifi.h: 175: }
-[; ;conexaoWifi.h: 176: for (i = 0; i < 15; i++) {
-"176
 {
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1017  ]
-[e $U 1018  ]
+"148
+}
+[e :U 1014 ]
+"147
+[e $U 1015  ]
+[e :U 1016 ]
+"149
+}
+[e :U 1006 ]
+[; ;conexaoWifi.h: 148: }
+[; ;conexaoWifi.h: 149: }
+[; ;conexaoWifi.h: 150: break;
+"150
+[e $U 982  ]
+[; ;conexaoWifi.h: 151: default: f_wifi_processo = 0;
+"151
 [e :U 1017 ]
-{
-[; ;conexaoWifi.h: 177: writeEEPROM_ext((60 + i), senha[i]);
-"177
-[e ( _writeEEPROM_ext (2 , -> + -> 60 `i -> _i `i `uc *U + &U _senha * -> _i `ux -> -> # *U &U _senha `ui `ux ]
-"178
-}
-"176
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1017  ]
-[e :U 1018 ]
-"178
-}
-"179
-}
-[e :U 1013 ]
-[; ;conexaoWifi.h: 178: }
-[; ;conexaoWifi.h: 179: }
-[; ;conexaoWifi.h: 180: while (1) {
-"180
-[e :U 1021 ]
-{
-"181
-}
-[e :U 1020 ]
-"180
-[e $U 1021  ]
-[e :U 1022 ]
-"182
-}
-[e :U 1012 ]
-[; ;conexaoWifi.h: 181: }
-[; ;conexaoWifi.h: 182: }
-[; ;conexaoWifi.h: 183: break;
-"183
-[e $U 988  ]
-[; ;conexaoWifi.h: 184: default: f_wifi_processo = 0;
-"184
-[e :U 1023 ]
 [e = _f_wifi_processo -> -> 0 `i `uc ]
-"185
+"152
 }
-[; ;conexaoWifi.h: 185: }
-[e $U 988  ]
-"75
-[e :U 989 ]
-[e [\ _f_wifi_processo , $ -> -> 0 `i `uc 990
- , $ -> -> 1 `i `uc 991
- , $ -> -> 2 `i `uc 993
- , $ -> -> 3 `i `uc 994
- , $ -> -> 4 `i `uc 996
- , $ -> -> 5 `i `uc 997
- , $ -> -> 6 `i `uc 999
- , $ -> -> 7 `i `uc 1000
- , $ -> -> 8 `i `uc 1002
- , $ -> -> 9 `i `uc 1003
- , $ -> -> 10 `i `uc 1005
- , $ -> -> 11 `i `uc 1007
- , $ -> -> 12 `i `uc 1008
- , $ -> -> 13 `i `uc 1010
- , $ -> -> 14 `i `uc 1011
- 1023 ]
-"185
-[e :U 988 ]
-"186
+[; ;conexaoWifi.h: 152: }
+[e $U 982  ]
+"41
+[e :U 983 ]
+[e [\ _f_wifi_processo , $ -> -> 0 `i `uc 984
+ , $ -> -> 1 `i `uc 985
+ , $ -> -> 2 `i `uc 987
+ , $ -> -> 3 `i `uc 988
+ , $ -> -> 4 `i `uc 990
+ , $ -> -> 5 `i `uc 991
+ , $ -> -> 6 `i `uc 993
+ , $ -> -> 7 `i `uc 994
+ , $ -> -> 8 `i `uc 996
+ , $ -> -> 9 `i `uc 997
+ , $ -> -> 10 `i `uc 999
+ , $ -> -> 11 `i `uc 1001
+ , $ -> -> 12 `i `uc 1002
+ , $ -> -> 13 `i `uc 1004
+ , $ -> -> 14 `i `uc 1005
+ 1017 ]
+"152
+[e :U 982 ]
+"153
 }
-[e :U 987 ]
-[; ;conexaoWifi.h: 186: }
-[; ;conexaoWifi.h: 187: }
-"187
-[e :UE 985 ]
+[e :U 981 ]
+[; ;conexaoWifi.h: 153: }
+[; ;conexaoWifi.h: 154: }
+"154
+[e :UE 979 ]
 }
-"189
+"156
 [v _enviaDadosWifi `(v ~T0 @X0 1 ef ]
 {
-[; ;conexaoWifi.h: 189: void enviaDadosWifi() {
+[; ;conexaoWifi.h: 156: void enviaDadosWifi() {
 [e :U _enviaDadosWifi ]
 [f ]
-[; ;conexaoWifi.h: 190: if (t_wifi_restart == 0) {
-"190
-[e $ ! == -> _t_wifi_restart `i -> 0 `i 1025  ]
+[; ;conexaoWifi.h: 157: if (t_wifi_restart == 0) {
+"157
+[e $ ! == -> _t_wifi_restart `i -> 0 `i 1019  ]
 {
-[; ;conexaoWifi.h: 191: f_wifi_processo = 0;
-"191
+[; ;conexaoWifi.h: 158: f_wifi_processo = 0;
+"158
 [e = _f_wifi_processo -> -> 0 `i `uc ]
-[; ;conexaoWifi.h: 192: t_wifi_restart = 10;
-"192
+[; ;conexaoWifi.h: 159: t_wifi_restart = 10;
+"159
 [e = _t_wifi_restart -> -> 10 `i `uc ]
-"193
+"160
 }
-[; ;conexaoWifi.h: 193: } else if (strlen(wifi_MAC) == 12) {
-[e $U 1026  ]
-[e :U 1025 ]
-[e $ ! == ( _strlen (1 -> &U _wifi_MAC `*Cuc -> -> 12 `i `ui 1027  ]
+[; ;conexaoWifi.h: 160: } else if (strlen(wifi_MAC) == 12) {
+[e $U 1020  ]
+[e :U 1019 ]
+[e $ ! == ( _strlen (1 -> &U _wifi_MAC `*Cuc -> -> 12 `i `ui 1021  ]
 {
-[; ;conexaoWifi.h: 194: switch (f_wifi_processo) {
-"194
-[e $U 1029  ]
+[; ;conexaoWifi.h: 161: switch (f_wifi_processo) {
+"161
+[e $U 1023  ]
 {
-[; ;conexaoWifi.h: 195: case 0:
-"195
-[e :U 1030 ]
-[; ;conexaoWifi.h: 196: limpaBuffer();
-"196
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 197: printf("AT+CWMODE=1\r\n");
-"197
-[e ( _printf :s 44C ]
-[; ;conexaoWifi.h: 198: wifi_conectado = 0;
-"198
+[; ;conexaoWifi.h: 162: case 0:
+"162
+[e :U 1024 ]
+[; ;conexaoWifi.h: 163: setKeyStartReceiveSerial("ALL");
+"163
+[e ( _setKeyStartReceiveSerial (1 -> :s 46C `*uc ]
+[; ;conexaoWifi.h: 164: printf("AT+CWMODE=1\r\n");
+"164
+[e ( _printf :s 47C ]
+[; ;conexaoWifi.h: 165: wifi_conectado = 0;
+"165
 [e = _wifi_conectado -> -> 0 `i `uc ]
+[; ;conexaoWifi.h: 166: f_wifi_processo++;
+"166
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 167: break;
+"167
+[e $U 1022  ]
+[; ;conexaoWifi.h: 168: case 1:
+"168
+[e :U 1025 ]
+[; ;conexaoWifi.h: 169: if (findBufferSerial("OK")) {
+"169
+[e $ ! != -> ( _findBufferSerial (1 -> :s 48C `*uc `i -> -> -> 0 `i `uc `i 1026  ]
+{
+[; ;conexaoWifi.h: 170: f_wifi_processo++;
+"170
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"171
+}
+[e :U 1026 ]
+[; ;conexaoWifi.h: 171: }
+[; ;conexaoWifi.h: 172: break;
+"172
+[e $U 1022  ]
+[; ;conexaoWifi.h: 173: case 2:
+"173
+[e :U 1027 ]
+[; ;conexaoWifi.h: 174: setKeyStartReceiveSerial("ALL");
+"174
+[e ( _setKeyStartReceiveSerial (1 -> :s 49C `*uc ]
+[; ;conexaoWifi.h: 175: printf("AT+CIPMUX=0\r\n");
+"175
+[e ( _printf :s 50C ]
+[; ;conexaoWifi.h: 176: f_wifi_processo++;
+"176
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 177: break;
+"177
+[e $U 1022  ]
+[; ;conexaoWifi.h: 178: case 3:
+"178
+[e :U 1028 ]
+[; ;conexaoWifi.h: 179: if (findBufferSerial("OK") || findBufferSerial("link")) {
+"179
+[e $ ! || != -> ( _findBufferSerial (1 -> :s 51C `*uc `i -> -> -> 0 `i `uc `i != -> ( _findBufferSerial (1 -> :s 52C `*uc `i -> -> -> 0 `i `uc `i 1029  ]
+{
+[; ;conexaoWifi.h: 180: f_wifi_processo++;
+"180
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"181
+}
+[e :U 1029 ]
+[; ;conexaoWifi.h: 181: }
+[; ;conexaoWifi.h: 182: break;
+"182
+[e $U 1022  ]
+[; ;conexaoWifi.h: 183: case 4:
+"183
+[e :U 1030 ]
+[; ;conexaoWifi.h: 184: setKeyStartReceiveSerial("ALL");
+"184
+[e ( _setKeyStartReceiveSerial (1 -> :s 53C `*uc ]
+[; ;conexaoWifi.h: 185: delay(10);
+"185
+[e ( _delay (1 -> 10 `i ]
+[; ;conexaoWifi.h: 186: printf("AT+CWJAP=\"%s\",\"%s\"\r\n", ssid, senha);
+"186
+[e ( _printf , , (. :s 54C -> &U _ssid `*Cuc -> &U _senha `*Cuc ]
+[; ;conexaoWifi.h: 187: f_wifi_processo++;
+"187
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 188: t_wifi_restart = 35;
+"188
+[e = _t_wifi_restart -> -> 35 `i `uc ]
+[; ;conexaoWifi.h: 189: break;
+"189
+[e $U 1022  ]
+[; ;conexaoWifi.h: 190: case 5:
+"190
+[e :U 1031 ]
+[; ;conexaoWifi.h: 192: f_wifi_processo++;
+"192
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 194: break;
+"194
+[e $U 1022  ]
+[; ;conexaoWifi.h: 195: case 6:
+"195
+[e :U 1032 ]
+[; ;conexaoWifi.h: 196: setKeyStartReceiveSerial("ALL");
+"196
+[e ( _setKeyStartReceiveSerial (1 -> :s 55C `*uc ]
+[; ;conexaoWifi.h: 197: if (t_wifi_restart <= 15) {
+"197
+[e $ ! <= -> _t_wifi_restart `i -> 15 `i 1033  ]
+{
+[; ;conexaoWifi.h: 198: printf("AT+CIPSTATUS\r\n");
+"198
+[e ( _printf :s 56C ]
 [; ;conexaoWifi.h: 199: f_wifi_processo++;
 "199
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 200: break;
 "200
-[e $U 1028  ]
-[; ;conexaoWifi.h: 201: case 1:
-"201
-[e :U 1031 ]
-[; ;conexaoWifi.h: 202: if (strstr(bufferSerial, "OK") != (0)) {
-"202
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 45C -> -> 0 `i `*uc 1032  ]
-{
-[; ;conexaoWifi.h: 203: f_wifi_processo++;
-"203
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"204
 }
-[e :U 1032 ]
-[; ;conexaoWifi.h: 204: }
-[; ;conexaoWifi.h: 205: break;
-"205
-[e $U 1028  ]
-[; ;conexaoWifi.h: 206: case 2:
-"206
 [e :U 1033 ]
-[; ;conexaoWifi.h: 207: limpaBuffer();
-"207
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 208: printf("AT+CIPMUX=0\r\n");
-"208
-[e ( _printf :s 46C ]
-[; ;conexaoWifi.h: 209: f_wifi_processo++;
-"209
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 210: break;
-"210
-[e $U 1028  ]
-[; ;conexaoWifi.h: 211: case 3:
-"211
+[; ;conexaoWifi.h: 200: }
+[; ;conexaoWifi.h: 201: break;
+"201
+[e $U 1022  ]
+[; ;conexaoWifi.h: 202: case 7:
+"202
 [e :U 1034 ]
-[; ;conexaoWifi.h: 212: if (strstr(bufferSerial, "OK") != (0) | strstr(bufferSerial, "link") != (0)) {
-"212
-[e $ ! | != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 47C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 48C -> -> 0 `i `*uc 1035  ]
+[; ;conexaoWifi.h: 203: if (findBufferSerial("2") || findBufferSerial("4")) {
+"203
+[e $ ! || != -> ( _findBufferSerial (1 -> :s 57C `*uc `i -> -> -> 0 `i `uc `i != -> ( _findBufferSerial (1 -> :s 58C `*uc `i -> -> -> 0 `i `uc `i 1035  ]
 {
-[; ;conexaoWifi.h: 213: f_wifi_processo++;
-"213
+[; ;conexaoWifi.h: 204: wifi_conectado = 1;
+"204
+[e = _wifi_conectado -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 205: f_wifi_processo++;
+"205
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"214
+"206
 }
 [e :U 1035 ]
-[; ;conexaoWifi.h: 214: }
-[; ;conexaoWifi.h: 215: break;
-"215
-[e $U 1028  ]
-[; ;conexaoWifi.h: 216: case 4:
-"216
+[; ;conexaoWifi.h: 206: }
+[; ;conexaoWifi.h: 207: break;
+"207
+[e $U 1022  ]
+[; ;conexaoWifi.h: 208: case 8:
+"208
 [e :U 1036 ]
-[; ;conexaoWifi.h: 217: limpaBuffer();
-"217
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 218: delay(10);
-"218
-[e ( _delay (1 -> 10 `i ]
-[; ;conexaoWifi.h: 219: printf("AT+CWJAP=\"%s\",\"%s\"\r\n", ssid, senha);
-"219
-[e ( _printf , , (. :s 49C -> &U _ssid `*Cuc -> &U _senha `*Cuc ]
-[; ;conexaoWifi.h: 220: f_wifi_processo++;
-"220
+[; ;conexaoWifi.h: 209: setKeyStartReceiveSerial("ALL");
+"209
+[e ( _setKeyStartReceiveSerial (1 -> :s 59C `*uc ]
+[; ;conexaoWifi.h: 211: printf("AT+CIPSTART=\"TCP\",\"18.228.154.248\",80\r\n");
+"211
+[e ( _printf :s 60C ]
+[; ;conexaoWifi.h: 212: f_wifi_processo++;
+"212
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 221: t_wifi_restart = 35;
-"221
-[e = _t_wifi_restart -> -> 35 `i `uc ]
-[; ;conexaoWifi.h: 222: break;
-"222
-[e $U 1028  ]
-[; ;conexaoWifi.h: 223: case 5:
-"223
+[; ;conexaoWifi.h: 213: break;
+"213
+[e $U 1022  ]
+[; ;conexaoWifi.h: 214: case 9:
+"214
 [e :U 1037 ]
-[; ;conexaoWifi.h: 225: f_wifi_processo++;
-"225
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 227: break;
-"227
-[e $U 1028  ]
-[; ;conexaoWifi.h: 228: case 6:
-"228
-[e :U 1038 ]
-[; ;conexaoWifi.h: 229: limpaBuffer();
-"229
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 230: if (t_wifi_restart <= 15) {
-"230
-[e $ ! <= -> _t_wifi_restart `i -> 15 `i 1039  ]
+[; ;conexaoWifi.h: 215: if (findBufferSerial("OK") != (0)) {
+"215
+[e $ ! != -> ( _findBufferSerial (1 -> :s 61C `*uc `i -> 0 `i 1038  ]
 {
-[; ;conexaoWifi.h: 231: printf("AT+CIPSTATUS\r\n");
-"231
-[e ( _printf :s 50C ]
-[; ;conexaoWifi.h: 232: f_wifi_processo++;
-"232
+[; ;conexaoWifi.h: 216: f_wifi_processo++;
+"216
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"233
+"217
 }
+[e :U 1038 ]
+[; ;conexaoWifi.h: 217: }
+[; ;conexaoWifi.h: 218: break;
+"218
+[e $U 1022  ]
+[; ;conexaoWifi.h: 219: case 10:
+"219
 [e :U 1039 ]
-[; ;conexaoWifi.h: 233: }
-[; ;conexaoWifi.h: 234: break;
-"234
-[e $U 1028  ]
-[; ;conexaoWifi.h: 235: case 7:
-"235
-[e :U 1040 ]
-[; ;conexaoWifi.h: 236: if (strstr(bufferSerial, "2") != (0) | strstr(bufferSerial, "4") != (0)) {
-"236
-[e $ ! | != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 51C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 52C -> -> 0 `i `*uc 1041  ]
-{
-[; ;conexaoWifi.h: 237: wifi_conectado = 1;
-"237
-[e = _wifi_conectado -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 238: f_wifi_processo++;
-"238
+[; ;conexaoWifi.h: 220: setKeyStartReceiveSerial("ALL");
+"220
+[e ( _setKeyStartReceiveSerial (1 -> :s 62C `*uc ]
+[; ;conexaoWifi.h: 221: printf("AT+CIPSENDEX=260\r\n");
+"221
+[e ( _printf :s 63C ]
+[; ;conexaoWifi.h: 222: f_wifi_processo++;
+"222
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"239
+[; ;conexaoWifi.h: 223: break;
+"223
+[e $U 1022  ]
+[; ;conexaoWifi.h: 224: case 11:
+"224
+[e :U 1040 ]
+[; ;conexaoWifi.h: 225: if (findBufferSerial(">")) {
+"225
+[e $ ! != -> ( _findBufferSerial (1 -> :s 64C `*uc `i -> -> -> 0 `i `uc `i 1041  ]
+{
+[; ;conexaoWifi.h: 226: f_wifi_processo++;
+"226
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"227
 }
 [e :U 1041 ]
-[; ;conexaoWifi.h: 239: }
+[; ;conexaoWifi.h: 227: }
+[; ;conexaoWifi.h: 228: break;
+"228
+[e $U 1022  ]
+[; ;conexaoWifi.h: 229: case 12:
+"229
+[e :U 1042 ]
+[; ;conexaoWifi.h: 230: setKeyStartReceiveSerial("200");
+"230
+[e ( _setKeyStartReceiveSerial (1 -> :s 65C `*uc ]
+"231
+[v _i `uc ~T0 @X0 1 a ]
+[; ;conexaoWifi.h: 231: char i = 0;
+[e = _i -> -> 0 `i `uc ]
+"232
+[v _AUX `uc ~T0 @X0 -> 15 `i a ]
+[; ;conexaoWifi.h: 232: char AUX[15];
+[; ;conexaoWifi.h: 233: sprintf(AUX, "%s", "Jul 14 2020");
+"233
+[e ( _sprintf (1 , (. , &U _AUX :s 66C :s 67C ]
+[; ;conexaoWifi.h: 234: for (i = 0; i < strlen(AUX); i++) {
+"234
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 1046  ]
+[e :U 1043 ]
+{
+[; ;conexaoWifi.h: 235: if (AUX[i] == ' ') AUX[i] = '-';
+"235
+[e $ ! == -> *U + &U _AUX * -> _i `ux -> -> # *U &U _AUX `ui `ux `ui -> 32 `ui 1047  ]
+[e = *U + &U _AUX * -> _i `ux -> -> # *U &U _AUX `ui `ux -> -> 45 `ui `uc ]
+[e :U 1047 ]
+"236
+}
+"234
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 1046 ]
+[e $ < -> _i `ui ( _strlen (1 -> &U _AUX `*Cuc 1043  ]
+[e :U 1044 ]
+"236
+}
+[; ;conexaoWifi.h: 236: }
+[; ;conexaoWifi.h: 238: printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: 18.228.154.248\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalh
+"238
+[e ( _printf , , , , , , , , , , , , , , , , , , , , , , , , , , , , , (. :s 68C -> _temp `i -> _tempajt `i -> _umid `i -> _umidajt `i -> _fornalha `i -> _buzzer `i -> _tipo_modo_trabalho `i -> _trava_fase `i -> _fase `i -> _clima `i -> _tipo_sensor_umidade `i -> &U _wifi_MAC `*Cuc * _wifi_SENHA -> -> 39 `i `ui -> &U _AUX `*Cuc -> _f_falta_energia `i -> _tipo_sensor_umidade `i -> _h_abafador `i -> _h_flap `i -> _h_venotinha `i -> _h_modo_seguranca `i -> _h_buzzer `i -> _t_flap_ligado `i -> _t_flap_intervalo `i -> _t_buzzer_religar `i -> _t_temp_automatica `i -> _wifi_habilita_alteracao `i _wifi_SENHA -> _h_subir_temp_automatica `i -> _t_religar_ventoinha_automatica `i ]
+[; ;conexaoWifi.h: 239: f_wifi_processo++;
+"239
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
 [; ;conexaoWifi.h: 240: break;
 "240
-[e $U 1028  ]
-[; ;conexaoWifi.h: 241: case 8:
+[e $U 1022  ]
+[; ;conexaoWifi.h: 241: case 13:
 "241
-[e :U 1042 ]
-[; ;conexaoWifi.h: 242: limpaBuffer();
+[e :U 1048 ]
+[; ;conexaoWifi.h: 242: if (findBufferSerial("save")) {
 "242
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 244: printf("AT+CIPSTART=\"TCP\",\"18.228.154.248\",80\r\n");
-"244
-[e ( _printf :s 53C ]
-[; ;conexaoWifi.h: 245: f_wifi_processo++;
-"245
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 246: break;
-"246
-[e $U 1028  ]
-[; ;conexaoWifi.h: 247: case 9:
-"247
-[e :U 1043 ]
-[; ;conexaoWifi.h: 248: if (strstr(bufferSerial, "OK") != (0)) {
-"248
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 54C -> -> 0 `i `*uc 1044  ]
+[e $ ! != -> ( _findBufferSerial (1 -> :s 69C `*uc `i -> -> -> 0 `i `uc `i 1049  ]
 {
+[; ;conexaoWifi.h: 243: f_wifi_processo++;
+"243
+[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+"244
+}
+[e :U 1049 ]
+[; ;conexaoWifi.h: 244: }
+[; ;conexaoWifi.h: 245: break;
+"245
+[e $U 1022  ]
+[; ;conexaoWifi.h: 246: case 14:
+"246
+[e :U 1050 ]
+[; ;conexaoWifi.h: 247: setKeyStartReceiveSerial("ALL");
+"247
+[e ( _setKeyStartReceiveSerial (1 -> :s 70C `*uc ]
+[; ;conexaoWifi.h: 248: printf("AT+CIPCLOSE\r\n");
+"248
+[e ( _printf :s 71C ]
 [; ;conexaoWifi.h: 249: f_wifi_processo++;
 "249
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
+[; ;conexaoWifi.h: 250: break;
 "250
-}
-[e :U 1044 ]
-[; ;conexaoWifi.h: 250: }
-[; ;conexaoWifi.h: 251: break;
+[e $U 1022  ]
+[; ;conexaoWifi.h: 251: case 15:
 "251
-[e $U 1028  ]
-[; ;conexaoWifi.h: 252: case 10:
+[e :U 1051 ]
+[; ;conexaoWifi.h: 252: if (findBufferSerial("OK") || findBufferSerial("CLOSED")) {
 "252
-[e :U 1045 ]
-[; ;conexaoWifi.h: 253: limpaBuffer();
+[e $ ! || != -> ( _findBufferSerial (1 -> :s 72C `*uc `i -> -> -> 0 `i `uc `i != -> ( _findBufferSerial (1 -> :s 73C `*uc `i -> -> -> 0 `i `uc `i 1052  ]
+{
+[; ;conexaoWifi.h: 253: f_wifi_processo = 6;
 "253
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 254: printf("AT+CIPSENDEX=260\r\n");
+[e = _f_wifi_processo -> -> 6 `i `uc ]
+[; ;conexaoWifi.h: 254: t_wifi_restart = 25;
 "254
-[e ( _printf :s 55C ]
-[; ;conexaoWifi.h: 255: f_wifi_processo++;
+[e = _t_wifi_restart -> -> 25 `i `uc ]
 "255
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+}
+[e :U 1052 ]
+[; ;conexaoWifi.h: 255: }
 [; ;conexaoWifi.h: 256: break;
 "256
-[e $U 1028  ]
-[; ;conexaoWifi.h: 257: case 11:
+[e $U 1022  ]
+[; ;conexaoWifi.h: 257: default:
 "257
-[e :U 1046 ]
-[; ;conexaoWifi.h: 258: if (strstr(bufferSerial, ">") != (0)) {
+[e :U 1053 ]
+[; ;conexaoWifi.h: 258: f_wifi_processo = 0;
 "258
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 56C -> -> 0 `i `*uc 1047  ]
-{
-[; ;conexaoWifi.h: 259: f_wifi_processo++;
+[e = _f_wifi_processo -> -> 0 `i `uc ]
 "259
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
+}
+[; ;conexaoWifi.h: 259: }
+[e $U 1022  ]
+"161
+[e :U 1023 ]
+[e [\ _f_wifi_processo , $ -> -> 0 `i `uc 1024
+ , $ -> -> 1 `i `uc 1025
+ , $ -> -> 2 `i `uc 1027
+ , $ -> -> 3 `i `uc 1028
+ , $ -> -> 4 `i `uc 1030
+ , $ -> -> 5 `i `uc 1031
+ , $ -> -> 6 `i `uc 1032
+ , $ -> -> 7 `i `uc 1034
+ , $ -> -> 8 `i `uc 1036
+ , $ -> -> 9 `i `uc 1037
+ , $ -> -> 10 `i `uc 1039
+ , $ -> -> 11 `i `uc 1040
+ , $ -> -> 12 `i `uc 1042
+ , $ -> -> 13 `i `uc 1048
+ , $ -> -> 14 `i `uc 1050
+ , $ -> -> 15 `i `uc 1051
+ 1053 ]
+"259
+[e :U 1022 ]
 "260
 }
-[e :U 1047 ]
-[; ;conexaoWifi.h: 260: }
-[; ;conexaoWifi.h: 261: break;
+[; ;conexaoWifi.h: 260: } else {
+[e $U 1054  ]
+[e :U 1021 ]
+{
+[; ;conexaoWifi.h: 261: switch (f_wifi_processo) {
 "261
-[e $U 1028  ]
-[; ;conexaoWifi.h: 262: case 12:
+[e $U 1056  ]
+{
+[; ;conexaoWifi.h: 262: case 0:
 "262
-[e :U 1048 ]
-[; ;conexaoWifi.h: 263: limpaBuffer();
-"263
-[e ( _limpaBuffer ..  ]
-"264
-[v _i `uc ~T0 @X0 1 a ]
-[; ;conexaoWifi.h: 264: char i = 0;
-[e = _i -> -> 0 `i `uc ]
-"265
-[v _AUX `uc ~T0 @X0 -> 15 `i a ]
-[; ;conexaoWifi.h: 265: char AUX[15];
-[; ;conexaoWifi.h: 266: sprintf(AUX, "%s", "Nov 09 2019");
-"266
-[e ( _sprintf (1 , (. , &U _AUX :s 57C :s 58C ]
-[; ;conexaoWifi.h: 267: for (i = 0; i < strlen(AUX); i++) {
-"267
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 1052  ]
-[e :U 1049 ]
-{
-[; ;conexaoWifi.h: 268: if (AUX[i] == ' ') AUX[i] = '-';
-"268
-[e $ ! == -> *U + &U _AUX * -> _i `ux -> -> # *U &U _AUX `ui `ux `ui -> 32 `ui 1053  ]
-[e = *U + &U _AUX * -> _i `ux -> -> # *U &U _AUX `ui `ux -> -> 45 `ui `uc ]
-[e :U 1053 ]
-"269
-}
-"267
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 1052 ]
-[e $ < -> _i `ui ( _strlen (1 -> &U _AUX `*Cuc 1049  ]
-[e :U 1050 ]
-"269
-}
-[; ;conexaoWifi.h: 269: }
-[; ;conexaoWifi.h: 271: printf("GET /device/integration?i=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%s|%d|%s|%d&p=%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d&k=1z4df68iw1fp5 HTTP/1.1\r\nHost: 18.228.154.248\r\n\r\n\\0", temp, tempajt, umid, umidajt, fornalha, buzzer, tipo_modo_trabalh
-"271
-[e ( _printf , , , , , , , , , , , , , , , , , , , , , , , , , , , , , (. :s 59C -> _temp `i -> _tempajt `i -> _umid `i -> _umidajt `i -> _fornalha `i -> _buzzer `i -> _tipo_modo_trabalho `i -> _trava_fase `i -> _fase `i -> _clima `i -> _tipo_sensor_umidade `i -> &U _wifi_MAC `*Cui * _wifi_SENHA -> -> 39 `i `ui -> &U _AUX `*Cuc -> _f_falta_energia `i -> _tipo_sensor_umidade `i -> _h_abafador `i -> _h_flap `i -> _h_venotinha `i -> _h_modo_seguranca `i -> _h_buzzer `i -> _t_flap_ligado `i -> _t_flap_intervalo `i -> _t_buzzer_religar `i -> _t_temp_automatica `i _wifi_habilita_alteracao _wifi_SENHA -> _h_subir_temp_automatica `i -> _t_religar_ventoinha_automatica `i ]
-[; ;conexaoWifi.h: 272: f_wifi_processo++;
-"272
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 273: break;
-"273
-[e $U 1028  ]
-[; ;conexaoWifi.h: 274: case 13:
-"274
-[e :U 1054 ]
-[; ;conexaoWifi.h: 275: if (strstr(bufferSerial, "200") != (0) | strstr(bufferSerial, "save") != (0)) {
-"275
-[e $ ! | != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 60C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 61C -> -> 0 `i `*uc 1055  ]
-{
-[; ;conexaoWifi.h: 276: f_wifi_processo++;
-"276
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-"277
-}
-[e :U 1055 ]
-[; ;conexaoWifi.h: 277: }
-[; ;conexaoWifi.h: 278: break;
-"278
-[e $U 1028  ]
-[; ;conexaoWifi.h: 279: case 14:
-"279
-[e :U 1056 ]
-[; ;conexaoWifi.h: 280: limpaBuffer();
-"280
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 281: printf("AT+CIPCLOSE\r\n");
-"281
-[e ( _printf :s 62C ]
-[; ;conexaoWifi.h: 282: f_wifi_processo++;
-"282
-[e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 283: break;
-"283
-[e $U 1028  ]
-[; ;conexaoWifi.h: 284: case 15:
-"284
 [e :U 1057 ]
-[; ;conexaoWifi.h: 285: if (strstr(bufferSerial, "OK") != (0) | strstr(bufferSerial, "CLOSED") != (0)) {
-"285
-[e $ ! | != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 63C -> -> 0 `i `*uc != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 64C -> -> 0 `i `*uc 1058  ]
-{
-[; ;conexaoWifi.h: 286: f_wifi_processo = 6;
-"286
-[e = _f_wifi_processo -> -> 6 `i `uc ]
-[; ;conexaoWifi.h: 287: t_wifi_restart = 25;
-"287
-[e = _t_wifi_restart -> -> 25 `i `uc ]
-"288
-}
-[e :U 1058 ]
-[; ;conexaoWifi.h: 288: }
-[; ;conexaoWifi.h: 289: break;
-"289
-[e $U 1028  ]
-[; ;conexaoWifi.h: 290: default:
-"290
-[e :U 1059 ]
-[; ;conexaoWifi.h: 291: f_wifi_processo = 0;
-"291
-[e = _f_wifi_processo -> -> 0 `i `uc ]
-"292
-}
-[; ;conexaoWifi.h: 292: }
-[e $U 1028  ]
-"194
-[e :U 1029 ]
-[e [\ _f_wifi_processo , $ -> -> 0 `i `uc 1030
- , $ -> -> 1 `i `uc 1031
- , $ -> -> 2 `i `uc 1033
- , $ -> -> 3 `i `uc 1034
- , $ -> -> 4 `i `uc 1036
- , $ -> -> 5 `i `uc 1037
- , $ -> -> 6 `i `uc 1038
- , $ -> -> 7 `i `uc 1040
- , $ -> -> 8 `i `uc 1042
- , $ -> -> 9 `i `uc 1043
- , $ -> -> 10 `i `uc 1045
- , $ -> -> 11 `i `uc 1046
- , $ -> -> 12 `i `uc 1048
- , $ -> -> 13 `i `uc 1054
- , $ -> -> 14 `i `uc 1056
- , $ -> -> 15 `i `uc 1057
- 1059 ]
-"292
-[e :U 1028 ]
-"293
-}
-[; ;conexaoWifi.h: 293: } else {
-[e $U 1060  ]
-[e :U 1027 ]
-{
-[; ;conexaoWifi.h: 294: switch (f_wifi_processo) {
-"294
-[e $U 1062  ]
-{
-[; ;conexaoWifi.h: 295: case 0:
-"295
-[e :U 1063 ]
-[; ;conexaoWifi.h: 296: limpaBuffer();
-"296
-[e ( _limpaBuffer ..  ]
-[; ;conexaoWifi.h: 297: printf("AT+CIFSR\r\n");
-"297
-[e ( _printf :s 65C ]
-[; ;conexaoWifi.h: 298: f_wifi_processo++;
-"298
+[; ;conexaoWifi.h: 263: setKeyStartReceiveSerial("APM");
+"263
+[e ( _setKeyStartReceiveSerial (1 -> :s 74C `*uc ]
+[; ;conexaoWifi.h: 264: printf("AT+CIFSR\r\n");
+"264
+[e ( _printf :s 75C ]
+[; ;conexaoWifi.h: 265: f_wifi_processo++;
+"265
 [e ++ _f_wifi_processo -> -> 1 `i `uc ]
-[; ;conexaoWifi.h: 299: break;
-"299
-[e $U 1061  ]
-[; ;conexaoWifi.h: 300: case 1:
-"300
-[e :U 1064 ]
-[; ;conexaoWifi.h: 301: if (strstr(bufferSerial, "MAC") != (0)) {
-"301
-[e $ ! != ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 66C -> -> 0 `i `*uc 1065  ]
+[; ;conexaoWifi.h: 266: break;
+"266
+[e $U 1055  ]
+[; ;conexaoWifi.h: 267: case 1:
+"267
+[e :U 1058 ]
+[; ;conexaoWifi.h: 268: if (findBufferSerial("C,")) {
+"268
+[e $ ! != -> ( _findBufferSerial (1 -> :s 76C `*uc `i -> -> -> 0 `i `uc `i 1059  ]
 {
-[; ;conexaoWifi.h: 302: getMac(strstr(bufferSerial, "MAC"), wifi_MAC);
-"302
-[e ( _getMac (2 , ( _strstr (2 , -> &U _bufferSerial `*Cuc :s 67C -> &U _wifi_MAC `*uc ]
-"303
+[; ;conexaoWifi.h: 269: getMacAdress(bufferSerial, wifi_MAC);
+"269
+[e ( _getMacAdress (2 , &U _bufferSerial &U _wifi_MAC ]
+"270
 }
-[e :U 1065 ]
-[; ;conexaoWifi.h: 303: }
-[; ;conexaoWifi.h: 304: break;
-"304
-[e $U 1061  ]
-[; ;conexaoWifi.h: 305: default:
-"305
-[e :U 1066 ]
-[; ;conexaoWifi.h: 306: f_wifi_processo = 0;
-"306
-[e = _f_wifi_processo -> -> 0 `i `uc ]
-[; ;conexaoWifi.h: 307: break;
-"307
-[e $U 1061  ]
-"308
-}
-[; ;conexaoWifi.h: 308: }
-[e $U 1061  ]
-"294
-[e :U 1062 ]
-[e [\ _f_wifi_processo , $ -> -> 0 `i `uc 1063
- , $ -> -> 1 `i `uc 1064
- 1066 ]
-"308
-[e :U 1061 ]
-"309
-}
+[e :U 1059 ]
+[; ;conexaoWifi.h: 270: }
+[; ;conexaoWifi.h: 271: break;
+"271
+[e $U 1055  ]
+[; ;conexaoWifi.h: 272: default:
+"272
 [e :U 1060 ]
-[e :U 1026 ]
-[; ;conexaoWifi.h: 309: }
-[; ;conexaoWifi.h: 310: }
-"310
-[e :UE 1024 ]
+[; ;conexaoWifi.h: 273: f_wifi_processo = 0;
+"273
+[e = _f_wifi_processo -> -> 0 `i `uc ]
+[; ;conexaoWifi.h: 274: break;
+"274
+[e $U 1055  ]
+"275
 }
-"11 src/Controle.h
+[; ;conexaoWifi.h: 275: }
+[e $U 1055  ]
+"261
+[e :U 1056 ]
+[e [\ _f_wifi_processo , $ -> -> 0 `i `uc 1057
+ , $ -> -> 1 `i `uc 1058
+ 1060 ]
+"275
+[e :U 1055 ]
+"276
+}
+[e :U 1054 ]
+[e :U 1020 ]
+[; ;conexaoWifi.h: 276: }
+[; ;conexaoWifi.h: 277: }
+"277
+[e :UE 1018 ]
+}
+"11 src/controle.h
 [v __acao_flap `uc ~T0 @X0 1 e ]
 [i __acao_flap
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 11: unsigned char _acao_flap = 0;
+[; ;controle.h: 11: unsigned char _acao_flap = 0;
 "12
 [v _f_buzzer_falta_energia `uc ~T0 @X0 1 e ]
 [i _f_buzzer_falta_energia
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 12: unsigned char f_buzzer_falta_energia = 0;
+[; ;controle.h: 12: unsigned char f_buzzer_falta_energia = 0;
 "14
 [v _t_controle_fim_fases `uc ~T0 @X0 1 e ]
 [i _t_controle_fim_fases
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 14: unsigned char t_controle_fim_fases = 0;
+[; ;controle.h: 14: unsigned char t_controle_fim_fases = 0;
 "15
 [v _t_controle_flap `ui ~T0 @X0 1 e ]
 [i _t_controle_flap
 -> -> 0 `i `ui
 ]
-[; ;Controle.h: 15: unsigned int t_controle_flap = 0;
+[; ;controle.h: 15: unsigned int t_controle_flap = 0;
 "16
 [v _t_controle_buzzer `uc ~T0 @X0 1 e ]
 [i _t_controle_buzzer
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 16: unsigned char t_controle_buzzer = 0;
+[; ;controle.h: 16: unsigned char t_controle_buzzer = 0;
 "17
 [v _t_controle_religar_buzzer `ui ~T0 @X0 1 e ]
 [i _t_controle_religar_buzzer
 -> -> 0 `i `ui
 ]
-[; ;Controle.h: 17: unsigned int t_controle_religar_buzzer = 0;
+[; ;controle.h: 17: unsigned int t_controle_religar_buzzer = 0;
 "18
 [v _t_controle_religar_ventoinha `ui ~T0 @X0 1 e ]
 [i _t_controle_religar_ventoinha
 -> -> 0 `i `ui
 ]
-[; ;Controle.h: 18: unsigned int t_controle_religar_ventoinha = 0;
+[; ;controle.h: 18: unsigned int t_controle_religar_ventoinha = 0;
 "19
 [v _t_controle_modo_seguranca `ui ~T0 @X0 1 e ]
 [i _t_controle_modo_seguranca
 -> -> 0 `i `ui
 ]
-[; ;Controle.h: 19: unsigned int t_controle_modo_seguranca = 0;
+[; ;controle.h: 19: unsigned int t_controle_modo_seguranca = 0;
 "20
 [v _t_controle_blink `uc ~T0 @X0 1 e ]
 [i _t_controle_blink
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 20: unsigned char t_controle_blink = 0;
+[; ;controle.h: 20: unsigned char t_controle_blink = 0;
 "21
 [v _t_controle_temp_automatica `uc ~T0 @X0 1 e ]
 [i _t_controle_temp_automatica
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 21: unsigned char t_controle_temp_automatica = 0;
+[; ;controle.h: 21: unsigned char t_controle_temp_automatica = 0;
 "22
 [v _t_leitura_adc `uc ~T0 @X0 1 e ]
 [i _t_leitura_adc
 -> -> 0 `i `uc
 ]
-[; ;Controle.h: 22: unsigned char t_leitura_adc = 0;
+[; ;controle.h: 22: unsigned char t_leitura_adc = 0;
 "23
 [v _md_seguranca `b ~T0 @X0 1 e ]
 [i _md_seguranca
 -> 0 `i
 ]
-[; ;Controle.h: 23: bit md_seguranca = 0;
+[; ;controle.h: 23: bit md_seguranca = 0;
 "24
 [v _contador_fase_automatica `b ~T0 @X0 1 e ]
 [i _contador_fase_automatica
 -> 0 `i
 ]
-[; ;Controle.h: 24: bit contador_fase_automatica = 0;
+[; ;controle.h: 24: bit contador_fase_automatica = 0;
 "39
 [v _timer `(v ~T0 @X0 1 ef ]
 {
-[; ;Controle.h: 39: void timer() {
+[; ;controle.h: 39: void timer() {
 [e :U _timer ]
 [f ]
-[; ;Controle.h: 40: t_controle_flap = (t_controle_flap > 1) ? --t_controle_flap : 0;
+[; ;controle.h: 40: t_controle_flap = (t_controle_flap > 1) ? --t_controle_flap : 0;
 "40
 [e = _t_controle_flap ? > _t_controle_flap -> -> 1 `i `ui : =- _t_controle_flap -> -> 1 `i `ui -> -> 0 `i `ui ]
-[; ;Controle.h: 41: t_controle_buzzer = (t_controle_buzzer > 1) ? --t_controle_buzzer : 0;
+[; ;controle.h: 41: t_controle_buzzer = (t_controle_buzzer > 1) ? --t_controle_buzzer : 0;
 "41
 [e = _t_controle_buzzer -> ? > -> _t_controle_buzzer `i -> 1 `i : -> =- _t_controle_buzzer -> -> 1 `i `uc `i -> 0 `i `uc ]
-[; ;Controle.h: 42: t_controle_modo_seguranca = (t_controle_modo_seguranca > 1) ? --t_controle_modo_seguranca : 0;
+[; ;controle.h: 42: t_controle_modo_seguranca = (t_controle_modo_seguranca > 1) ? --t_controle_modo_seguranca : 0;
 "42
 [e = _t_controle_modo_seguranca ? > _t_controle_modo_seguranca -> -> 1 `i `ui : =- _t_controle_modo_seguranca -> -> 1 `i `ui -> -> 0 `i `ui ]
-[; ;Controle.h: 43: t_leitura_adc = (t_leitura_adc > 1) ? --t_leitura_adc : 0;
+[; ;controle.h: 43: t_leitura_adc = (t_leitura_adc > 1) ? --t_leitura_adc : 0;
 "43
 [e = _t_leitura_adc -> ? > -> _t_leitura_adc `i -> 1 `i : -> =- _t_leitura_adc -> -> 1 `i `uc `i -> 0 `i `uc ]
-[; ;Controle.h: 47: if (t_controle_blink > 1) {
+[; ;controle.h: 47: if (t_controle_blink > 1) {
 "47
-[e $ ! > -> _t_controle_blink `i -> 1 `i 1068  ]
+[e $ ! > -> _t_controle_blink `i -> 1 `i 1062  ]
 {
-[; ;Controle.h: 48: --t_controle_blink;
+[; ;controle.h: 48: --t_controle_blink;
 "48
 [e =- _t_controle_blink -> -> 1 `i `uc ]
 "49
 }
-[; ;Controle.h: 49: } else {
-[e $U 1069  ]
-[e :U 1068 ]
+[; ;controle.h: 49: } else {
+[e $U 1063  ]
+[e :U 1062 ]
 {
-[; ;Controle.h: 50: blinkk = ~blinkk;
+[; ;controle.h: 50: blinkk = ~blinkk;
 "50
 [e = _blinkk -> ~ -> _blinkk `ui `b ]
-[; ;Controle.h: 51: t_controle_blink = 5;
+[; ;controle.h: 51: t_controle_blink = 5;
 "51
 [e = _t_controle_blink -> -> 5 `i `uc ]
 "52
 }
-[e :U 1069 ]
-[; ;Controle.h: 52: }
-[; ;Controle.h: 54: base_sec++;
+[e :U 1063 ]
+[; ;controle.h: 52: }
+[; ;controle.h: 54: base_sec++;
 "54
 [e ++ _base_sec -> -> 1 `i `uc ]
-[; ;Controle.h: 55: if (base_sec > 9) {
+[; ;controle.h: 55: if (base_sec > 9) {
 "55
-[e $ ! > -> _base_sec `i -> 9 `i 1070  ]
+[e $ ! > -> _base_sec `i -> 9 `i 1064  ]
 {
-[; ;Controle.h: 56: base_sec = 0;
+[; ;controle.h: 56: base_sec = 0;
 "56
 [e = _base_sec -> -> 0 `i `uc ]
-[; ;Controle.h: 57: sec++;
+[; ;controle.h: 57: sec++;
 "57
 [e ++ _sec -> -> 1 `i `uc ]
-[; ;Controle.h: 58: t_wifi_restart = (t_wifi_restart > 1) ? --t_wifi_restart : 0;
+[; ;controle.h: 58: t_wifi_restart = (t_wifi_restart > 1) ? --t_wifi_restart : 0;
 "58
 [e = _t_wifi_restart -> ? > -> _t_wifi_restart `i -> 1 `i : -> =- _t_wifi_restart -> -> 1 `i `uc `i -> 0 `i `uc ]
-[; ;Controle.h: 66: if (sec > 59) {
+[; ;controle.h: 66: if (sec > 59) {
 "66
-[e $ ! > -> _sec `i -> 59 `i 1071  ]
+[e $ ! > -> _sec `i -> 59 `i 1065  ]
 {
-[; ;Controle.h: 67: t_controle_religar_buzzer = (t_controle_religar_buzzer > 1) ? --t_controle_religar_buzzer : 0;
+[; ;controle.h: 67: t_controle_religar_buzzer = (t_controle_religar_buzzer > 1) ? --t_controle_religar_buzzer : 0;
 "67
 [e = _t_controle_religar_buzzer ? > _t_controle_religar_buzzer -> -> 1 `i `ui : =- _t_controle_religar_buzzer -> -> 1 `i `ui -> -> 0 `i `ui ]
-[; ;Controle.h: 68: t_controle_religar_ventoinha = (t_controle_religar_ventoinha > 1) ? --t_controle_religar_ventoinha : 0;
+[; ;controle.h: 68: t_controle_religar_ventoinha = (t_controle_religar_ventoinha > 1) ? --t_controle_religar_ventoinha : 0;
 "68
 [e = _t_controle_religar_ventoinha ? > _t_controle_religar_ventoinha -> -> 1 `i `ui : =- _t_controle_religar_ventoinha -> -> 1 `i `ui -> -> 0 `i `ui ]
-[; ;Controle.h: 72: if (tempajt != 100 && tempajt != 110 && tempajt != 133 && f_falta_energia == 1) {
+[; ;controle.h: 72: if (tempajt != 100 && tempajt != 110 && tempajt != 133 && f_falta_energia == 1) {
 "72
-[e $ ! && && && != -> _tempajt `i -> 100 `i != -> _tempajt `i -> 110 `i != -> _tempajt `i -> 133 `i == -> _f_falta_energia `i -> 1 `i 1072  ]
+[e $ ! && && && != -> _tempajt `i -> 100 `i != -> _tempajt `i -> 110 `i != -> _tempajt `i -> 133 `i == -> _f_falta_energia `i -> 1 `i 1066  ]
 {
-[; ;Controle.h: 73: if ((((temp + h_subir_temp_automatica) >= tempajt) && ((temp - h_subir_temp_automatica) <= tempajt)) && (tempajt < 150 && t_temp_automatica != 0) && trava_fase == 0) {
+[; ;controle.h: 73: if ((((temp + h_subir_temp_automatica) >= tempajt) && ((temp - h_subir_temp_automatica) <= tempajt)) && (tempajt < 150 && t_temp_automatica != 0) && trava_fase == 0) {
 "73
-[e $ ! && && && >= + -> _temp `i -> _h_subir_temp_automatica `i -> _tempajt `i <= - -> _temp `i -> _h_subir_temp_automatica `i -> _tempajt `i && < -> _tempajt `i -> 150 `i != -> _t_temp_automatica `i -> 0 `i == -> _trava_fase `i -> 0 `i 1073  ]
+[e $ ! && && && >= + -> _temp `i -> _h_subir_temp_automatica `i -> _tempajt `i <= - -> _temp `i -> _h_subir_temp_automatica `i -> _tempajt `i && < -> _tempajt `i -> 150 `i != -> _t_temp_automatica `i -> 0 `i == -> _trava_fase `i -> 0 `i 1067  ]
 {
-[; ;Controle.h: 75: t_controle_temp_automatica++;
+[; ;controle.h: 75: t_controle_temp_automatica++;
 "75
 [e ++ _t_controle_temp_automatica -> -> 1 `i `uc ]
-[; ;Controle.h: 76: if (t_controle_temp_automatica >= t_temp_automatica) {
+[; ;controle.h: 76: if (t_controle_temp_automatica >= t_temp_automatica) {
 "76
-[e $ ! >= -> _t_controle_temp_automatica `i -> _t_temp_automatica `i 1074  ]
+[e $ ! >= -> _t_controle_temp_automatica `i -> _t_temp_automatica `i 1068  ]
 {
-[; ;Controle.h: 77: setRangeValor('+', &tempajt, 85, 151, 1);
+[; ;controle.h: 77: setRangeValor('+', &tempajt, 85, 151, 1);
 "77
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tempajt -> -> 85 `i `uc -> -> 151 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 78: t_controle_temp_automatica = 0;
+[; ;controle.h: 78: t_controle_temp_automatica = 0;
 "78
 [e = _t_controle_temp_automatica -> -> 0 `i `uc ]
 "79
 }
-[e :U 1074 ]
+[e :U 1068 ]
 "80
 }
-[e :U 1073 ]
+[e :U 1067 ]
 "81
 }
-[e :U 1072 ]
-[; ;Controle.h: 79: }
-[; ;Controle.h: 80: }
-[; ;Controle.h: 81: }
-[; ;Controle.h: 83: sec = 0;
+[e :U 1066 ]
+[; ;controle.h: 79: }
+[; ;controle.h: 80: }
+[; ;controle.h: 81: }
+[; ;controle.h: 83: sec = 0;
 "83
 [e = _sec -> -> 0 `i `uc ]
-[; ;Controle.h: 84: min++;
+[; ;controle.h: 84: min++;
 "84
 [e ++ _min -> -> 1 `i `uc ]
-[; ;Controle.h: 85: if (min > 59) {
+[; ;controle.h: 85: if (min > 59) {
 "85
-[e $ ! > -> _min `i -> 59 `i 1075  ]
+[e $ ! > -> _min `i -> 59 `i 1069  ]
 {
-[; ;Controle.h: 86: min = 0;
+[; ;controle.h: 86: min = 0;
 "86
 [e = _min -> -> 0 `i `uc ]
-[; ;Controle.h: 87: hor++;
+[; ;controle.h: 87: hor++;
 "87
 [e ++ _hor -> -> 1 `i `uc ]
-[; ;Controle.h: 90: if (trava_fase == 0 && t_temp_automatica != 0 && f_falta_energia == 1) {
+[; ;controle.h: 90: if (trava_fase == 0 && t_temp_automatica != 0 && f_falta_energia == 1) {
 "90
-[e $ ! && && == -> _trava_fase `i -> 0 `i != -> _t_temp_automatica `i -> 0 `i == -> _f_falta_energia `i -> 1 `i 1076  ]
+[e $ ! && && == -> _trava_fase `i -> 0 `i != -> _t_temp_automatica `i -> 0 `i == -> _f_falta_energia `i -> 1 `i 1070  ]
 {
-[; ;Controle.h: 91: if (tempajt == 100 && fase == 1) {
+[; ;controle.h: 91: if (tempajt == 100 && fase == 1) {
 "91
-[e $ ! && == -> _tempajt `i -> 100 `i == -> _fase `i -> 1 `i 1077  ]
+[e $ ! && == -> _tempajt `i -> 100 `i == -> _fase `i -> 1 `i 1071  ]
 {
-[; ;Controle.h: 92: t_controle_fim_fases++;
+[; ;controle.h: 92: t_controle_fim_fases++;
 "92
 [e ++ _t_controle_fim_fases -> -> 1 `i `uc ]
-[; ;Controle.h: 93: if (t_controle_fim_fases >= t_fim_fase1 && t_fim_fase1 != 0) {
+[; ;controle.h: 93: if (t_controle_fim_fases >= t_fim_fase1 && t_fim_fase1 != 0) {
 "93
-[e $ ! && >= -> _t_controle_fim_fases `i -> _t_fim_fase1 `i != -> _t_fim_fase1 `i -> 0 `i 1078  ]
+[e $ ! && >= -> _t_controle_fim_fases `i -> _t_fim_fase1 `i != -> _t_fim_fase1 `i -> 0 `i 1072  ]
 {
-[; ;Controle.h: 94: setRangeValor('+', &tempajt, 85, 151, 1);
+[; ;controle.h: 94: setRangeValor('+', &tempajt, 85, 151, 1);
 "94
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tempajt -> -> 85 `i `uc -> -> 151 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 95: t_controle_fim_fases = 0;
+[; ;controle.h: 95: t_controle_fim_fases = 0;
 "95
 [e = _t_controle_fim_fases -> -> 0 `i `uc ]
 "96
 }
-[e :U 1078 ]
+[e :U 1072 ]
 "97
 }
-[; ;Controle.h: 96: }
-[; ;Controle.h: 97: } else if (tempajt == 110 && fase == 2) {
-[e $U 1079  ]
-[e :U 1077 ]
-[e $ ! && == -> _tempajt `i -> 110 `i == -> _fase `i -> 2 `i 1080  ]
+[; ;controle.h: 96: }
+[; ;controle.h: 97: } else if (tempajt == 110 && fase == 2) {
+[e $U 1073  ]
+[e :U 1071 ]
+[e $ ! && == -> _tempajt `i -> 110 `i == -> _fase `i -> 2 `i 1074  ]
 {
-[; ;Controle.h: 98: t_controle_fim_fases++;
+[; ;controle.h: 98: t_controle_fim_fases++;
 "98
 [e ++ _t_controle_fim_fases -> -> 1 `i `uc ]
-[; ;Controle.h: 99: if (t_controle_fim_fases >= t_fim_fase2 && t_fim_fase2 != 0) {
+[; ;controle.h: 99: if (t_controle_fim_fases >= t_fim_fase2 && t_fim_fase2 != 0) {
 "99
-[e $ ! && >= -> _t_controle_fim_fases `i -> _t_fim_fase2 `i != -> _t_fim_fase2 `i -> 0 `i 1081  ]
+[e $ ! && >= -> _t_controle_fim_fases `i -> _t_fim_fase2 `i != -> _t_fim_fase2 `i -> 0 `i 1075  ]
 {
-[; ;Controle.h: 100: setRangeValor('+', &tempajt, 85, 151, 1);
+[; ;controle.h: 100: setRangeValor('+', &tempajt, 85, 151, 1);
 "100
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tempajt -> -> 85 `i `uc -> -> 151 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 101: t_controle_fim_fases = 0;
+[; ;controle.h: 101: t_controle_fim_fases = 0;
 "101
 [e = _t_controle_fim_fases -> -> 0 `i `uc ]
 "102
 }
-[e :U 1081 ]
+[e :U 1075 ]
 "103
 }
-[; ;Controle.h: 102: }
-[; ;Controle.h: 103: } else if (tempajt == 133 && fase == 3) {
-[e $U 1082  ]
-[e :U 1080 ]
-[e $ ! && == -> _tempajt `i -> 133 `i == -> _fase `i -> 3 `i 1083  ]
+[; ;controle.h: 102: }
+[; ;controle.h: 103: } else if (tempajt == 133 && fase == 3) {
+[e $U 1076  ]
+[e :U 1074 ]
+[e $ ! && == -> _tempajt `i -> 133 `i == -> _fase `i -> 3 `i 1077  ]
 {
-[; ;Controle.h: 104: t_controle_fim_fases++;
+[; ;controle.h: 104: t_controle_fim_fases++;
 "104
 [e ++ _t_controle_fim_fases -> -> 1 `i `uc ]
-[; ;Controle.h: 105: if (t_controle_fim_fases >= t_fim_fase3 && t_fim_fase3 != 0) {
+[; ;controle.h: 105: if (t_controle_fim_fases >= t_fim_fase3 && t_fim_fase3 != 0) {
 "105
-[e $ ! && >= -> _t_controle_fim_fases `i -> _t_fim_fase3 `i != -> _t_fim_fase3 `i -> 0 `i 1084  ]
+[e $ ! && >= -> _t_controle_fim_fases `i -> _t_fim_fase3 `i != -> _t_fim_fase3 `i -> 0 `i 1078  ]
 {
-[; ;Controle.h: 106: setRangeValor('+', &tempajt, 85, 151, 1);
+[; ;controle.h: 106: setRangeValor('+', &tempajt, 85, 151, 1);
 "106
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tempajt -> -> 85 `i `uc -> -> 151 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 107: t_controle_fim_fases = 0;
+[; ;controle.h: 107: t_controle_fim_fases = 0;
 "107
 [e = _t_controle_fim_fases -> -> 0 `i `uc ]
 "108
 }
-[e :U 1084 ]
+[e :U 1078 ]
 "109
 }
-[; ;Controle.h: 108: }
-[; ;Controle.h: 109: } else {
-[e $U 1085  ]
-[e :U 1083 ]
+[; ;controle.h: 108: }
+[; ;controle.h: 109: } else {
+[e $U 1079  ]
+[e :U 1077 ]
 {
-[; ;Controle.h: 110: t_controle_fim_fases = 0;
+[; ;controle.h: 110: t_controle_fim_fases = 0;
 "110
 [e = _t_controle_fim_fases -> -> 0 `i `uc ]
 "111
 }
-[e :U 1085 ]
-[e :U 1082 ]
 [e :U 1079 ]
+[e :U 1076 ]
+[e :U 1073 ]
 "112
 }
-[e :U 1076 ]
-[; ;Controle.h: 111: }
-[; ;Controle.h: 112: }
-[; ;Controle.h: 114: if (hor > 23) {
+[e :U 1070 ]
+[; ;controle.h: 111: }
+[; ;controle.h: 112: }
+[; ;controle.h: 114: if (hor > 23) {
 "114
-[e $ ! > -> _hor `i -> 23 `i 1086  ]
+[e $ ! > -> _hor `i -> 23 `i 1080  ]
 {
-[; ;Controle.h: 115: hor = 0;
+[; ;controle.h: 115: hor = 0;
 "115
 [e = _hor -> -> 0 `i `uc ]
 "116
 }
-[e :U 1086 ]
+[e :U 1080 ]
 "117
 }
-[e :U 1075 ]
+[e :U 1069 ]
 "119
 }
-[e :U 1071 ]
+[e :U 1065 ]
 "120
 }
-[e :U 1070 ]
-[; ;Controle.h: 116: }
-[; ;Controle.h: 117: }
-[; ;Controle.h: 119: }
-[; ;Controle.h: 120: }
-[; ;Controle.h: 121: }
+[e :U 1064 ]
+[; ;controle.h: 116: }
+[; ;controle.h: 117: }
+[; ;controle.h: 119: }
+[; ;controle.h: 120: }
+[; ;controle.h: 121: }
 "121
-[e :UE 1067 ]
+[e :UE 1061 ]
 }
 "123
 [v _acaoFlap `(v ~T0 @X0 1 ef3`uc`i`i ]
 {
-[; ;Controle.h: 123: void acaoFlap(char acao, int tempo_ativado, int tempo_aguardar) {
+[; ;controle.h: 123: void acaoFlap(char acao, int tempo_ativado, int tempo_aguardar) {
 [e :U _acaoFlap ]
 [v _acao `uc ~T0 @X0 1 r1 ]
 [v _tempo_ativado `i ~T0 @X0 1 r2 ]
 [v _tempo_aguardar `i ~T0 @X0 1 r3 ]
 [f ]
-[; ;Controle.h: 124: if (acao != _acao_flap) {
+[; ;controle.h: 124: if (acao != _acao_flap) {
 "124
-[e $ ! != -> _acao `i -> __acao_flap `i 1088  ]
+[e $ ! != -> _acao `i -> __acao_flap `i 1082  ]
 {
-[; ;Controle.h: 125: t_controle_flap = 0;
+[; ;controle.h: 125: t_controle_flap = 0;
 "125
 [e = _t_controle_flap -> -> 0 `i `ui ]
-[; ;Controle.h: 126: _acao_flap = acao;
+[; ;controle.h: 126: _acao_flap = acao;
 "126
 [e = __acao_flap _acao ]
-[; ;Controle.h: 127: return;
+[; ;controle.h: 127: return;
 "127
-[e $UE 1087  ]
+[e $UE 1081  ]
 "128
 }
-[e :U 1088 ]
-[; ;Controle.h: 128: }
-[; ;Controle.h: 129: if (acao) {
+[e :U 1082 ]
+[; ;controle.h: 128: }
+[; ;controle.h: 129: if (acao) {
 "129
-[e $ ! != -> _acao `i -> -> -> 0 `i `uc `i 1089  ]
+[e $ ! != -> _acao `i -> -> -> 0 `i `uc `i 1083  ]
 {
-[; ;Controle.h: 130: setLed(4, 1);
+[; ;controle.h: 130: setLed(4, 1);
 "130
 [e ( _setLed (2 , -> -> 4 `i `uc -> -> 1 `i `uc ]
 "131
 }
-[; ;Controle.h: 131: } else {
-[e $U 1090  ]
-[e :U 1089 ]
+[; ;controle.h: 131: } else {
+[e $U 1084  ]
+[e :U 1083 ]
 {
-[; ;Controle.h: 132: setLed(4, 0);
+[; ;controle.h: 132: setLed(4, 0);
 "132
 [e ( _setLed (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
 "133
 }
-[e :U 1090 ]
-[; ;Controle.h: 133: }
-[; ;Controle.h: 135: if (!t_controle_flap) {
+[e :U 1084 ]
+[; ;controle.h: 133: }
+[; ;controle.h: 135: if (!t_controle_flap) {
 "135
-[e $ ! ! != _t_controle_flap -> -> 0 `i `ui 1091  ]
+[e $ ! ! != _t_controle_flap -> -> 0 `i `ui 1085  ]
 {
-[; ;Controle.h: 136: t_controle_flap = (tempo_ativado + tempo_aguardar);
+[; ;controle.h: 136: t_controle_flap = (tempo_ativado + tempo_aguardar);
 "136
 [e = _t_controle_flap -> + _tempo_ativado _tempo_aguardar `ui ]
 "137
 }
-[e :U 1091 ]
-[; ;Controle.h: 137: }
-[; ;Controle.h: 139: if (t_controle_flap > tempo_aguardar) {
+[e :U 1085 ]
+[; ;controle.h: 137: }
+[; ;controle.h: 139: if (t_controle_flap > tempo_aguardar) {
 "139
-[e $ ! > _t_controle_flap -> _tempo_aguardar `ui 1092  ]
+[e $ ! > _t_controle_flap -> _tempo_aguardar `ui 1086  ]
 {
-[; ;Controle.h: 140: LATAbits.LA5 = !acao;
+[; ;controle.h: 140: LATAbits.LA5 = !acao;
 "140
 [e = . . _LATAbits 1 5 -> -> ! != -> _acao `i -> -> -> 0 `i `uc `i `i `uc ]
-[; ;Controle.h: 141: LATCbits.LC2 = acao;
+[; ;controle.h: 141: LATCbits.LC2 = acao;
 "141
 [e = . . _LATCbits 1 2 _acao ]
 "142
 }
-[; ;Controle.h: 142: } else {
-[e $U 1093  ]
-[e :U 1092 ]
+[; ;controle.h: 142: } else {
+[e $U 1087  ]
+[e :U 1086 ]
 {
-[; ;Controle.h: 143: LATAbits.LA5 = 0;
+[; ;controle.h: 143: LATAbits.LA5 = 0;
 "143
 [e = . . _LATAbits 1 5 -> -> 0 `i `uc ]
-[; ;Controle.h: 144: LATCbits.LC2 = 0;
+[; ;controle.h: 144: LATCbits.LC2 = 0;
 "144
 [e = . . _LATCbits 1 2 -> -> 0 `i `uc ]
 "145
 }
-[e :U 1093 ]
-[; ;Controle.h: 145: }
-[; ;Controle.h: 146: }
+[e :U 1087 ]
+[; ;controle.h: 145: }
+[; ;controle.h: 146: }
 "146
-[e :UE 1087 ]
+[e :UE 1081 ]
 }
 "148
 [v _controle `(v ~T0 @X0 1 ef ]
 {
-[; ;Controle.h: 148: void controle() {
+[; ;controle.h: 148: void controle() {
 [e :U _controle ]
 [f ]
-[; ;Controle.h: 150: if (f_falta_energia == 0) {
+[; ;controle.h: 150: if (f_falta_energia == 0) {
 "150
-[e $ ! == -> _f_falta_energia `i -> 0 `i 1095  ]
+[e $ ! == -> _f_falta_energia `i -> 0 `i 1089  ]
 {
-[; ;Controle.h: 151: LATBbits.LATB5 = blinkk;
+[; ;controle.h: 151: LATBbits.LATB5 = blinkk;
 "151
 [e = . . _LATBbits 0 5 -> -> _blinkk `i `uc ]
-[; ;Controle.h: 152: LATEbits.LE0 = 0;
+[; ;controle.h: 152: LATEbits.LE0 = 0;
 "152
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Controle.h: 153: LATDbits.LD0 = 1;
+[; ;controle.h: 153: LATDbits.LD0 = 1;
 "153
 [e = . . _LATDbits 1 0 -> -> 1 `i `uc ]
-[; ;Controle.h: 154: LATDbits.LD1 = 0;
+[; ;controle.h: 154: LATDbits.LD1 = 0;
 "154
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
-[; ;Controle.h: 155: acaoFlap(1, 10, 0);
+[; ;controle.h: 155: acaoFlap(1, 10, 0);
 "155
 [e ( _acaoFlap (3 , , -> -> 1 `i `uc -> 10 `i -> 0 `i ]
-[; ;Controle.h: 156: if (f_buzzer_falta_energia == 1 && buzzer == 0) {
+[; ;controle.h: 156: if (f_buzzer_falta_energia == 1 && buzzer == 0) {
 "156
-[e $ ! && == -> _f_buzzer_falta_energia `i -> 1 `i == -> _buzzer `i -> 0 `i 1096  ]
+[e $ ! && == -> _f_buzzer_falta_energia `i -> 1 `i == -> _buzzer `i -> 0 `i 1090  ]
 {
-[; ;Controle.h: 157: buzzer = 1;
+[; ;controle.h: 157: buzzer = 1;
 "157
 [e = _buzzer -> -> 1 `i `uc ]
-[; ;Controle.h: 158: f_buzzer_falta_energia = 0;
+[; ;controle.h: 158: f_buzzer_falta_energia = 0;
 "158
 [e = _f_buzzer_falta_energia -> -> 0 `i `uc ]
 "159
 }
-[e :U 1096 ]
-[; ;Controle.h: 159: }
-[; ;Controle.h: 160: if (buzzer) {
+[e :U 1090 ]
+[; ;controle.h: 159: }
+[; ;controle.h: 160: if (buzzer) {
 "160
-[e $ ! != -> _buzzer `i -> -> -> 0 `i `uc `i 1097  ]
+[e $ ! != -> _buzzer `i -> -> -> 0 `i `uc `i 1091  ]
 {
-[; ;Controle.h: 161: LATCbits.LC1 = blinkk;
+[; ;controle.h: 161: LATCbits.LC1 = blinkk;
 "161
 [e = . . _LATCbits 1 1 -> -> _blinkk `i `uc ]
 "162
 }
-[; ;Controle.h: 162: } else {
-[e $U 1098  ]
-[e :U 1097 ]
+[; ;controle.h: 162: } else {
+[e $U 1092  ]
+[e :U 1091 ]
 {
-[; ;Controle.h: 163: LATCbits.LC1 = 0;
+[; ;controle.h: 163: LATCbits.LC1 = 0;
 "163
 [e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
 "164
 }
-[e :U 1098 ]
-[; ;Controle.h: 164: }
-[; ;Controle.h: 165: return;
+[e :U 1092 ]
+[; ;controle.h: 164: }
+[; ;controle.h: 165: return;
 "165
-[e $UE 1094  ]
+[e $UE 1088  ]
 "166
 }
-[; ;Controle.h: 166: } else {
-[e $U 1099  ]
-[e :U 1095 ]
+[; ;controle.h: 166: } else {
+[e $U 1093  ]
+[e :U 1089 ]
 {
-[; ;Controle.h: 167: f_buzzer_falta_energia = 1;
+[; ;controle.h: 167: f_buzzer_falta_energia = 1;
 "167
 [e = _f_buzzer_falta_energia -> -> 1 `i `uc ]
 "168
 }
-[e :U 1099 ]
-[; ;Controle.h: 168: }
-[; ;Controle.h: 172: LATBbits.LATB5 = 1;
+[e :U 1093 ]
+[; ;controle.h: 168: }
+[; ;controle.h: 172: LATBbits.LATB5 = 1;
 "172
 [e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
-[; ;Controle.h: 174: if (((temp + h_modo_seguranca) <= tempajt) | ((temp - h_modo_seguranca) >= tempajt) && h_modo_seguranca != 0) {
+[; ;controle.h: 174: if (((temp + h_modo_seguranca) <= tempajt) | ((temp - h_modo_seguranca) >= tempajt) && h_modo_seguranca != 0) {
 "174
-[e $ ! && | <= + -> _temp `i -> _h_modo_seguranca `i -> _tempajt `i >= - -> _temp `i -> _h_modo_seguranca `i -> _tempajt `i != -> _h_modo_seguranca `i -> 0 `i 1100  ]
+[e $ ! && | <= + -> _temp `i -> _h_modo_seguranca `i -> _tempajt `i >= - -> _temp `i -> _h_modo_seguranca `i -> _tempajt `i != -> _h_modo_seguranca `i -> 0 `i 1094  ]
 {
-[; ;Controle.h: 175: setLed(8, 1);
+[; ;controle.h: 175: setLed(8, 1);
 "175
 [e ( _setLed (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 176: acaoFlap(md_seguranca, 10, 0);
+[; ;controle.h: 176: acaoFlap(md_seguranca, 10, 0);
 "176
 [e ( _acaoFlap (3 , , -> -> _md_seguranca `i `uc -> 10 `i -> 0 `i ]
-[; ;Controle.h: 177: if (t_controle_modo_seguranca == 0) {
+[; ;controle.h: 177: if (t_controle_modo_seguranca == 0) {
 "177
-[e $ ! == _t_controle_modo_seguranca -> -> 0 `i `ui 1101  ]
+[e $ ! == _t_controle_modo_seguranca -> -> 0 `i `ui 1095  ]
 {
-[; ;Controle.h: 178: t_controle_modo_seguranca = 1800;
+[; ;controle.h: 178: t_controle_modo_seguranca = 1800;
 "178
 [e = _t_controle_modo_seguranca -> -> 1800 `i `ui ]
-[; ;Controle.h: 179: md_seguranca = ~md_seguranca;
+[; ;controle.h: 179: md_seguranca = ~md_seguranca;
 "179
 [e = _md_seguranca -> ~ -> _md_seguranca `ui `b ]
 "180
 }
-[e :U 1101 ]
+[e :U 1095 ]
 "181
 }
-[; ;Controle.h: 180: }
-[; ;Controle.h: 181: } else {
-[e $U 1102  ]
-[e :U 1100 ]
+[; ;controle.h: 180: }
+[; ;controle.h: 181: } else {
+[e $U 1096  ]
+[e :U 1094 ]
 {
-[; ;Controle.h: 182: setLed(8, 0);
+[; ;controle.h: 182: setLed(8, 0);
 "182
 [e ( _setLed (2 , -> -> 8 `i `uc -> -> 0 `i `uc ]
-[; ;Controle.h: 183: if (umid >= (umidajt + h_flap)) {
+[; ;controle.h: 183: if (umid >= (umidajt + h_flap)) {
 "183
-[e $ ! >= -> _umid `i + -> _umidajt `i -> _h_flap `i 1103  ]
+[e $ ! >= -> _umid `i + -> _umidajt `i -> _h_flap `i 1097  ]
 {
-[; ;Controle.h: 184: acaoFlap(1, t_flap_ligado, (t_flap_intervalo * 10));
+[; ;controle.h: 184: acaoFlap(1, t_flap_ligado, (t_flap_intervalo * 10));
 "184
 [e ( _acaoFlap (3 , , -> -> 1 `i `uc -> _t_flap_ligado `i * -> _t_flap_intervalo `i -> 10 `i ]
 "185
 }
-[; ;Controle.h: 185: } else if (umid <= umidajt) {
-[e $U 1104  ]
-[e :U 1103 ]
-[e $ ! <= -> _umid `i -> _umidajt `i 1105  ]
+[; ;controle.h: 185: } else if (umid <= umidajt) {
+[e $U 1098  ]
+[e :U 1097 ]
+[e $ ! <= -> _umid `i -> _umidajt `i 1099  ]
 {
-[; ;Controle.h: 186: acaoFlap(0, 200, 600);
+[; ;controle.h: 186: acaoFlap(0, 200, 600);
 "186
 [e ( _acaoFlap (3 , , -> -> 0 `i `uc -> 200 `i -> 600 `i ]
 "187
 }
-[e :U 1105 ]
+[e :U 1099 ]
 "188
-[e :U 1104 ]
+[e :U 1098 ]
 }
-[e :U 1102 ]
-[; ;Controle.h: 187: }
-[; ;Controle.h: 188: }
-[; ;Controle.h: 189: if (temp > 0) {
+[e :U 1096 ]
+[; ;controle.h: 187: }
+[; ;controle.h: 188: }
+[; ;controle.h: 189: if (temp > 0) {
 "189
-[e $ ! > -> _temp `i -> 0 `i 1106  ]
+[e $ ! > -> _temp `i -> 0 `i 1100  ]
 {
-[; ;Controle.h: 190: if ((temp + h_abafador) <= tempajt) {
+[; ;controle.h: 190: if ((temp + h_abafador) <= tempajt) {
 "190
-[e $ ! <= + -> _temp `i -> _h_abafador `i -> _tempajt `i 1107  ]
+[e $ ! <= + -> _temp `i -> _h_abafador `i -> _tempajt `i 1101  ]
 {
-[; ;Controle.h: 191: LATEbits.LE0 = 1;
+[; ;controle.h: 191: LATEbits.LE0 = 1;
 "191
 [e = . . _LATEbits 1 0 -> -> 1 `i `uc ]
-[; ;Controle.h: 192: LATDbits.LD0 = 0;
+[; ;controle.h: 192: LATDbits.LD0 = 0;
 "192
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 "193
 }
-[; ;Controle.h: 193: } else if (temp >= tempajt) {
-[e $U 1108  ]
-[e :U 1107 ]
-[e $ ! >= -> _temp `i -> _tempajt `i 1109  ]
+[; ;controle.h: 193: } else if (temp >= tempajt) {
+[e $U 1102  ]
+[e :U 1101 ]
+[e $ ! >= -> _temp `i -> _tempajt `i 1103  ]
 {
-[; ;Controle.h: 194: LATEbits.LE0 = 0;
+[; ;controle.h: 194: LATEbits.LE0 = 0;
 "194
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Controle.h: 195: LATDbits.LD0 = 1;
+[; ;controle.h: 195: LATDbits.LD0 = 1;
 "195
 [e = . . _LATDbits 1 0 -> -> 1 `i `uc ]
 "196
 }
-[; ;Controle.h: 196: } else {
-[e $U 1110  ]
-[e :U 1109 ]
+[; ;controle.h: 196: } else {
+[e $U 1104  ]
+[e :U 1103 ]
 {
-[; ;Controle.h: 197: LATEbits.LE0 = 0;
+[; ;controle.h: 197: LATEbits.LE0 = 0;
 "197
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Controle.h: 198: LATDbits.LD0 = 0;
+[; ;controle.h: 198: LATDbits.LD0 = 0;
 "198
 [e = . . _LATDbits 1 0 -> -> 0 `i `uc ]
 "199
 }
-[e :U 1110 ]
-[e :U 1108 ]
-[; ;Controle.h: 199: }
-[; ;Controle.h: 201: if (fornalha == 1) {
+[e :U 1104 ]
+[e :U 1102 ]
+[; ;controle.h: 199: }
+[; ;controle.h: 201: if (fornalha == 1) {
 "201
-[e $ ! == -> _fornalha `i -> 1 `i 1111  ]
+[e $ ! == -> _fornalha `i -> 1 `i 1105  ]
 {
-[; ;Controle.h: 202: if ((temp + h_venotinha) <= tempajt) {
+[; ;controle.h: 202: if ((temp + h_venotinha) <= tempajt) {
 "202
-[e $ ! <= + -> _temp `i -> _h_venotinha `i -> _tempajt `i 1112  ]
+[e $ ! <= + -> _temp `i -> _h_venotinha `i -> _tempajt `i 1106  ]
 {
-[; ;Controle.h: 203: LATDbits.LD1 = 1;
+[; ;controle.h: 203: LATDbits.LD1 = 1;
 "203
 [e = . . _LATDbits 1 1 -> -> 1 `i `uc ]
 "205
 }
-[; ;Controle.h: 205: } else if (temp >= tempajt) {
-[e $U 1113  ]
-[e :U 1112 ]
-[e $ ! >= -> _temp `i -> _tempajt `i 1114  ]
+[; ;controle.h: 205: } else if (temp >= tempajt) {
+[e $U 1107  ]
+[e :U 1106 ]
+[e $ ! >= -> _temp `i -> _tempajt `i 1108  ]
 {
-[; ;Controle.h: 206: LATDbits.LD1 = 0;
+[; ;controle.h: 206: LATDbits.LD1 = 0;
 "206
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "207
 }
-[e :U 1114 ]
+[e :U 1108 ]
 "208
-[e :U 1113 ]
+[e :U 1107 ]
 }
-[; ;Controle.h: 207: }
-[; ;Controle.h: 208: } else {
-[e $U 1115  ]
-[e :U 1111 ]
+[; ;controle.h: 207: }
+[; ;controle.h: 208: } else {
+[e $U 1109  ]
+[e :U 1105 ]
 {
-[; ;Controle.h: 209: LATDbits.LD1 = 0;
+[; ;controle.h: 209: LATDbits.LD1 = 0;
 "209
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "210
 }
-[e :U 1115 ]
+[e :U 1109 ]
 "212
 }
-[; ;Controle.h: 210: }
-[; ;Controle.h: 212: } else {
-[e $U 1116  ]
-[e :U 1106 ]
+[; ;controle.h: 210: }
+[; ;controle.h: 212: } else {
+[e $U 1110  ]
+[e :U 1100 ]
 {
-[; ;Controle.h: 213: LATEbits.LE0 = 0;
+[; ;controle.h: 213: LATEbits.LE0 = 0;
 "213
 [e = . . _LATEbits 1 0 -> -> 0 `i `uc ]
-[; ;Controle.h: 214: LATDbits.LD0 = 1;
+[; ;controle.h: 214: LATDbits.LD0 = 1;
 "214
 [e = . . _LATDbits 1 0 -> -> 1 `i `uc ]
-[; ;Controle.h: 215: LATDbits.LD1 = 0;
+[; ;controle.h: 215: LATDbits.LD1 = 0;
 "215
 [e = . . _LATDbits 1 1 -> -> 0 `i `uc ]
 "216
 }
-[e :U 1116 ]
-[; ;Controle.h: 216: }
-[; ;Controle.h: 219: if (fornalha == 1 && t_religar_ventoinha_automatica != 0) {
+[e :U 1110 ]
+[; ;controle.h: 216: }
+[; ;controle.h: 219: if (fornalha == 1 && t_religar_ventoinha_automatica != 0) {
 "219
-[e $ ! && == -> _fornalha `i -> 1 `i != -> _t_religar_ventoinha_automatica `i -> 0 `i 1117  ]
+[e $ ! && == -> _fornalha `i -> 1 `i != -> _t_religar_ventoinha_automatica `i -> 0 `i 1111  ]
 {
-[; ;Controle.h: 220: t_controle_religar_ventoinha = t_religar_ventoinha_automatica;
+[; ;controle.h: 220: t_controle_religar_ventoinha = t_religar_ventoinha_automatica;
 "220
 [e = _t_controle_religar_ventoinha -> _t_religar_ventoinha_automatica `ui ]
 "221
 }
-[; ;Controle.h: 221: } else if (t_controle_religar_ventoinha == 0 && t_religar_ventoinha_automatica != 0) {
-[e $U 1118  ]
-[e :U 1117 ]
-[e $ ! && == _t_controle_religar_ventoinha -> -> 0 `i `ui != -> _t_religar_ventoinha_automatica `i -> 0 `i 1119  ]
+[; ;controle.h: 221: } else if (t_controle_religar_ventoinha == 0 && t_religar_ventoinha_automatica != 0) {
+[e $U 1112  ]
+[e :U 1111 ]
+[e $ ! && == _t_controle_religar_ventoinha -> -> 0 `i `ui != -> _t_religar_ventoinha_automatica `i -> 0 `i 1113  ]
 {
-[; ;Controle.h: 222: fornalha = 1;
+[; ;controle.h: 222: fornalha = 1;
 "222
 [e = _fornalha -> -> 1 `i `uc ]
 "223
 }
-[e :U 1119 ]
+[e :U 1113 ]
 "226
-[e :U 1118 ]
-[; ;Controle.h: 223: }
-[; ;Controle.h: 226: if (buzzer == 1 && t_controle_buzzer == 0) {
-[e $ ! && == -> _buzzer `i -> 1 `i == -> _t_controle_buzzer `i -> 0 `i 1120  ]
+[e :U 1112 ]
+[; ;controle.h: 223: }
+[; ;controle.h: 226: if (buzzer == 1 && t_controle_buzzer == 0) {
+[e $ ! && == -> _buzzer `i -> 1 `i == -> _t_controle_buzzer `i -> 0 `i 1114  ]
 {
-[; ;Controle.h: 227: if (((temp + h_buzzer) <= tempajt) | ((temp - h_buzzer) >= tempajt)) {
+[; ;controle.h: 227: if (((temp + h_buzzer) <= tempajt) | ((temp - h_buzzer) >= tempajt)) {
 "227
-[e $ ! | <= + -> _temp `i -> _h_buzzer `i -> _tempajt `i >= - -> _temp `i -> _h_buzzer `i -> _tempajt `i 1121  ]
+[e $ ! | <= + -> _temp `i -> _h_buzzer `i -> _tempajt `i >= - -> _temp `i -> _h_buzzer `i -> _tempajt `i 1115  ]
 {
-[; ;Controle.h: 228: t_controle_buzzer = 10;
+[; ;controle.h: 228: t_controle_buzzer = 10;
 "228
 [e = _t_controle_buzzer -> -> 10 `i `uc ]
-[; ;Controle.h: 229: LATCbits.LC1 = ~LATCbits.LC1;
+[; ;controle.h: 229: LATCbits.LC1 = ~LATCbits.LC1;
 "229
 [e = . . _LATCbits 1 1 -> ~ -> . . _LATCbits 1 1 `i `uc ]
 "230
 }
-[; ;Controle.h: 230: } else {
-[e $U 1122  ]
-[e :U 1121 ]
+[; ;controle.h: 230: } else {
+[e $U 1116  ]
+[e :U 1115 ]
 {
-[; ;Controle.h: 231: LATCbits.LC1 = 0;
+[; ;controle.h: 231: LATCbits.LC1 = 0;
 "231
 [e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
 "232
 }
-[e :U 1122 ]
+[e :U 1116 ]
 "233
 }
-[e :U 1120 ]
-[; ;Controle.h: 232: }
-[; ;Controle.h: 233: }
-[; ;Controle.h: 234: if (buzzer == 1 && t_buzzer_religar != 0) {
+[e :U 1114 ]
+[; ;controle.h: 232: }
+[; ;controle.h: 233: }
+[; ;controle.h: 234: if (buzzer == 1 && t_buzzer_religar != 0) {
 "234
-[e $ ! && == -> _buzzer `i -> 1 `i != -> _t_buzzer_religar `i -> 0 `i 1123  ]
+[e $ ! && == -> _buzzer `i -> 1 `i != -> _t_buzzer_religar `i -> 0 `i 1117  ]
 {
-[; ;Controle.h: 235: t_controle_religar_buzzer = t_buzzer_religar;
+[; ;controle.h: 235: t_controle_religar_buzzer = t_buzzer_religar;
 "235
 [e = _t_controle_religar_buzzer -> _t_buzzer_religar `ui ]
 "236
 }
-[; ;Controle.h: 236: } else if (t_controle_religar_buzzer == 0 && t_buzzer_religar != 0) {
-[e $U 1124  ]
-[e :U 1123 ]
-[e $ ! && == _t_controle_religar_buzzer -> -> 0 `i `ui != -> _t_buzzer_religar `i -> 0 `i 1125  ]
+[; ;controle.h: 236: } else if (t_controle_religar_buzzer == 0 && t_buzzer_religar != 0) {
+[e $U 1118  ]
+[e :U 1117 ]
+[e $ ! && == _t_controle_religar_buzzer -> -> 0 `i `ui != -> _t_buzzer_religar `i -> 0 `i 1119  ]
 {
-[; ;Controle.h: 237: buzzer = 1;
+[; ;controle.h: 237: buzzer = 1;
 "237
 [e = _buzzer -> -> 1 `i `uc ]
 "238
 }
-[e :U 1125 ]
+[e :U 1119 ]
 "239
-[e :U 1124 ]
-[; ;Controle.h: 238: }
-[; ;Controle.h: 239: if (!buzzer) {
-[e $ ! ! != -> _buzzer `i -> -> -> 0 `i `uc `i 1126  ]
+[e :U 1118 ]
+[; ;controle.h: 238: }
+[; ;controle.h: 239: if (!buzzer) {
+[e $ ! ! != -> _buzzer `i -> -> -> 0 `i `uc `i 1120  ]
 {
-[; ;Controle.h: 240: LATCbits.LC1 = 0;
+[; ;controle.h: 240: LATCbits.LC1 = 0;
 "240
 [e = . . _LATCbits 1 1 -> -> 0 `i `uc ]
 "241
 }
-[e :U 1126 ]
-[; ;Controle.h: 241: }
-[; ;Controle.h: 245: if (temp + 3 < tempajt) {
+[e :U 1120 ]
+[; ;controle.h: 241: }
+[; ;controle.h: 245: if (temp + 3 < tempajt) {
 "245
-[e $ ! < + -> _temp `i -> 3 `i -> _tempajt `i 1127  ]
+[e $ ! < + -> _temp `i -> 3 `i -> _tempajt `i 1121  ]
 {
-[; ;Controle.h: 246: setLed(16, 1);
+[; ;controle.h: 246: setLed(16, 1);
 "246
 [e ( _setLed (2 , -> -> 16 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 247: setLed(32, 0);
+[; ;controle.h: 247: setLed(32, 0);
 "247
 [e ( _setLed (2 , -> -> 32 `i `uc -> -> 0 `i `uc ]
 "248
 }
-[; ;Controle.h: 248: } else if (temp - 3 > tempajt) {
-[e $U 1128  ]
-[e :U 1127 ]
-[e $ ! > - -> _temp `i -> 3 `i -> _tempajt `i 1129  ]
+[; ;controle.h: 248: } else if (temp - 3 > tempajt) {
+[e $U 1122  ]
+[e :U 1121 ]
+[e $ ! > - -> _temp `i -> 3 `i -> _tempajt `i 1123  ]
 {
-[; ;Controle.h: 249: setLed(32, 1);
+[; ;controle.h: 249: setLed(32, 1);
 "249
 [e ( _setLed (2 , -> -> 32 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 250: setLed(16, 0);
+[; ;controle.h: 250: setLed(16, 0);
 "250
 [e ( _setLed (2 , -> -> 16 `i `uc -> -> 0 `i `uc ]
 "251
 }
-[; ;Controle.h: 251: } else {
-[e $U 1130  ]
-[e :U 1129 ]
+[; ;controle.h: 251: } else {
+[e $U 1124  ]
+[e :U 1123 ]
 {
-[; ;Controle.h: 252: setLed(32, 0);
+[; ;controle.h: 252: setLed(32, 0);
 "252
 [e ( _setLed (2 , -> -> 32 `i `uc -> -> 0 `i `uc ]
-[; ;Controle.h: 253: setLed(16, 0);
+[; ;controle.h: 253: setLed(16, 0);
 "253
 [e ( _setLed (2 , -> -> 16 `i `uc -> -> 0 `i `uc ]
 "254
 }
-[e :U 1130 ]
-[e :U 1128 ]
-[; ;Controle.h: 254: }
-[; ;Controle.h: 256: if (umid + 3 < umidajt) {
+[e :U 1124 ]
+[e :U 1122 ]
+[; ;controle.h: 254: }
+[; ;controle.h: 256: if (umid + 3 < umidajt) {
 "256
-[e $ ! < + -> _umid `i -> 3 `i -> _umidajt `i 1131  ]
+[e $ ! < + -> _umid `i -> 3 `i -> _umidajt `i 1125  ]
 {
-[; ;Controle.h: 257: setLed(1, 0);
+[; ;controle.h: 257: setLed(1, 0);
 "257
 [e ( _setLed (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Controle.h: 258: setLed(2, 1);
+[; ;controle.h: 258: setLed(2, 1);
 "258
 [e ( _setLed (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "259
 }
-[; ;Controle.h: 259: } else if (umid - 3 > umidajt) {
-[e $U 1132  ]
-[e :U 1131 ]
-[e $ ! > - -> _umid `i -> 3 `i -> _umidajt `i 1133  ]
+[; ;controle.h: 259: } else if (umid - 3 > umidajt) {
+[e $U 1126  ]
+[e :U 1125 ]
+[e $ ! > - -> _umid `i -> 3 `i -> _umidajt `i 1127  ]
 {
-[; ;Controle.h: 260: setLed(1, 1);
+[; ;controle.h: 260: setLed(1, 1);
 "260
 [e ( _setLed (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-[; ;Controle.h: 261: setLed(2, 0);
+[; ;controle.h: 261: setLed(2, 0);
 "261
 [e ( _setLed (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
 "262
 }
-[; ;Controle.h: 262: } else {
-[e $U 1134  ]
-[e :U 1133 ]
+[; ;controle.h: 262: } else {
+[e $U 1128  ]
+[e :U 1127 ]
 {
-[; ;Controle.h: 263: setLed(1, 0);
+[; ;controle.h: 263: setLed(1, 0);
 "263
 [e ( _setLed (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Controle.h: 264: setLed(2, 0);
+[; ;controle.h: 264: setLed(2, 0);
 "264
 [e ( _setLed (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
 "265
 }
-[e :U 1134 ]
-[e :U 1132 ]
-[; ;Controle.h: 265: }
-[; ;Controle.h: 266: }
+[e :U 1128 ]
+[e :U 1126 ]
+[; ;controle.h: 265: }
+[; ;controle.h: 266: }
 "266
-[e :UE 1094 ]
+[e :UE 1088 ]
 }
 "9 src/USART.h
 [v _UART_Init `(v ~T0 @X0 1 ef ]
@@ -9798,7 +9761,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
 [; ;USART.h: 33: }
 "33
-[e :UE 1135 ]
+[e :UE 1129 ]
 }
 "35
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
@@ -9809,17 +9772,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;USART.h: 37: while (!TXSTAbits.TRMT);
 "37
-[e $U 1137  ]
-[e :U 1138 ]
-[e :U 1137 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 1138  ]
-[e :U 1139 ]
+[e $U 1131  ]
+[e :U 1132 ]
+[e :U 1131 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 1132  ]
+[e :U 1133 ]
 [; ;USART.h: 38: TXREG = c;
 "38
 [e = _TXREG _c ]
 [; ;USART.h: 39: }
 "39
-[e :UE 1136 ]
+[e :UE 1130 ]
 }
 "6 src/ADC.h
 [v _media_adc `uc ~T0 @X0 1 e ]
@@ -9870,21 +9833,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _ADCON0 -> | << -> 1 `i -> _ADON `i << -> 1 `i -> _GO `i `uc ]
 [; ;ADC.h: 17: while (ADCON0bits.GO_nDONE == 1);
 "17
-[e $U 1141  ]
-[e :U 1142 ]
-[e :U 1141 ]
-[e $ == -> . . _ADCON0bits 1 1 `i -> 1 `i 1142  ]
-[e :U 1143 ]
+[e $U 1135  ]
+[e :U 1136 ]
+[e :U 1135 ]
+[e $ == -> . . _ADCON0bits 1 1 `i -> 1 `i 1136  ]
+[e :U 1137 ]
 [; ;ADC.h: 18: digital = (ADRESH * 256) | (ADRESL);
 "18
 [e = _digital | * -> _ADRESH `i -> 256 `i -> _ADRESL `i ]
 [; ;ADC.h: 19: return (digital);
 "19
 [e ) -> _digital `ui ]
-[e $UE 1140  ]
+[e $UE 1134  ]
 [; ;ADC.h: 20: }
 "20
-[e :UE 1140 ]
+[e :UE 1134 ]
 }
 "22
 [v _getSensors `(i ~T0 @X0 1 ef ]
@@ -9902,7 +9865,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _aux -> -> 0 `i `f ]
 [; ;ADC.h: 26: if (t_leitura_adc == 0) {
 "26
-[e $ ! == -> _t_leitura_adc `i -> 0 `i 1145  ]
+[e $ ! == -> _t_leitura_adc `i -> 0 `i 1139  ]
 {
 [; ;ADC.h: 27: t_leitura_adc = 10;
 "27
@@ -9917,9 +9880,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "32
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 12 `i 1146  ]
-[e $U 1147  ]
-[e :U 1146 ]
+[e $ < -> _i `i -> 12 `i 1140  ]
+[e $U 1141  ]
+[e :U 1140 ]
 {
 [; ;ADC.h: 33: aux += (((readADC(0)* 0.48828125)*1.8) + 32);
 "33
@@ -9928,8 +9891,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "32
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 12 `i 1146  ]
-[e :U 1147 ]
+[e $ < -> _i `i -> 12 `i 1140  ]
+[e :U 1141 ]
 "34
 }
 [; ;ADC.h: 34: }
@@ -9944,7 +9907,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _aux -> -> 0 `i `f ]
 [; ;ADC.h: 41: if (tipo_sensor_umidade == 1) {
 "41
-[e $ ! == -> _tipo_sensor_umidade `i -> 1 `i 1149  ]
+[e $ ! == -> _tipo_sensor_umidade `i -> 1 `i 1143  ]
 {
 "42
 [v _auxx `f ~T0 @X0 1 a ]
@@ -9954,16 +9917,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "43
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 12 `i 1150  ]
-[e $U 1151  ]
-[e :U 1150 ]
+[e $ < -> _i `i -> 12 `i 1144  ]
+[e $U 1145  ]
+[e :U 1144 ]
 {
 [; ;ADC.h: 44: auxx = (((readADC(1)*0.0048828125) - 0.826) / 0.0315);
 "44
 [e = _auxx -> / - * -> ( _readADC (1 -> -> 1 `i `uc `d .0.0048828125 .0.826 .0.0315 `f ]
 [; ;ADC.h: 45: if (auxx < 10) {
 "45
-[e $ ! < _auxx -> -> 10 `i `f 1153  ]
+[e $ ! < _auxx -> -> 10 `i `f 1147  ]
 {
 [; ;ADC.h: 46: aux += 0;
 "46
@@ -9971,21 +9934,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "47
 }
 [; ;ADC.h: 47: } else {
-[e $U 1154  ]
-[e :U 1153 ]
+[e $U 1148  ]
+[e :U 1147 ]
 {
 [; ;ADC.h: 48: aux += auxx;
 "48
 [e =+ _aux _auxx ]
 "49
 }
-[e :U 1154 ]
+[e :U 1148 ]
 "50
 }
 "43
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 12 `i 1150  ]
-[e :U 1151 ]
+[e $ < -> _i `i -> 12 `i 1144  ]
+[e :U 1145 ]
 "50
 }
 "51
@@ -9993,16 +9956,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ADC.h: 49: }
 [; ;ADC.h: 50: }
 [; ;ADC.h: 51: } else {
-[e $U 1155  ]
-[e :U 1149 ]
+[e $U 1149  ]
+[e :U 1143 ]
 {
 [; ;ADC.h: 52: for (i = 0; i < 12; i++) {
 "52
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 12 `i 1156  ]
-[e $U 1157  ]
-[e :U 1156 ]
+[e $ < -> _i `i -> 12 `i 1150  ]
+[e $U 1151  ]
+[e :U 1150 ]
 {
 [; ;ADC.h: 53: aux += (((readADC(2)* 0.48828125)*1.8) + 32);
 "53
@@ -10011,13 +9974,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "52
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 12 `i 1156  ]
-[e :U 1157 ]
+[e $ < -> _i `i -> 12 `i 1150  ]
+[e :U 1151 ]
 "54
 }
 "55
 }
-[e :U 1155 ]
+[e :U 1149 ]
 [; ;ADC.h: 54: }
 [; ;ADC.h: 55: }
 [; ;ADC.h: 57: aux = (aux / 12);
@@ -10025,28 +9988,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _aux / _aux -> -> 12 `i `f ]
 [; ;ADC.h: 58: if (tipo_sensor_umidade == 1) {
 "58
-[e $ ! == -> _tipo_sensor_umidade `i -> 1 `i 1159  ]
+[e $ ! == -> _tipo_sensor_umidade `i -> 1 `i 1153  ]
 {
 [; ;ADC.h: 59: if (aux > 100) aux = 100;
 "59
-[e $ ! > _aux -> -> 100 `i `f 1160  ]
+[e $ ! > _aux -> -> 100 `i `f 1154  ]
 [e = _aux -> -> 100 `i `f ]
-[e :U 1160 ]
+[e :U 1154 ]
 [; ;ADC.h: 60: if (aux < 10) aux = 0;
 "60
-[e $ ! < _aux -> -> 10 `i `f 1161  ]
+[e $ ! < _aux -> -> 10 `i `f 1155  ]
 [e = _aux -> -> 0 `i `f ]
-[e :U 1161 ]
+[e :U 1155 ]
 "61
 }
-[e :U 1159 ]
+[e :U 1153 ]
 [; ;ADC.h: 61: }
 [; ;ADC.h: 62: _umid[media_adc] = (aux < 40 && tipo_sensor_umidade == 0) ? 0 : aux;
 "62
 [e = *U + &U __umid * -> _media_adc `ux -> -> # *U &U __umid `ui `ux ? && < _aux -> -> 40 `i `f == -> _tipo_sensor_umidade `i -> 0 `i : -> -> 0 `i `f _aux ]
 "63
 }
-[e :U 1145 ]
+[e :U 1139 ]
 [; ;ADC.h: 63: }
 [; ;ADC.h: 67: i = 0;
 "67
@@ -10058,9 +10021,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "69
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 10 `i 1162  ]
-[e $U 1163  ]
-[e :U 1162 ]
+[e $ < -> _i `i -> 10 `i 1156  ]
+[e $U 1157  ]
+[e :U 1156 ]
 {
 [; ;ADC.h: 70: aux += _temp[i];
 "70
@@ -10069,8 +10032,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "69
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 10 `i 1162  ]
-[e :U 1163 ]
+[e $ < -> _i `i -> 10 `i 1156  ]
+[e :U 1157 ]
 "71
 }
 [; ;ADC.h: 71: }
@@ -10087,9 +10050,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "78
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 10 `i 1165  ]
-[e $U 1166  ]
-[e :U 1165 ]
+[e $ < -> _i `i -> 10 `i 1159  ]
+[e $U 1160  ]
+[e :U 1159 ]
 {
 [; ;ADC.h: 79: aux += _umid[i];
 "79
@@ -10098,8 +10061,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "78
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 10 `i 1165  ]
-[e :U 1166 ]
+[e $ < -> _i `i -> 10 `i 1159  ]
+[e :U 1160 ]
 "80
 }
 [; ;ADC.h: 80: }
@@ -10108,404 +10071,391 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _umid -> / _aux -> -> 10 `i `f `uc ]
 [; ;ADC.h: 82: }
 "82
-[e :UE 1144 ]
+[e :UE 1138 ]
 }
 [v $root$_TIMER0 `(v ~T0 @X0 0 e ]
-[v F4162 `(v ~T0 @X0 1 tf ]
-"15 src/main.c
-[v _TIMER0 `IF4162 ~T0 @X0 1 e ]
+[v F4165 `(v ~T0 @X0 1 tf ]
+"16 src/main.c
+[v _TIMER0 `IF4165 ~T0 @X0 1 e ]
 {
-[; ;main.c: 15: void interrupt TIMER0() {
+[; ;main.c: 16: void interrupt TIMER0() {
 [e :U _TIMER0 ]
 [f ]
-[; ;main.c: 16: if (TMR0IF) {
-"16
-[e $ ! _TMR0IF 1169  ]
-{
-[; ;main.c: 17: TMR0IF = 0x00;
+[; ;main.c: 17: if (TMR0IF) {
 "17
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 18: TMR0H = 0x3C;
+[e $ ! _TMR0IF 1163  ]
+{
+[; ;main.c: 18: TMR0IF = 0x00;
 "18
-[e = _TMR0H -> -> 60 `i `uc ]
-[; ;main.c: 19: TMR0L = 0xB0;
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;main.c: 19: TMR0H = 0x3C;
 "19
-[e = _TMR0L -> -> 176 `i `uc ]
-[; ;main.c: 20: timer();
+[e = _TMR0H -> -> 60 `i `uc ]
+[; ;main.c: 20: TMR0L = 0xB0;
 "20
-[e ( _timer ..  ]
+[e = _TMR0L -> -> 176 `i `uc ]
+[; ;main.c: 21: timer();
 "21
-}
-[e :U 1169 ]
-[; ;main.c: 21: }
-[; ;main.c: 22: if (RCIF) {
+[e ( _timer ..  ]
 "22
-[e $ ! _RCIF 1170  ]
-{
+}
+[e :U 1163 ]
+[; ;main.c: 22: }
+[; ;main.c: 23: if (RCIF) {
 "23
-[v _c `uc ~T0 @X0 1 a ]
-[; ;main.c: 23: char c = RCREG;
-[e = _c _RCREG ]
-[; ;main.c: 24: if (c != '\n' && c != '\r') {
-"24
-[e $ ! && != -> _c `ui -> 10 `ui != -> _c `ui -> 13 `ui 1171  ]
+[e $ ! _RCIF 1164  ]
 {
-[; ;main.c: 25: bufferSerial[cbf++] = c;
+"24
+[v _c `uc ~T0 @X0 1 a ]
+[; ;main.c: 24: char c = RCREG;
+[e = _c _RCREG ]
+[; ;main.c: 25: receiveByteSerial(c);
 "25
-[e = *U + &U _bufferSerial * -> ++ _cbf -> -> 1 `i `uc `ux -> -> # *U &U _bufferSerial `ui `ux _c ]
+[e ( _receiveByteSerial (1 _c ]
 "26
 }
-[e :U 1171 ]
+[e :U 1164 ]
 [; ;main.c: 26: }
-[; ;main.c: 27: if (cbf >= 80) cbf = 0;
+[; ;main.c: 27: if (INT2IF) {
 "27
-[e $ ! >= -> _cbf `i -> 80 `i 1172  ]
-[e = _cbf -> -> 0 `i `uc ]
-[e :U 1172 ]
-"28
-}
-[e :U 1170 ]
-[; ;main.c: 28: }
-[; ;main.c: 29: if (INT2IF) {
-"29
-[e $ ! _INT2IF 1173  ]
+[e $ ! _INT2IF 1165  ]
 {
-[; ;main.c: 30: INT2IF = 0;
-"30
+[; ;main.c: 28: INT2IF = 0;
+"28
 [e = _INT2IF -> -> 0 `i `b ]
-[; ;main.c: 31: readButtons();
-"31
+[; ;main.c: 29: readButtons();
+"29
 [e ( _readButtons ..  ]
-"32
+"30
 }
-[e :U 1173 ]
-[; ;main.c: 32: }
-[; ;main.c: 33: }
-"33
-[e :UE 1168 ]
+[e :U 1165 ]
+[; ;main.c: 30: }
+[; ;main.c: 31: }
+"31
+[e :UE 1162 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"35
+"33
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 35: void main() {
+[; ;main.c: 33: void main() {
 [e :U _main ]
 [f ]
-[; ;main.c: 38: TRISAbits.RA5 = 0;
-"38
+[; ;main.c: 36: TRISAbits.RA5 = 0;
+"36
 [e = . . _TRISAbits 1 5 -> -> 0 `i `uc ]
-[; ;main.c: 39: TRISCbits.RC2 = 0;
-"39
+[; ;main.c: 37: TRISCbits.RC2 = 0;
+"37
 [e = . . _TRISCbits 1 2 -> -> 0 `i `uc ]
-[; ;main.c: 40: TRISEbits.RE0 = 0;
-"40
+[; ;main.c: 38: TRISEbits.RE0 = 0;
+"38
 [e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 41: TRISDbits.RD0 = 0;
-"41
+[; ;main.c: 39: TRISDbits.RD0 = 0;
+"39
 [e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 42: TRISCbits.RC1 = 0;
-"42
+[; ;main.c: 40: TRISCbits.RC1 = 0;
+"40
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 43: TRISDbits.RD1 = 0;
-"43
+[; ;main.c: 41: TRISDbits.RD1 = 0;
+"41
 [e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 44: TRISCbits.RC0 = 1;
-"44
+[; ;main.c: 42: TRISCbits.RC0 = 1;
+"42
 [e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 46: PORTAbits.RA5 = 0;
-"46
+[; ;main.c: 44: PORTAbits.RA5 = 0;
+"44
 [e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 47: PORTCbits.RC2 = 0;
-"47
+[; ;main.c: 45: PORTCbits.RC2 = 0;
+"45
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 48: PORTEbits.RE0 = 0;
-"48
+[; ;main.c: 46: PORTEbits.RE0 = 0;
+"46
 [e = . . _PORTEbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 49: PORTDbits.RD0 = 0;
-"49
+[; ;main.c: 47: PORTDbits.RD0 = 0;
+"47
 [e = . . _PORTDbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 50: PORTCbits.RC1 = 0;
-"50
+[; ;main.c: 48: PORTCbits.RC1 = 0;
+"48
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 51: PORTDbits.RD1 = 0;
-"51
+[; ;main.c: 49: PORTDbits.RD1 = 0;
+"49
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 55: TRISAbits.RA4 = 0;
-"55
+[; ;main.c: 53: TRISAbits.RA4 = 0;
+"53
 [e = . . _TRISAbits 1 4 -> -> 0 `i `uc ]
-[; ;main.c: 56: LATAbits.LATA4 = 0;
-"56
+[; ;main.c: 54: LATAbits.LATA4 = 0;
+"54
 [e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 60: TRISBbits.RB5 = 0;
-"60
+[; ;main.c: 58: TRISBbits.RB5 = 0;
+"58
 [e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
-[; ;main.c: 61: LATBbits.LATB5 = 0;
-"61
+[; ;main.c: 59: LATBbits.LATB5 = 0;
+"59
 [e = . . _LATBbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 65: TRISBbits.RB2 = 1;
-"65
+[; ;main.c: 63: TRISBbits.RB2 = 1;
+"63
 [e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 66: INTCON2bits.INTEDG2 = 0;
-"66
+[; ;main.c: 64: INTCON2bits.INTEDG2 = 0;
+"64
 [e = . . _INTCON2bits 1 4 -> -> 0 `i `uc ]
-[; ;main.c: 67: INTCON2bits.RBIP = 0;
-"67
+[; ;main.c: 65: INTCON2bits.RBIP = 0;
+"65
 [e = . . _INTCON2bits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 68: INTCON3bits.INT2IE = 1;
-"68
+[; ;main.c: 66: INTCON3bits.INT2IE = 1;
+"66
 [e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 71: TRISAbits.RA0 = 1;
-"71
+[; ;main.c: 69: TRISAbits.RA0 = 1;
+"69
 [e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
-[; ;main.c: 72: PORTAbits.AN0 = 0;
-"72
+[; ;main.c: 70: PORTAbits.AN0 = 0;
+"70
 [e = . . _PORTAbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 73: TRISAbits.RA1 = 1;
-"73
+[; ;main.c: 71: TRISAbits.RA1 = 1;
+"71
 [e = . . _TRISAbits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 74: PORTAbits.AN1 = 0;
-"74
+[; ;main.c: 72: PORTAbits.AN1 = 0;
+"72
 [e = . . _PORTAbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 75: TRISAbits.RA2 = 1;
-"75
+[; ;main.c: 73: TRISAbits.RA2 = 1;
+"73
 [e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
-[; ;main.c: 76: PORTAbits.AN2 = 0;
-"76
+[; ;main.c: 74: PORTAbits.AN2 = 0;
+"74
 [e = . . _PORTAbits 1 2 -> -> 0 `i `uc ]
-[; ;main.c: 81: T0CON = 0x81;
-"81
+[; ;main.c: 79: T0CON = 0x81;
+"79
 [e = _T0CON -> -> 129 `i `uc ]
-[; ;main.c: 82: INTCON = 0xE4;
-"82
+[; ;main.c: 80: INTCON = 0xE4;
+"80
 [e = _INTCON -> -> 228 `i `uc ]
-[; ;main.c: 85: ADCON0 = 0x01;
-"85
+[; ;main.c: 83: ADCON0 = 0x01;
+"83
 [e = _ADCON0 -> -> 1 `i `uc ]
-[; ;main.c: 86: ADCON1 = 0x0C;
-"86
+[; ;main.c: 84: ADCON1 = 0x0C;
+"84
 [e = _ADCON1 -> -> 12 `i `uc ]
-[; ;main.c: 87: ADCON2 = 0xB5;
-"87
+[; ;main.c: 85: ADCON2 = 0xB5;
+"85
 [e = _ADCON2 -> -> 181 `i `uc ]
-[; ;main.c: 90: UART_Init();
-"90
+[; ;main.c: 88: UART_Init();
+"88
 [e ( _UART_Init ..  ]
-[; ;main.c: 91: printf("AT+RST\r\n");
-"91
-[e ( _printf :s 68C ]
-[; ;main.c: 92: delay(200);
-"92
+[; ;main.c: 89: printf("AT+RST\r\n");
+"89
+[e ( _printf :s 77C ]
+[; ;main.c: 90: delay(200);
+"90
 [e ( _delay (1 -> 200 `i ]
-[; ;main.c: 94: Lcd_Init();
-"94
+[; ;main.c: 92: Lcd_Init();
+"92
 [e ( _Lcd_Init ..  ]
-[; ;main.c: 95: Lcd_Clear();
-"95
+[; ;main.c: 93: Lcd_Clear();
+"93
 [e ( _Lcd_Clear ..  ]
-[; ;main.c: 96: criaCaracteresCGRAM();
-"96
+[; ;main.c: 94: criaCaracteresCGRAM();
+"94
 [e ( _criaCaracteresCGRAM ..  ]
-[; ;main.c: 97: I2C_Master_Init(1000000);
-"97
+[; ;main.c: 95: I2C_Master_Init(1000000);
+"95
 [e ( _I2C_Master_Init (1 -> -> 1000000 `l `ul ]
-[; ;main.c: 98: delay(150);
-"98
+[; ;main.c: 96: delay(150);
+"96
 [e ( _delay (1 -> 150 `i ]
-[; ;main.c: 101: sprintf(line1, " TECHNOW Tecnologia");
+[; ;main.c: 99: sprintf(line1, " TECHNOW Tecnologia");
+"99
+[e ( _sprintf (1 , &U _line1 :s 78C ]
+[; ;main.c: 100: sprintf(line3, "Versao Soft.:");
+"100
+[e ( _sprintf (1 , &U _line3 :s 79C ]
+[; ;main.c: 101: sprintf(&line4[9], "%s", "Jul 14 2020");
 "101
-[e ( _sprintf (1 , &U _line1 :s 69C ]
-[; ;main.c: 102: sprintf(line3, "Versao Soft.:");
+[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 9 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 80C :s 81C ]
+[; ;main.c: 102: atualizaLCD(line1, line2, line3, line4);
 "102
-[e ( _sprintf (1 , &U _line3 :s 70C ]
-[; ;main.c: 103: sprintf(&line4[9], "%s", "Nov 09 2019");
-"103
-[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 9 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 71C :s 72C ]
-[; ;main.c: 104: atualizaLCD(line1, line2, line3, line4);
-"104
 [e ( _atualizaLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
-[; ;main.c: 105: delay(300);
-"105
+[; ;main.c: 103: delay(300);
+"103
 [e ( _delay (1 -> 300 `i ]
-[; ;main.c: 106: LATBbits.LATB5 = 1;
-"106
+[; ;main.c: 104: LATBbits.LATB5 = 1;
+"104
 [e = . . _LATBbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 107: delay(2450);
-"107
+[; ;main.c: 105: delay(2450);
+"105
 [e ( _delay (1 -> 2450 `i ]
-[; ;main.c: 109: tempajt = readEEPROM_ext(1);
-"109
+[; ;main.c: 107: tempajt = readEEPROM_ext(1);
+"107
 [e = _tempajt ( _readEEPROM_ext (1 -> -> 1 `i `uc ]
-[; ;main.c: 110: umidajt = readEEPROM_ext(2);
-"110
+[; ;main.c: 108: umidajt = readEEPROM_ext(2);
+"108
 [e = _umidajt ( _readEEPROM_ext (1 -> -> 2 `i `uc ]
-[; ;main.c: 111: trava_fase = readEEPROM_ext(3);
-"111
+[; ;main.c: 109: trava_fase = readEEPROM_ext(3);
+"109
 [e = _trava_fase ( _readEEPROM_ext (1 -> -> 3 `i `uc ]
-[; ;main.c: 112: fase = readEEPROM_ext(4);
-"112
+[; ;main.c: 110: fase = readEEPROM_ext(4);
+"110
 [e = _fase ( _readEEPROM_ext (1 -> -> 4 `i `uc ]
-[; ;main.c: 113: clima = readEEPROM_ext(5);
-"113
+[; ;main.c: 111: clima = readEEPROM_ext(5);
+"111
 [e = _clima ( _readEEPROM_ext (1 -> -> 5 `i `uc ]
-[; ;main.c: 114: tipo_modo_trabalho = readEEPROM_ext(6);
-"114
+[; ;main.c: 112: tipo_modo_trabalho = readEEPROM_ext(6);
+"112
 [e = _tipo_modo_trabalho ( _readEEPROM_ext (1 -> -> 6 `i `uc ]
-[; ;main.c: 115: tipo_sensor_umidade = readEEPROM_ext(7);
-"115
+[; ;main.c: 113: tipo_sensor_umidade = readEEPROM_ext(7);
+"113
 [e = _tipo_sensor_umidade ( _readEEPROM_ext (1 -> -> 7 `i `uc ]
-[; ;main.c: 116: t_fim_fase1 = readEEPROM_ext(8);
-"116
+[; ;main.c: 114: t_fim_fase1 = readEEPROM_ext(8);
+"114
 [e = _t_fim_fase1 ( _readEEPROM_ext (1 -> -> 8 `i `uc ]
-[; ;main.c: 117: t_fim_fase2 = readEEPROM_ext(9);
-"117
+[; ;main.c: 115: t_fim_fase2 = readEEPROM_ext(9);
+"115
 [e = _t_fim_fase2 ( _readEEPROM_ext (1 -> -> 9 `i `uc ]
-[; ;main.c: 118: t_fim_fase3 = readEEPROM_ext(10);
-"118
+[; ;main.c: 116: t_fim_fase3 = readEEPROM_ext(10);
+"116
 [e = _t_fim_fase3 ( _readEEPROM_ext (1 -> -> 10 `i `uc ]
-[; ;main.c: 119: h_venotinha = readEEPROM_ext(11);
-"119
+[; ;main.c: 117: h_venotinha = readEEPROM_ext(11);
+"117
 [e = _h_venotinha ( _readEEPROM_ext (1 -> -> 11 `i `uc ]
-[; ;main.c: 120: h_abafador = readEEPROM_ext(12);
-"120
+[; ;main.c: 118: h_abafador = readEEPROM_ext(12);
+"118
 [e = _h_abafador ( _readEEPROM_ext (1 -> -> 12 `i `uc ]
-[; ;main.c: 121: h_flap = readEEPROM_ext(13);
-"121
+[; ;main.c: 119: h_flap = readEEPROM_ext(13);
+"119
 [e = _h_flap ( _readEEPROM_ext (1 -> -> 13 `i `uc ]
-[; ;main.c: 122: buzzer = readEEPROM_ext(14);
-"122
+[; ;main.c: 120: buzzer = readEEPROM_ext(14);
+"120
 [e = _buzzer ( _readEEPROM_ext (1 -> -> 14 `i `uc ]
-[; ;main.c: 123: fornalha = readEEPROM_ext(15);
-"123
+[; ;main.c: 121: fornalha = readEEPROM_ext(15);
+"121
 [e = _fornalha ( _readEEPROM_ext (1 -> -> 15 `i `uc ]
-[; ;main.c: 124: h_modo_seguranca = readEEPROM_ext(16);
-"124
+[; ;main.c: 122: h_modo_seguranca = readEEPROM_ext(16);
+"122
 [e = _h_modo_seguranca ( _readEEPROM_ext (1 -> -> 16 `i `uc ]
-[; ;main.c: 125: h_buzzer = readEEPROM_ext(17);
-"125
+[; ;main.c: 123: h_buzzer = readEEPROM_ext(17);
+"123
 [e = _h_buzzer ( _readEEPROM_ext (1 -> -> 17 `i `uc ]
-[; ;main.c: 126: t_flap_ligado = readEEPROM_ext(18);
-"126
+[; ;main.c: 124: t_flap_ligado = readEEPROM_ext(18);
+"124
 [e = _t_flap_ligado ( _readEEPROM_ext (1 -> -> 18 `i `uc ]
-[; ;main.c: 127: t_flap_intervalo = readEEPROM_ext(20);
-"127
+[; ;main.c: 125: t_flap_intervalo = readEEPROM_ext(20);
+"125
 [e = _t_flap_intervalo ( _readEEPROM_ext (1 -> -> 20 `i `uc ]
-[; ;main.c: 128: t_buzzer_religar = readEEPROM_ext(21);
-"128
+[; ;main.c: 126: t_buzzer_religar = readEEPROM_ext(21);
+"126
 [e = _t_buzzer_religar ( _readEEPROM_ext (1 -> -> 21 `i `uc ]
-[; ;main.c: 129: t_temp_automatica = readEEPROM_ext(22);
-"129
+[; ;main.c: 127: t_temp_automatica = readEEPROM_ext(22);
+"127
 [e = _t_temp_automatica ( _readEEPROM_ext (1 -> -> 22 `i `uc ]
-[; ;main.c: 130: wifi_habilita_alteracao = readEEPROM_ext(23);
-"130
-[e = _wifi_habilita_alteracao -> ( _readEEPROM_ext (1 -> -> 23 `i `uc `ui ]
-[; ;main.c: 131: wifi_SENHA = readEEPROM_ext(25);
-"131
+[; ;main.c: 128: wifi_habilita_alteracao = readEEPROM_ext(23);
+"128
+[e = _wifi_habilita_alteracao ( _readEEPROM_ext (1 -> -> 23 `i `uc ]
+[; ;main.c: 129: wifi_SENHA = readEEPROM_ext(25);
+"129
 [e = _wifi_SENHA -> ( _readEEPROM_ext (1 -> -> 25 `i `uc `ui ]
-[; ;main.c: 132: h_subir_temp_automatica = readEEPROM_ext(27);
-"132
+[; ;main.c: 130: h_subir_temp_automatica = readEEPROM_ext(27);
+"130
 [e = _h_subir_temp_automatica ( _readEEPROM_ext (1 -> -> 27 `i `uc ]
-[; ;main.c: 133: t_religar_ventoinha_automatica = readEEPROM_ext(28);
-"133
+[; ;main.c: 131: t_religar_ventoinha_automatica = readEEPROM_ext(28);
+"131
 [e = _t_religar_ventoinha_automatica ( _readEEPROM_ext (1 -> -> 28 `i `uc ]
-"135
+"133
 [v _i `uc ~T0 @X0 1 a ]
-[; ;main.c: 135: char i = 0;
+[; ;main.c: 133: char i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;main.c: 136: for (i = 0; i < 15; i++) {
-"136
+[; ;main.c: 134: for (i = 0; i < 15; i++) {
+"134
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1175  ]
-[e $U 1176  ]
+[e $ < -> _i `i -> 15 `i 1167  ]
+[e $U 1168  ]
+[e :U 1167 ]
+{
+[; ;main.c: 135: ssid[i] = (char) readEEPROM_ext(40 + i);
+"135
+[e = *U + &U _ssid * -> _i `ux -> -> # *U &U _ssid `ui `ux ( _readEEPROM_ext (1 -> + -> 40 `i -> _i `i `uc ]
+"136
+}
+"134
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1167  ]
+[e :U 1168 ]
+"136
+}
+[; ;main.c: 136: }
+[; ;main.c: 137: for (i = 0; i < 15; i++) {
+"137
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1170  ]
+[e $U 1171  ]
+[e :U 1170 ]
+{
+[; ;main.c: 138: senha[i] = (char) readEEPROM_ext(60 + i);
+"138
+[e = *U + &U _senha * -> _i `ux -> -> # *U &U _senha `ui `ux ( _readEEPROM_ext (1 -> + -> 60 `i -> _i `i `uc ]
+"139
+}
+"137
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 15 `i 1170  ]
+[e :U 1171 ]
+"139
+}
+[; ;main.c: 139: }
+[; ;main.c: 141: i = readEEPROM_ext(30);
+"141
+[e = _i ( _readEEPROM_ext (1 -> -> 30 `i `uc ]
+[; ;main.c: 142: if (i != 187) {
+"142
+[e $ ! != -> _i `i -> 187 `i 1173  ]
+{
+[; ;main.c: 143: writeEEPROM_ext(30, 187);
+"143
+[e ( _writeEEPROM_ext (2 , -> -> 30 `i `uc -> -> 187 `i `uc ]
+[; ;main.c: 144: while (1) {
+"144
 [e :U 1175 ]
 {
-[; ;main.c: 137: ssid[i] = (char) readEEPROM_ext(40 + i);
-"137
-[e = *U + &U _ssid * -> _i `ux -> -> # *U &U _ssid `ui `ux ( _readEEPROM_ext (1 -> + -> 40 `i -> _i `i `uc ]
-"138
+[; ;main.c: 145: asm("CLRWDT");
+"145
+[; <" CLRWDT ;# ">
+[; ;main.c: 146: sprintf(line4, "ERRO EEPROM");
+"146
+[e ( _sprintf (1 , &U _line4 :s 82C ]
+[; ;main.c: 147: atualizaLCD(line1, line2, line3, line4);
+"147
+[e ( _atualizaLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
+[; ;main.c: 148: delay(3000);
+"148
+[e ( _delay (1 -> 3000 `i ]
+"149
 }
-"136
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1175  ]
+[e :U 1174 ]
+"144
+[e $U 1175  ]
 [e :U 1176 ]
-"138
+"150
 }
-[; ;main.c: 138: }
-[; ;main.c: 139: for (i = 0; i < 15; i++) {
-"139
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1178  ]
-[e $U 1179  ]
+[e :U 1173 ]
+[; ;main.c: 149: }
+[; ;main.c: 150: }
+[; ;main.c: 152: while (1) {
+"152
 [e :U 1178 ]
 {
-[; ;main.c: 140: senha[i] = (char) readEEPROM_ext(60 + i);
-"140
-[e = *U + &U _senha * -> _i `ux -> -> # *U &U _senha `ui `ux ( _readEEPROM_ext (1 -> + -> 60 `i -> _i `i `uc ]
-"141
-}
-"139
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 15 `i 1178  ]
-[e :U 1179 ]
-"141
-}
-[; ;main.c: 141: }
-[; ;main.c: 143: i = readEEPROM_ext(30);
-"143
-[e = _i ( _readEEPROM_ext (1 -> -> 30 `i `uc ]
-[; ;main.c: 144: if (i != 187) {
-"144
-[e $ ! != -> _i `i -> 187 `i 1181  ]
+[; ;main.c: 159: if (RCSTAbits.OERR) {
+"159
+[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 1180  ]
 {
-[; ;main.c: 145: writeEEPROM_ext(30, 187);
-"145
-[e ( _writeEEPROM_ext (2 , -> -> 30 `i `uc -> -> 187 `i `uc ]
-[; ;main.c: 146: while (1) {
-"146
-[e :U 1183 ]
-{
-[; ;main.c: 147: asm("CLRWDT");
-"147
-[; <" CLRWDT ;# ">
-[; ;main.c: 148: sprintf(line4, "ERRO EEPROM");
-"148
-[e ( _sprintf (1 , &U _line4 :s 73C ]
-[; ;main.c: 149: atualizaLCD(line1, line2, line3, line4);
-"149
-[e ( _atualizaLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
-[; ;main.c: 150: delay(3000);
-"150
-[e ( _delay (1 -> 3000 `i ]
-"151
-}
-[e :U 1182 ]
-"146
-[e $U 1183  ]
-[e :U 1184 ]
-"152
-}
-[e :U 1181 ]
-[; ;main.c: 151: }
-[; ;main.c: 152: }
-[; ;main.c: 154: while (1) {
-"154
-[e :U 1186 ]
-{
-[; ;main.c: 160: if (RCSTAbits.OERR) {
+[; ;main.c: 160: RCSTAbits.CREN = 0;
 "160
-[e $ ! != -> . . _RCSTAbits 0 1 `i -> -> -> 0 `i `Vuc `i 1188  ]
-{
-[; ;main.c: 161: RCSTAbits.CREN = 0;
-"161
 [e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 162: RCSTAbits.CREN = 1;
-"162
+[; ;main.c: 161: RCSTAbits.CREN = 1;
+"161
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"163
+"162
 }
-[e :U 1188 ]
-[; ;main.c: 163: }
+[e :U 1180 ]
+[; ;main.c: 162: }
 [; ;main.c: 164: asm("CLRWDT");
 "164
 [; <" CLRWDT ;# ">
@@ -10517,60 +10467,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _controle ..  ]
 [; ;main.c: 169: if (tipo_modo_trabalho == 1) {
 "169
-[e $ ! == -> _tipo_modo_trabalho `i -> 1 `i 1189  ]
+[e $ ! == -> _tipo_modo_trabalho `i -> 1 `i 1181  ]
 {
 [; ;main.c: 170: setUmidade('A', &umidajt, &tempajt, &clima);
 "170
 [e ( _setUmidade (4 , , , -> -> 65 `ui `uc &U _umidajt &U _tempajt &U _clima ]
 "171
 }
-[e :U 1189 ]
+[e :U 1181 ]
 [; ;main.c: 171: }
 [; ;main.c: 173: faseAtual('F', &fase, &tempajt);
 "173
 [e ( _faseAtual (3 , , -> -> 70 `ui `uc &U _fase &U _tempajt ]
 [; ;main.c: 175: if (menu != 10) {
 "175
-[e $ ! != -> _menu `i -> 10 `i 1190  ]
+[e $ ! != -> _menu `i -> 10 `i 1182  ]
 {
 [; ;main.c: 176: enviaDadosWifi();
 "176
 [e ( _enviaDadosWifi ..  ]
 "177
 }
-[e :U 1190 ]
+[e :U 1182 ]
 [; ;main.c: 177: }
 [; ;main.c: 181: if (btPress(4)) setRangeValor('+', &fornalha, 0, 1, 15);
 "181
-[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 1191  ]
+[e $ ! != -> ( _btPress (1 -> -> 4 `i `uc `i -> -> -> 0 `i `uc `i 1183  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _fornalha -> -> 0 `i `uc -> -> 1 `i `uc -> -> 15 `i `uc ]
-[e :U 1191 ]
+[e :U 1183 ]
 [; ;main.c: 183: switch (menu) {
 "183
-[e $U 1193  ]
+[e $U 1185  ]
 {
 [; ;main.c: 184: case 0:
 "184
-[e :U 1194 ]
+[e :U 1186 ]
 [; ;main.c: 185: sprintf(&line1[6], "|Sensor|Ajuste");
 "185
-[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 6 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 74C ]
+[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 6 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 83C ]
 [; ;main.c: 186: line1[0] = 0x02;
 "186
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 2 `i `uc ]
 [; ;main.c: 187: if (!buzzer) blink(line1, 1, 2);
 "187
-[e $ ! ! != -> _buzzer `i -> -> -> 0 `i `uc `i 1195  ]
+[e $ ! ! != -> _buzzer `i -> -> -> 0 `i `uc `i 1187  ]
 [e ( _blink (3 , , &U _line1 -> -> 1 `i `uc -> -> 2 `i `uc ]
-[e :U 1195 ]
+[e :U 1187 ]
 [; ;main.c: 188: line1[2] = 'F';
 "188
 [e = *U + &U _line1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 70 `ui `uc ]
 [; ;main.c: 189: if (!fornalha) blink(line1, 2, 3);
 "189
-[e $ ! ! != -> _fornalha `i -> -> -> 0 `i `uc `i 1196  ]
+[e $ ! ! != -> _fornalha `i -> -> -> 0 `i `uc `i 1188  ]
 [e ( _blink (3 , , &U _line1 -> -> 2 `i `uc -> -> 3 `i `uc ]
-[e :U 1196 ]
+[e :U 1188 ]
 [; ;main.c: 190: line1[4] = (wifi_conectado) ? 0x05 : ' ';
 "190
 [e = *U + &U _line1 * -> -> -> 4 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> ? != -> _wifi_conectado `i -> -> -> 0 `i `uc `i : -> -> 5 `i `ui -> 32 `ui `uc ]
@@ -10579,33 +10529,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 5 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> ? != -> _trava_fase `i -> -> -> 0 `i `uc `i : -> -> 1 `i `ui -> 32 `ui `uc ]
 [; ;main.c: 192: sprintf(line2, "TEMP  |  %3d | %3d F", temp, tempajt);
 "192
-[e ( _sprintf (1 , , (. , &U _line2 :s 75C -> _temp `i -> _tempajt `i ]
+[e ( _sprintf (1 , , (. , &U _line2 :s 84C -> _temp `i -> _tempajt `i ]
 [; ;main.c: 193: line2[5] = 0x04;
 "193
 [e = *U + &U _line2 * -> -> -> 5 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 4 `i `uc ]
 [; ;main.c: 194: sprintf(line3, "UMID  |  %3d | %3d %c", umid, umidajt, (tipo_sensor_umidade) ? '%' : 'F');
 "194
-[e ( _sprintf (1 , , , (. , &U _line3 :s 76C -> _umid `i -> _umidajt `i ? != -> _tipo_sensor_umidade `i -> -> -> 0 `i `uc `i : -> 37 `ui -> 70 `ui ]
+[e ( _sprintf (1 , , , (. , &U _line3 :s 85C -> _umid `i -> _umidajt `i ? != -> _tipo_sensor_umidade `i -> -> -> 0 `i `uc `i : -> 37 `ui -> 70 `ui ]
 [; ;main.c: 195: line3[5] = 0x03;
 "195
 [e = *U + &U _line3 * -> -> -> 5 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 3 `i `uc ]
 [; ;main.c: 196: sprintf(line4, "Fase ~ %s", faseAtual('?', &fase, &tempajt));
 "196
-[e ( _sprintf (1 , (. , &U _line4 :s 77C -> ( _faseAtual (3 , , -> -> 63 `ui `uc &U _fase &U _tempajt `*Cuc ]
+[e ( _sprintf (1 , (. , &U _line4 :s 86C -> ( _faseAtual (3 , , -> -> 63 `ui `uc &U _fase &U _tempajt `*Cuc ]
 [; ;main.c: 197: if (!f_falta_energia) {
 "197
-[e $ ! ! != -> _f_falta_energia `i -> -> -> 0 `i `uc `i 1197  ]
+[e $ ! ! != -> _f_falta_energia `i -> -> -> 0 `i `uc `i 1189  ]
 {
 [; ;main.c: 198: sprintf(line4, " *FALTA DE ENERGIA*");
 "198
-[e ( _sprintf (1 , &U _line4 :s 78C ]
+[e ( _sprintf (1 , &U _line4 :s 87C ]
 "199
 }
-[e :U 1197 ]
+[e :U 1189 ]
 [; ;main.c: 199: };
 [; ;main.c: 201: if (btPress(8)) {
 "201
-[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1198  ]
+[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1190  ]
 {
 [; ;main.c: 202: menu = 1;
 "202
@@ -10615,295 +10565,295 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _opcaomenu -> -> 1 `i `uc ]
 "204
 }
-[e :U 1198 ]
+[e :U 1190 ]
 [; ;main.c: 204: }
 [; ;main.c: 205: if (btPress(2)) {
 "205
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1199  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1191  ]
 {
 [; ;main.c: 206: ajuste_parametro++;
 "206
 [e ++ _ajuste_parametro -> -> 1 `i `uc ]
 "207
 }
-[e :U 1199 ]
+[e :U 1191 ]
 [; ;main.c: 207: }
 [; ;main.c: 208: if (btPress(1)) setRangeValor('+', &buzzer, 1, 1, 14);
 "208
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1200  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1192  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _buzzer -> -> 1 `i `uc -> -> 1 `i `uc -> -> 14 `i `uc ]
-[e :U 1200 ]
+[e :U 1192 ]
 [; ;main.c: 209: if (btPress(16)) setRangeValor('+', &buzzer, 0, 0, 14);
 "209
-[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1201  ]
+[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1193  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _buzzer -> -> 0 `i `uc -> -> 0 `i `uc -> -> 14 `i `uc ]
-[e :U 1201 ]
+[e :U 1193 ]
 [; ;main.c: 212: switch (ajuste_parametro) {
 "212
-[e $U 1203  ]
+[e $U 1195  ]
 {
 [; ;main.c: 213: case 1:
 "213
-[e :U 1204 ]
+[e :U 1196 ]
 [; ;main.c: 214: blink(line2, 15, 20);
 "214
 [e ( _blink (3 , , &U _line2 -> -> 15 `i `uc -> -> 20 `i `uc ]
 [; ;main.c: 215: if (btPress(64)) setRangeValor('+', &tempajt, 85, 160, 1);
 "215
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1205  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1197  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tempajt -> -> 85 `i `uc -> -> 160 `i `uc -> -> 1 `i `uc ]
-[e :U 1205 ]
+[e :U 1197 ]
 [; ;main.c: 216: if (btPress(32)) setRangeValor('-', &tempajt, 85, 160, 1);
 "216
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1206  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1198  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _tempajt -> -> 85 `i `uc -> -> 160 `i `uc -> -> 1 `i `uc ]
-[e :U 1206 ]
+[e :U 1198 ]
 [; ;main.c: 217: break;
 "217
-[e $U 1202  ]
+[e $U 1194  ]
 [; ;main.c: 218: case 2:
 "218
-[e :U 1207 ]
+[e :U 1199 ]
 [; ;main.c: 219: if (tipo_modo_trabalho == 0) {
 "219
-[e $ ! == -> _tipo_modo_trabalho `i -> 0 `i 1208  ]
+[e $ ! == -> _tipo_modo_trabalho `i -> 0 `i 1200  ]
 {
 [; ;main.c: 220: blink(line3, 15, 20);
 "220
 [e ( _blink (3 , , &U _line3 -> -> 15 `i `uc -> -> 20 `i `uc ]
 [; ;main.c: 221: if (btPress(64)) setUmidade('+', &umidajt, &tempajt, &clima);
 "221
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1209  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1201  ]
 [e ( _setUmidade (4 , , , -> -> 43 `ui `uc &U _umidajt &U _tempajt &U _clima ]
-[e :U 1209 ]
+[e :U 1201 ]
 [; ;main.c: 222: if (btPress(32)) setUmidade('-', &umidajt, &tempajt, &clima);
 "222
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1210  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1202  ]
 [e ( _setUmidade (4 , , , -> -> 45 `ui `uc &U _umidajt &U _tempajt &U _clima ]
-[e :U 1210 ]
+[e :U 1202 ]
 "223
 }
 [; ;main.c: 223: } else {
-[e $U 1211  ]
-[e :U 1208 ]
+[e $U 1203  ]
+[e :U 1200 ]
 {
 [; ;main.c: 224: ajuste_parametro = 0;
 "224
 [e = _ajuste_parametro -> -> 0 `i `uc ]
 "225
 }
-[e :U 1211 ]
+[e :U 1203 ]
 [; ;main.c: 225: }
 [; ;main.c: 226: break;
 "226
-[e $U 1202  ]
+[e $U 1194  ]
 [; ;main.c: 227: default:
 "227
-[e :U 1212 ]
+[e :U 1204 ]
 [; ;main.c: 228: ajuste_parametro = 0;
 "228
 [e = _ajuste_parametro -> -> 0 `i `uc ]
 "229
 }
 [; ;main.c: 229: }
-[e $U 1202  ]
+[e $U 1194  ]
 "212
-[e :U 1203 ]
-[e [\ _ajuste_parametro , $ -> -> 1 `i `uc 1204
- , $ -> -> 2 `i `uc 1207
- 1212 ]
+[e :U 1195 ]
+[e [\ _ajuste_parametro , $ -> -> 1 `i `uc 1196
+ , $ -> -> 2 `i `uc 1199
+ 1204 ]
 "229
-[e :U 1202 ]
+[e :U 1194 ]
 [; ;main.c: 230: break;
 "230
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 231: case 1:
 "231
-[e :U 1213 ]
+[e :U 1205 ]
 [; ;main.c: 232: sprintf(&line1[1], "TEMPERATURA: %d F", tempajt);
 "232
-[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 79C -> _tempajt `i ]
+[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 88C -> _tempajt `i ]
 [; ;main.c: 233: sprintf(&line2[1], "UMIDADE: %d %c", umidajt, (tipo_sensor_umidade) ? '%' : 'F');
 "233
-[e ( _sprintf (1 , , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 80C -> _umidajt `i ? != -> _tipo_sensor_umidade `i -> -> -> 0 `i `uc `i : -> 37 `ui -> 70 `ui ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 89C -> _umidajt `i ? != -> _tipo_sensor_umidade `i -> -> -> 0 `i `uc `i : -> 37 `ui -> 70 `ui ]
 [; ;main.c: 234: sprintf(&line3[1], "FASE: %s", faseAtual('?', &fase, &tempajt));
 "234
-[e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 81C -> ( _faseAtual (3 , , -> -> 63 `ui `uc &U _fase &U _tempajt `*Cuc ]
+[e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 90C -> ( _faseAtual (3 , , -> -> 63 `ui `uc &U _fase &U _tempajt `*Cuc ]
 [; ;main.c: 235: sprintf(&line4[1], "CLIMA: %s", climaAtual(clima));
 "235
-[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 82C -> ( _climaAtual (1 _clima `*Cuc ]
+[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 91C -> ( _climaAtual (1 _clima `*Cuc ]
 [; ;main.c: 236: break;
 "236
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 237: case 2:
 "237
-[e :U 1214 ]
+[e :U 1206 ]
 [; ;main.c: 238: sprintf(&line1[1], "MODO: %s", (!tipo_modo_trabalho) ? "Manual" : "Automatico");
 "238
-[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 83C ? ! != -> _tipo_modo_trabalho `i -> -> -> 0 `i `uc `i : :s 84C :s 85C ]
+[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 92C ? ! != -> _tipo_modo_trabalho `i -> -> -> 0 `i `uc `i : :s 93C :s 94C ]
 [; ;main.c: 239: sprintf(&line2[1], "TRAVA: %s", (trava_fase) ? "Travado" : "Destravado");
 "239
-[e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 86C ? != -> _trava_fase `i -> -> -> 0 `i `uc `i : :s 87C :s 88C ]
+[e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 95C ? != -> _trava_fase `i -> -> -> 0 `i `uc `i : :s 96C :s 97C ]
 [; ;main.c: 240: sprintf(&line3[1], "ALARME: %s", (buzzer) ? "Ligado" : "Desligado");
 "240
-[e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 89C ? != -> _buzzer `i -> -> -> 0 `i `uc `i : :s 90C :s 91C ]
+[e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 98C ? != -> _buzzer `i -> -> -> 0 `i `uc `i : :s 99C :s 100C ]
 [; ;main.c: 241: sprintf(&line4[1], "TEMPO FIM FASE   >>");
 "241
-[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 92C ]
+[e ( _sprintf (1 , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 101C ]
 [; ;main.c: 242: break;
 "242
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 243: case 3:
 "243
-[e :U 1215 ]
+[e :U 1207 ]
 [; ;main.c: 244: sprintf(&line1[1], "CONFIG WIFI      >>");
 "244
-[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 93C ]
+[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 102C ]
 [; ;main.c: 245: sprintf(&line2[1], "CONFIG AVANCADAS >>");
 "245
-[e ( _sprintf (1 , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 94C ]
+[e ( _sprintf (1 , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 103C ]
 [; ;main.c: 246: break;
 "246
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 247: case 5:
 "247
-[e :U 1216 ]
+[e :U 1208 ]
 [; ;main.c: 248: sprintf(&line1[1], "P1:%4d |  P5:%4d", senha_desbloqueio_func, h_venotinha);
 "248
-[e ( _sprintf (1 , , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 95C -> _senha_desbloqueio_func `i -> _h_venotinha `i ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 104C -> _senha_desbloqueio_func `i -> _h_venotinha `i ]
 [; ;main.c: 249: sprintf(&line2[1], "P2:%4d |  P6:%4d", tipo_sensor_umidade, h_modo_seguranca);
 "249
-[e ( _sprintf (1 , , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 96C -> _tipo_sensor_umidade `i -> _h_modo_seguranca `i ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 105C -> _tipo_sensor_umidade `i -> _h_modo_seguranca `i ]
 [; ;main.c: 250: sprintf(&line3[1], "P3:%4d |  P7:%4d", h_abafador, h_buzzer);
 "250
-[e ( _sprintf (1 , , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 97C -> _h_abafador `i -> _h_buzzer `i ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 106C -> _h_abafador `i -> _h_buzzer `i ]
 [; ;main.c: 251: sprintf(&line4[1], "P4:%4d |  P8:%4d", h_flap, t_flap_ligado);
 "251
-[e ( _sprintf (1 , , (. , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 98C -> _h_flap `i -> _t_flap_ligado `i ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 107C -> _h_flap `i -> _t_flap_ligado `i ]
 [; ;main.c: 252: break;
 "252
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 253: case 6:
 "253
-[e :U 1217 ]
+[e :U 1209 ]
 [; ;main.c: 254: sprintf(&line1[1], "P9 :%4d | P13:%4d", t_flap_intervalo, wifi_SENHA);
 "254
-[e ( _sprintf (1 , , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 99C -> _t_flap_intervalo `i _wifi_SENHA ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 108C -> _t_flap_intervalo `i _wifi_SENHA ]
 [; ;main.c: 255: sprintf(&line2[1], "P10:%4d | P14:%4d", t_buzzer_religar, h_subir_temp_automatica);
 "255
-[e ( _sprintf (1 , , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 100C -> _t_buzzer_religar `i -> _h_subir_temp_automatica `i ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 109C -> _t_buzzer_religar `i -> _h_subir_temp_automatica `i ]
 [; ;main.c: 256: sprintf(&line3[1], "P11:%4d | P15:%4d", t_temp_automatica, t_religar_ventoinha_automatica);
 "256
-[e ( _sprintf (1 , , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 101C -> _t_temp_automatica `i -> _t_religar_ventoinha_automatica `i ]
+[e ( _sprintf (1 , , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 110C -> _t_temp_automatica `i -> _t_religar_ventoinha_automatica `i ]
 [; ;main.c: 257: sprintf(&line4[1], "P12:%4d |", wifi_habilita_alteracao);
 "257
-[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 102C _wifi_habilita_alteracao ]
+[e ( _sprintf (1 , (. , &U *U + &U _line4 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line4 `ui `ux :s 111C -> _wifi_habilita_alteracao `i ]
 [; ;main.c: 258: break;
 "258
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 259: case 8:
 "259
-[e :U 1218 ]
+[e :U 1210 ]
 [; ;main.c: 260: sprintf(line1, "REDE:%s", ssid);
 "260
-[e ( _sprintf (1 , (. , &U _line1 :s 103C -> &U _ssid `*Cuc ]
+[e ( _sprintf (1 , (. , &U _line1 :s 112C -> &U _ssid `*Cuc ]
 [; ;main.c: 261: sprintf(line2, "SENHA:%s", senha);
 "261
-[e ( _sprintf (1 , (. , &U _line2 :s 104C -> &U _senha `*Cuc ]
+[e ( _sprintf (1 , (. , &U _line2 :s 113C -> &U _senha `*Cuc ]
 [; ;main.c: 263: sprintf(line3, "NS: %s", wifi_MAC);
 "263
-[e ( _sprintf (1 , (. , &U _line3 :s 105C -> &U _wifi_MAC `*Cui ]
+[e ( _sprintf (1 , (. , &U _line3 :s 114C -> &U _wifi_MAC `*Cuc ]
 [; ;main.c: 264: sprintf(line4, "SENHA REMOTA: %d", (int) (wifi_SENHA * 39));
 "264
-[e ( _sprintf (1 , (. , &U _line4 :s 106C -> * _wifi_SENHA -> -> 39 `i `ui `i ]
+[e ( _sprintf (1 , (. , &U _line4 :s 115C -> * _wifi_SENHA -> -> 39 `i `ui `i ]
 [; ;main.c: 265: break;
 "265
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 266: case 9:
 "266
-[e :U 1219 ]
+[e :U 1211 ]
 [; ;main.c: 267: sprintf(&line1[1], "CONFIGURAR       >>");
 "267
-[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 107C ]
+[e ( _sprintf (1 , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 116C ]
 [; ;main.c: 268: break;
 "268
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 269: case 10:
 "269
-[e :U 1220 ]
-[; ;main.c: 270: alterarConfigWifi();
+[e :U 1212 ]
+[; ;main.c: 270: alterarDadosConexaoConfigWifi();
 "270
-[e ( _alterarConfigWifi ..  ]
+[e ( _alterarDadosConexaoConfigWifi ..  ]
 [; ;main.c: 271: break;
 "271
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 272: case 11:
 "272
-[e :U 1221 ]
+[e :U 1213 ]
 [; ;main.c: 273: sprintf(&line1[1], "Amarelacao : %d hr", t_fim_fase1);
 "273
-[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 108C -> _t_fim_fase1 `i ]
+[e ( _sprintf (1 , (. , &U *U + &U _line1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line1 `ui `ux :s 117C -> _t_fim_fase1 `i ]
 [; ;main.c: 274: sprintf(&line2[1], "Murchamento: %d hr", t_fim_fase2);
 "274
-[e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 109C -> _t_fim_fase2 `i ]
+[e ( _sprintf (1 , (. , &U *U + &U _line2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line2 `ui `ux :s 118C -> _t_fim_fase2 `i ]
 [; ;main.c: 275: sprintf(&line3[1], "Sec. Folha : %d hr", t_fim_fase3);
 "275
-[e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 110C -> _t_fim_fase3 `i ]
+[e ( _sprintf (1 , (. , &U *U + &U _line3 * -> -> -> 1 `i `ui `ux -> -> # *U &U _line3 `ui `ux :s 119C -> _t_fim_fase3 `i ]
 [; ;main.c: 276: sprintf(line4, "*0 nao passa fase");
 "276
-[e ( _sprintf (1 , &U _line4 :s 111C ]
+[e ( _sprintf (1 , &U _line4 :s 120C ]
 [; ;main.c: 277: break;
 "277
-[e $U 1192  ]
+[e $U 1184  ]
 [; ;main.c: 278: default: menu = 0;
 "278
-[e :U 1222 ]
+[e :U 1214 ]
 [e = _menu -> -> 0 `i `uc ]
 [; ;main.c: 279: break;
 "279
-[e $U 1192  ]
+[e $U 1184  ]
 "280
 }
 [; ;main.c: 280: }
-[e $U 1192  ]
+[e $U 1184  ]
 "183
-[e :U 1193 ]
-[e [\ _menu , $ -> -> 0 `i `uc 1194
- , $ -> -> 1 `i `uc 1213
- , $ -> -> 2 `i `uc 1214
- , $ -> -> 3 `i `uc 1215
- , $ -> -> 5 `i `uc 1216
- , $ -> -> 6 `i `uc 1217
- , $ -> -> 8 `i `uc 1218
- , $ -> -> 9 `i `uc 1219
- , $ -> -> 10 `i `uc 1220
- , $ -> -> 11 `i `uc 1221
- 1222 ]
+[e :U 1185 ]
+[e [\ _menu , $ -> -> 0 `i `uc 1186
+ , $ -> -> 1 `i `uc 1205
+ , $ -> -> 2 `i `uc 1206
+ , $ -> -> 3 `i `uc 1207
+ , $ -> -> 5 `i `uc 1208
+ , $ -> -> 6 `i `uc 1209
+ , $ -> -> 8 `i `uc 1210
+ , $ -> -> 9 `i `uc 1211
+ , $ -> -> 10 `i `uc 1212
+ , $ -> -> 11 `i `uc 1213
+ 1214 ]
 "280
-[e :U 1192 ]
+[e :U 1184 ]
 [; ;main.c: 284: if (menu == 1 | menu == 2 | menu == 3) {
 "284
-[e $ ! | | == -> _menu `i -> 1 `i == -> _menu `i -> 2 `i == -> _menu `i -> 3 `i 1223  ]
+[e $ ! | | == -> _menu `i -> 1 `i == -> _menu `i -> 2 `i == -> _menu `i -> 3 `i 1215  ]
 {
 [; ;main.c: 285: ajuste_parametro = 0;
 "285
 [e = _ajuste_parametro -> -> 0 `i `uc ]
 [; ;main.c: 287: switch (opcaomenu) {
 "287
-[e $U 1225  ]
+[e $U 1217  ]
 {
 [; ;main.c: 288: case 0:
 "288
-[e :U 1226 ]
+[e :U 1218 ]
 [; ;main.c: 289: opcaomenu = 10;
 "289
 [e = _opcaomenu -> -> 10 `i `uc ]
 [; ;main.c: 290: break;
 "290
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 291: case 1:
 "291
-[e :U 1227 ]
+[e :U 1219 ]
 [; ;main.c: 292: menu = 1;
 "292
 [e = _menu -> -> 1 `i `uc ]
@@ -10912,53 +10862,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 294: if (btPress(64)) setRangeValor('+', &tempajt, 60, 160, 1);
 "294
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1228  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1220  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tempajt -> -> 60 `i `uc -> -> 160 `i `uc -> -> 1 `i `uc ]
-[e :U 1228 ]
+[e :U 1220 ]
 [; ;main.c: 295: if (btPress(32)) setRangeValor('-', &tempajt, 60, 160, 1);
 "295
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1229  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1221  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _tempajt -> -> 60 `i `uc -> -> 160 `i `uc -> -> 1 `i `uc ]
-[e :U 1229 ]
+[e :U 1221 ]
 [; ;main.c: 296: break;
 "296
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 297: case 2:
 "297
-[e :U 1230 ]
+[e :U 1222 ]
 [; ;main.c: 298: line2[0] = '>';
 "298
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 299: if (tipo_modo_trabalho == 0) {
 "299
-[e $ ! == -> _tipo_modo_trabalho `i -> 0 `i 1231  ]
+[e $ ! == -> _tipo_modo_trabalho `i -> 0 `i 1223  ]
 {
 [; ;main.c: 300: if (btPress(64)) setUmidade('+', &umidajt, &tempajt, &clima);
 "300
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1232  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1224  ]
 [e ( _setUmidade (4 , , , -> -> 43 `ui `uc &U _umidajt &U _tempajt &U _clima ]
-[e :U 1232 ]
+[e :U 1224 ]
 [; ;main.c: 301: if (btPress(32)) setUmidade('-', &umidajt, &tempajt, &clima);
 "301
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1233  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1225  ]
 [e ( _setUmidade (4 , , , -> -> 45 `ui `uc &U _umidajt &U _tempajt &U _clima ]
-[e :U 1233 ]
+[e :U 1225 ]
 "302
 }
-[e :U 1231 ]
+[e :U 1223 ]
 [; ;main.c: 302: }
 [; ;main.c: 303: break;
 "303
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 304: case 3:
 "304
-[e :U 1234 ]
+[e :U 1226 ]
 [; ;main.c: 305: line3[0] = '>';
 "305
 [e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 306: if (btPress(64)) {
 "306
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1235  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1227  ]
 {
 [; ;main.c: 307: setRangeValor('+', &fase, 1, 4, 4);
 "307
@@ -10971,11 +10921,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _setUmidade (4 , , , -> -> 65 `ui `uc &U _umidajt &U _tempajt &U _clima ]
 "310
 }
-[e :U 1235 ]
+[e :U 1227 ]
 [; ;main.c: 310: }
 [; ;main.c: 311: if (btPress(32)) {
 "311
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1236  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1228  ]
 {
 [; ;main.c: 312: setRangeValor('-', &fase, 1, 4, 4);
 "312
@@ -10988,14 +10938,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _setUmidade (4 , , , -> -> 65 `ui `uc &U _umidajt &U _tempajt &U _clima ]
 "315
 }
-[e :U 1236 ]
+[e :U 1228 ]
 [; ;main.c: 315: }
 [; ;main.c: 316: break;
 "316
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 317: case 4:
 "317
-[e :U 1237 ]
+[e :U 1229 ]
 [; ;main.c: 318: menu = 1;
 "318
 [e = _menu -> -> 1 `i `uc ]
@@ -11004,20 +10954,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 320: if (btPress(64))setRangeValor('+', &clima, 1, 3, 5);
 "320
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1238  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1230  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _clima -> -> 1 `i `uc -> -> 3 `i `uc -> -> 5 `i `uc ]
-[e :U 1238 ]
+[e :U 1230 ]
 [; ;main.c: 321: if (btPress(32))setRangeValor('-', &clima, 1, 3, 5);
 "321
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1239  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1231  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _clima -> -> 1 `i `uc -> -> 3 `i `uc -> -> 5 `i `uc ]
-[e :U 1239 ]
+[e :U 1231 ]
 [; ;main.c: 322: break;
 "322
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 323: case 5:
 "323
-[e :U 1240 ]
+[e :U 1232 ]
 [; ;main.c: 324: menu = 2;
 "324
 [e = _menu -> -> 2 `i `uc ]
@@ -11026,43 +10976,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 326: if (btPress(64) || btPress(32)) setRangeValor('+', &tipo_modo_trabalho, 0, 1, 6);
 "326
-[e $ ! || != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1241  ]
+[e $ ! || != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1233  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tipo_modo_trabalho -> -> 0 `i `uc -> -> 1 `i `uc -> -> 6 `i `uc ]
-[e :U 1241 ]
+[e :U 1233 ]
 [; ;main.c: 327: break;
 "327
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 328: case 6:
 "328
-[e :U 1242 ]
+[e :U 1234 ]
 [; ;main.c: 329: line2[0] = '>';
 "329
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 330: if (btPress(64) || btPress(32)) setRangeValor('+', &trava_fase, 0, 1, 3);
 "330
-[e $ ! || != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1243  ]
+[e $ ! || != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1235  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _trava_fase -> -> 0 `i `uc -> -> 1 `i `uc -> -> 3 `i `uc ]
-[e :U 1243 ]
+[e :U 1235 ]
 [; ;main.c: 331: break;
 "331
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 332: case 7:
 "332
-[e :U 1244 ]
+[e :U 1236 ]
 [; ;main.c: 333: line3[0] = '>';
 "333
 [e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 334: if (btPress(64) || btPress(32)) setRangeValor('+', &buzzer, 0, 1, 14);
 "334
-[e $ ! || != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1245  ]
+[e $ ! || != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1237  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _buzzer -> -> 0 `i `uc -> -> 1 `i `uc -> -> 14 `i `uc ]
-[e :U 1245 ]
+[e :U 1237 ]
 [; ;main.c: 335: break;
 "335
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 336: case 8:
 "336
-[e :U 1246 ]
+[e :U 1238 ]
 [; ;main.c: 337: menu = 2;
 "337
 [e = _menu -> -> 2 `i `uc ]
@@ -11071,15 +11021,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 339: if (btPress(2)) menu = 11;
 "339
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1247  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1239  ]
 [e = _menu -> -> 11 `i `uc ]
-[e :U 1247 ]
+[e :U 1239 ]
 [; ;main.c: 340: break;
 "340
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 341: case 9:
 "341
-[e :U 1248 ]
+[e :U 1240 ]
 [; ;main.c: 342: menu = 3;
 "342
 [e = _menu -> -> 3 `i `uc ]
@@ -11088,15 +11038,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 344: if (btPress(2)) menu = 8;
 "344
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1249  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1241  ]
 [e = _menu -> -> 8 `i `uc ]
-[e :U 1249 ]
+[e :U 1241 ]
 [; ;main.c: 345: break;
 "345
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 346: case 10:
 "346
-[e :U 1250 ]
+[e :U 1242 ]
 [; ;main.c: 347: menu = 3;
 "347
 [e = _menu -> -> 3 `i `uc ]
@@ -11105,7 +11055,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 349: if (btPress(2)) {
 "349
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1251  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1243  ]
 {
 [; ;main.c: 350: menu = 5;
 "350
@@ -11115,76 +11065,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _opcaomenu -> -> 1 `i `uc ]
 "352
 }
-[e :U 1251 ]
+[e :U 1243 ]
 [; ;main.c: 352: }
 [; ;main.c: 353: break;
 "353
-[e $U 1224  ]
+[e $U 1216  ]
 [; ;main.c: 354: default:
 "354
-[e :U 1252 ]
+[e :U 1244 ]
 [; ;main.c: 355: opcaomenu = 1;
 "355
 [e = _opcaomenu -> -> 1 `i `uc ]
 [; ;main.c: 356: break;
 "356
-[e $U 1224  ]
+[e $U 1216  ]
 "357
 }
 [; ;main.c: 357: }
-[e $U 1224  ]
+[e $U 1216  ]
 "287
-[e :U 1225 ]
-[e [\ _opcaomenu , $ -> -> 0 `i `uc 1226
- , $ -> -> 1 `i `uc 1227
- , $ -> -> 2 `i `uc 1230
- , $ -> -> 3 `i `uc 1234
- , $ -> -> 4 `i `uc 1237
- , $ -> -> 5 `i `uc 1240
- , $ -> -> 6 `i `uc 1242
- , $ -> -> 7 `i `uc 1244
- , $ -> -> 8 `i `uc 1246
- , $ -> -> 9 `i `uc 1248
- , $ -> -> 10 `i `uc 1250
- 1252 ]
+[e :U 1217 ]
+[e [\ _opcaomenu , $ -> -> 0 `i `uc 1218
+ , $ -> -> 1 `i `uc 1219
+ , $ -> -> 2 `i `uc 1222
+ , $ -> -> 3 `i `uc 1226
+ , $ -> -> 4 `i `uc 1229
+ , $ -> -> 5 `i `uc 1232
+ , $ -> -> 6 `i `uc 1234
+ , $ -> -> 7 `i `uc 1236
+ , $ -> -> 8 `i `uc 1238
+ , $ -> -> 9 `i `uc 1240
+ , $ -> -> 10 `i `uc 1242
+ 1244 ]
 "357
-[e :U 1224 ]
+[e :U 1216 ]
 [; ;main.c: 359: if (btPress(16)) opcaomenu++;
 "359
-[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1253  ]
+[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1245  ]
 [e ++ _opcaomenu -> -> 1 `i `uc ]
-[e :U 1253 ]
+[e :U 1245 ]
 [; ;main.c: 360: if (btPress(1)) opcaomenu--;
 "360
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1254  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1246  ]
 [e -- _opcaomenu -> -> 1 `i `uc ]
-[e :U 1254 ]
+[e :U 1246 ]
 [; ;main.c: 361: if (btPress(8)) menu = 0;
 "361
-[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1255  ]
+[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1247  ]
 [e = _menu -> -> 0 `i `uc ]
-[e :U 1255 ]
+[e :U 1247 ]
 "362
 }
 [; ;main.c: 362: } else
-[e $U 1256  ]
-[e :U 1223 ]
+[e $U 1248  ]
+[e :U 1215 ]
 [; ;main.c: 366: if (menu == 5 | menu == 6) {
 "366
-[e $ ! | == -> _menu `i -> 5 `i == -> _menu `i -> 6 `i 1257  ]
+[e $ ! | == -> _menu `i -> 5 `i == -> _menu `i -> 6 `i 1249  ]
 {
 [; ;main.c: 367: if (senha_desbloqueio_func != 48) opcaomenu = 1;
 "367
-[e $ ! != -> _senha_desbloqueio_func `i -> 48 `i 1258  ]
+[e $ ! != -> _senha_desbloqueio_func `i -> 48 `i 1250  ]
 [e = _opcaomenu -> -> 1 `i `uc ]
-[e :U 1258 ]
+[e :U 1250 ]
 [; ;main.c: 368: switch (opcaomenu) {
 "368
-[e $U 1260  ]
+[e $U 1252  ]
 {
 [; ;main.c: 369: case 1:
 "369
-[e :U 1261 ]
+[e :U 1253 ]
 [; ;main.c: 370: menu = 5;
 "370
 [e = _menu -> -> 5 `i `uc ]
@@ -11193,134 +11143,134 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 372: if (btPress(64)) setRangeValor('+', &senha_desbloqueio_func, 0, 50, 0);
 "372
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1262  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1254  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _senha_desbloqueio_func -> -> 0 `i `uc -> -> 50 `i `uc -> -> 0 `i `uc ]
-[e :U 1262 ]
+[e :U 1254 ]
 [; ;main.c: 373: if (btPress(32)) setRangeValor('-', &senha_desbloqueio_func, 0, 50, 0);
 "373
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1263  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1255  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _senha_desbloqueio_func -> -> 0 `i `uc -> -> 50 `i `uc -> -> 0 `i `uc ]
-[e :U 1263 ]
+[e :U 1255 ]
 [; ;main.c: 374: break;
 "374
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 375: case 2:
 "375
-[e :U 1264 ]
+[e :U 1256 ]
 [; ;main.c: 376: line2[0] = '>';
 "376
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 377: if (btPress(64)) setRangeValor('+', &tipo_sensor_umidade, 0, 1, 7);
 "377
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1265  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1257  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _tipo_sensor_umidade -> -> 0 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc ]
-[e :U 1265 ]
+[e :U 1257 ]
 [; ;main.c: 378: if (btPress(32)) setRangeValor('-', &tipo_sensor_umidade, 0, 1, 7);
 "378
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1266  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1258  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _tipo_sensor_umidade -> -> 0 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc ]
-[e :U 1266 ]
+[e :U 1258 ]
 [; ;main.c: 379: break;
 "379
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 380: case 3:
 "380
-[e :U 1267 ]
+[e :U 1259 ]
 [; ;main.c: 381: line3[0] = '>';
 "381
 [e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 382: if (btPress(64)) setRangeValor('+', &h_abafador, 1, 10, 12);
 "382
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1268  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1260  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _h_abafador -> -> 1 `i `uc -> -> 10 `i `uc -> -> 12 `i `uc ]
-[e :U 1268 ]
+[e :U 1260 ]
 [; ;main.c: 383: if (btPress(32)) setRangeValor('-', &h_abafador, 1, 10, 12);
 "383
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1269  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1261  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _h_abafador -> -> 1 `i `uc -> -> 10 `i `uc -> -> 12 `i `uc ]
-[e :U 1269 ]
+[e :U 1261 ]
 [; ;main.c: 384: break;
 "384
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 385: case 4:
 "385
-[e :U 1270 ]
+[e :U 1262 ]
 [; ;main.c: 386: line4[0] = '>';
 "386
 [e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 387: if (btPress(64)) setRangeValor('+', &h_flap, 1, 10, 13);
 "387
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1271  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1263  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _h_flap -> -> 1 `i `uc -> -> 10 `i `uc -> -> 13 `i `uc ]
-[e :U 1271 ]
+[e :U 1263 ]
 [; ;main.c: 388: if (btPress(32)) setRangeValor('-', &h_flap, 1, 10, 13);
 "388
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1272  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1264  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _h_flap -> -> 1 `i `uc -> -> 10 `i `uc -> -> 13 `i `uc ]
-[e :U 1272 ]
+[e :U 1264 ]
 [; ;main.c: 389: break;
 "389
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 390: case 5:
 "390
-[e :U 1273 ]
+[e :U 1265 ]
 [; ;main.c: 391: line1[11] = '>';
 "391
 [e = *U + &U _line1 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 392: if (btPress(64)) setRangeValor('+', &h_venotinha, 1, 10, 11);
 "392
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1274  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1266  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _h_venotinha -> -> 1 `i `uc -> -> 10 `i `uc -> -> 11 `i `uc ]
-[e :U 1274 ]
+[e :U 1266 ]
 [; ;main.c: 393: if (btPress(32)) setRangeValor('-', &h_venotinha, 1, 10, 11);
 "393
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1275  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1267  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _h_venotinha -> -> 1 `i `uc -> -> 10 `i `uc -> -> 11 `i `uc ]
-[e :U 1275 ]
+[e :U 1267 ]
 [; ;main.c: 394: break;
 "394
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 395: case 6:
 "395
-[e :U 1276 ]
+[e :U 1268 ]
 [; ;main.c: 396: line2[11] = '>';
 "396
 [e = *U + &U _line2 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 397: if (btPress(64)) setRangeValor('+', &h_modo_seguranca, 0, 15, 16);
 "397
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1277  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1269  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _h_modo_seguranca -> -> 0 `i `uc -> -> 15 `i `uc -> -> 16 `i `uc ]
-[e :U 1277 ]
+[e :U 1269 ]
 [; ;main.c: 398: if (btPress(32)) setRangeValor('-', &h_modo_seguranca, 0, 15, 16);
 "398
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1278  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1270  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _h_modo_seguranca -> -> 0 `i `uc -> -> 15 `i `uc -> -> 16 `i `uc ]
-[e :U 1278 ]
+[e :U 1270 ]
 [; ;main.c: 399: break;
 "399
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 400: case 7:
 "400
-[e :U 1279 ]
+[e :U 1271 ]
 [; ;main.c: 401: line3[11] = '>';
 "401
 [e = *U + &U _line3 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 402: if (btPress(64)) setRangeValor('+', &h_buzzer, 1, 15, 17);
 "402
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1280  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1272  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _h_buzzer -> -> 1 `i `uc -> -> 15 `i `uc -> -> 17 `i `uc ]
-[e :U 1280 ]
+[e :U 1272 ]
 [; ;main.c: 403: if (btPress(32)) setRangeValor('-', &h_buzzer, 1, 15, 17);
 "403
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1281  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1273  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _h_buzzer -> -> 1 `i `uc -> -> 15 `i `uc -> -> 17 `i `uc ]
-[e :U 1281 ]
+[e :U 1273 ]
 [; ;main.c: 404: break;
 "404
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 405: case 8:
 "405
-[e :U 1282 ]
+[e :U 1274 ]
 [; ;main.c: 406: menu = 5;
 "406
 [e = _menu -> -> 5 `i `uc ]
@@ -11329,20 +11279,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line4 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 408: if (btPress(64)) setRangeValor('+', &t_flap_ligado, 1, 250, 18);
 "408
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1283  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1275  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_flap_ligado -> -> 1 `i `uc -> -> 250 `i `uc -> -> 18 `i `uc ]
-[e :U 1283 ]
+[e :U 1275 ]
 [; ;main.c: 409: if (btPress(32)) setRangeValor('-', &t_flap_ligado, 1, 250, 18);
 "409
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1284  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1276  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_flap_ligado -> -> 1 `i `uc -> -> 250 `i `uc -> -> 18 `i `uc ]
-[e :U 1284 ]
+[e :U 1276 ]
 [; ;main.c: 410: break;
 "410
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 411: case 9:
 "411
-[e :U 1285 ]
+[e :U 1277 ]
 [; ;main.c: 412: menu = 6;
 "412
 [e = _menu -> -> 6 `i `uc ]
@@ -11351,172 +11301,172 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 414: if (btPress(64)) setRangeValor('+', &t_flap_intervalo, 0, 250, 20);
 "414
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1286  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1278  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_flap_intervalo -> -> 0 `i `uc -> -> 250 `i `uc -> -> 20 `i `uc ]
-[e :U 1286 ]
+[e :U 1278 ]
 [; ;main.c: 415: if (btPress(32)) setRangeValor('-', &t_flap_intervalo, 0, 250, 20);
 "415
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1287  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1279  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_flap_intervalo -> -> 0 `i `uc -> -> 250 `i `uc -> -> 20 `i `uc ]
-[e :U 1287 ]
+[e :U 1279 ]
 [; ;main.c: 416: break;
 "416
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 417: case 10:
 "417
-[e :U 1288 ]
+[e :U 1280 ]
 [; ;main.c: 418: line2[0] = '>';
 "418
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 419: if (btPress(64)) setRangeValor('+', &t_buzzer_religar, 0, 30, 21);
 "419
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1289  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1281  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_buzzer_religar -> -> 0 `i `uc -> -> 30 `i `uc -> -> 21 `i `uc ]
-[e :U 1289 ]
+[e :U 1281 ]
 [; ;main.c: 420: if (btPress(32)) setRangeValor('-', &t_buzzer_religar, 0, 30, 21);
 "420
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1290  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1282  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_buzzer_religar -> -> 0 `i `uc -> -> 30 `i `uc -> -> 21 `i `uc ]
-[e :U 1290 ]
+[e :U 1282 ]
 [; ;main.c: 421: break;
 "421
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 422: case 11:
 "422
-[e :U 1291 ]
+[e :U 1283 ]
 [; ;main.c: 423: line3[0] = '>';
 "423
 [e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 424: if (btPress(64)) setRangeValor('+', &t_temp_automatica, 0, 250, 22);
 "424
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1292  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1284  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_temp_automatica -> -> 0 `i `uc -> -> 250 `i `uc -> -> 22 `i `uc ]
-[e :U 1292 ]
+[e :U 1284 ]
 [; ;main.c: 425: if (btPress(32)) setRangeValor('-', &t_temp_automatica, 0, 250, 22);
 "425
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1293  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1285  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_temp_automatica -> -> 0 `i `uc -> -> 250 `i `uc -> -> 22 `i `uc ]
-[e :U 1293 ]
+[e :U 1285 ]
 [; ;main.c: 426: break;
 "426
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 427: case 12:
 "427
-[e :U 1294 ]
+[e :U 1286 ]
 [; ;main.c: 428: line4[0] = '>';
 "428
 [e = *U + &U _line4 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line4 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 429: if (btPress(64)) setRangeValor('+', (&wifi_habilita_alteracao), 0, 1, 23);
 "429
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1295  ]
-[e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc -> &U _wifi_habilita_alteracao `*uc -> -> 0 `i `uc -> -> 1 `i `uc -> -> 23 `i `uc ]
-[e :U 1295 ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1287  ]
+[e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _wifi_habilita_alteracao -> -> 0 `i `uc -> -> 1 `i `uc -> -> 23 `i `uc ]
+[e :U 1287 ]
 [; ;main.c: 430: if (btPress(32)) setRangeValor('-', &wifi_habilita_alteracao, 0, 1, 23);
 "430
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1296  ]
-[e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc -> &U _wifi_habilita_alteracao `*uc -> -> 0 `i `uc -> -> 1 `i `uc -> -> 23 `i `uc ]
-[e :U 1296 ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1288  ]
+[e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _wifi_habilita_alteracao -> -> 0 `i `uc -> -> 1 `i `uc -> -> 23 `i `uc ]
+[e :U 1288 ]
 [; ;main.c: 431: break;
 "431
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 432: case 13:
 "432
-[e :U 1297 ]
+[e :U 1289 ]
 [; ;main.c: 433: line1[11] = '>';
 "433
 [e = *U + &U _line1 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 434: if (btPress(64)) setRangeValor('+', &wifi_SENHA, 1, 250, 25);
 "434
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1298  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1290  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc -> &U _wifi_SENHA `*uc -> -> 1 `i `uc -> -> 250 `i `uc -> -> 25 `i `uc ]
-[e :U 1298 ]
+[e :U 1290 ]
 [; ;main.c: 435: if (btPress(32)) setRangeValor('-', &wifi_SENHA, 1, 250, 25);
 "435
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1299  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1291  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc -> &U _wifi_SENHA `*uc -> -> 1 `i `uc -> -> 250 `i `uc -> -> 25 `i `uc ]
-[e :U 1299 ]
+[e :U 1291 ]
 [; ;main.c: 436: break;
 "436
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 437: case 14:
 "437
-[e :U 1300 ]
+[e :U 1292 ]
 [; ;main.c: 438: line2[11] = '>';
 "438
 [e = *U + &U _line2 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 439: if (btPress(64)) setRangeValor('+', &h_subir_temp_automatica, 0, 15, 27);
 "439
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1301  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1293  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _h_subir_temp_automatica -> -> 0 `i `uc -> -> 15 `i `uc -> -> 27 `i `uc ]
-[e :U 1301 ]
+[e :U 1293 ]
 [; ;main.c: 440: if (btPress(32)) setRangeValor('-', &h_subir_temp_automatica, 0, 15, 27);
 "440
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1302  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1294  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _h_subir_temp_automatica -> -> 0 `i `uc -> -> 15 `i `uc -> -> 27 `i `uc ]
-[e :U 1302 ]
+[e :U 1294 ]
 [; ;main.c: 441: break;
 "441
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 442: case 15:
 "442
-[e :U 1303 ]
+[e :U 1295 ]
 [; ;main.c: 443: line3[11] = '>';
 "443
 [e = *U + &U _line3 * -> -> -> 11 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 444: if (btPress(64)) setRangeValor('+', &t_religar_ventoinha_automatica, 0, 60, 28);
 "444
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1304  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1296  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_religar_ventoinha_automatica -> -> 0 `i `uc -> -> 60 `i `uc -> -> 28 `i `uc ]
-[e :U 1304 ]
+[e :U 1296 ]
 [; ;main.c: 445: if (btPress(32)) setRangeValor('-', &t_religar_ventoinha_automatica, 0, 60, 28);
 "445
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1305  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1297  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_religar_ventoinha_automatica -> -> 0 `i `uc -> -> 60 `i `uc -> -> 28 `i `uc ]
-[e :U 1305 ]
+[e :U 1297 ]
 [; ;main.c: 446: break;
 "446
-[e $U 1259  ]
+[e $U 1251  ]
 [; ;main.c: 447: default: opcaomenu = 1;
 "447
-[e :U 1306 ]
+[e :U 1298 ]
 [e = _opcaomenu -> -> 1 `i `uc ]
 "448
 }
 [; ;main.c: 448: }
-[e $U 1259  ]
+[e $U 1251  ]
 "368
-[e :U 1260 ]
-[e [\ _opcaomenu , $ -> -> 1 `i `uc 1261
- , $ -> -> 2 `i `uc 1264
- , $ -> -> 3 `i `uc 1267
- , $ -> -> 4 `i `uc 1270
- , $ -> -> 5 `i `uc 1273
- , $ -> -> 6 `i `uc 1276
- , $ -> -> 7 `i `uc 1279
- , $ -> -> 8 `i `uc 1282
- , $ -> -> 9 `i `uc 1285
- , $ -> -> 10 `i `uc 1288
- , $ -> -> 11 `i `uc 1291
- , $ -> -> 12 `i `uc 1294
- , $ -> -> 13 `i `uc 1297
- , $ -> -> 14 `i `uc 1300
- , $ -> -> 15 `i `uc 1303
- 1306 ]
+[e :U 1252 ]
+[e [\ _opcaomenu , $ -> -> 1 `i `uc 1253
+ , $ -> -> 2 `i `uc 1256
+ , $ -> -> 3 `i `uc 1259
+ , $ -> -> 4 `i `uc 1262
+ , $ -> -> 5 `i `uc 1265
+ , $ -> -> 6 `i `uc 1268
+ , $ -> -> 7 `i `uc 1271
+ , $ -> -> 8 `i `uc 1274
+ , $ -> -> 9 `i `uc 1277
+ , $ -> -> 10 `i `uc 1280
+ , $ -> -> 11 `i `uc 1283
+ , $ -> -> 12 `i `uc 1286
+ , $ -> -> 13 `i `uc 1289
+ , $ -> -> 14 `i `uc 1292
+ , $ -> -> 15 `i `uc 1295
+ 1298 ]
 "448
-[e :U 1259 ]
+[e :U 1251 ]
 [; ;main.c: 449: if (btPress(16)) opcaomenu++;
 "449
-[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1307  ]
+[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1299  ]
 [e ++ _opcaomenu -> -> 1 `i `uc ]
-[e :U 1307 ]
+[e :U 1299 ]
 [; ;main.c: 450: if (btPress(1)) opcaomenu--;
 "450
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1308  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1300  ]
 [e -- _opcaomenu -> -> 1 `i `uc ]
-[e :U 1308 ]
+[e :U 1300 ]
 [; ;main.c: 451: if (btPress(8)) {
 "451
-[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1309  ]
+[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1301  ]
 {
 [; ;main.c: 452: menu = 0;
 "452
@@ -11526,33 +11476,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _senha_desbloqueio_func -> -> 0 `i `uc ]
 "454
 }
-[e :U 1309 ]
+[e :U 1301 ]
 "455
 }
 [; ;main.c: 454: }
 [; ;main.c: 455: } else
-[e $U 1310  ]
-[e :U 1257 ]
+[e $U 1302  ]
+[e :U 1249 ]
 [; ;main.c: 459: if (menu == 8 || menu == 9) {
 "459
-[e $ ! || == -> _menu `i -> 8 `i == -> _menu `i -> 9 `i 1311  ]
+[e $ ! || == -> _menu `i -> 8 `i == -> _menu `i -> 9 `i 1303  ]
 {
 [; ;main.c: 460: switch (opcaomenu) {
 "460
-[e $U 1313  ]
+[e $U 1305  ]
 {
 [; ;main.c: 461: case 1:
 "461
-[e :U 1314 ]
+[e :U 1306 ]
 [; ;main.c: 462: menu = 8;
 "462
 [e = _menu -> -> 8 `i `uc ]
 [; ;main.c: 463: break;
 "463
-[e $U 1312  ]
+[e $U 1304  ]
 [; ;main.c: 464: case 2:
 "464
-[e :U 1315 ]
+[e :U 1307 ]
 [; ;main.c: 465: menu = 9;
 "465
 [e = _menu -> -> 9 `i `uc ]
@@ -11561,7 +11511,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 467: if (btPress(2)) {
 "467
-[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1316  ]
+[e $ ! != -> ( _btPress (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i 1308  ]
 {
 [; ;main.c: 468: LATAbits.LATA4 = 1;
 "468
@@ -11586,165 +11536,165 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _t_wifi_restart -> -> 15 `i `uc ]
 "475
 }
-[e :U 1316 ]
+[e :U 1308 ]
 [; ;main.c: 475: }
 [; ;main.c: 476: break;
 "476
-[e $U 1312  ]
+[e $U 1304  ]
 [; ;main.c: 477: default:
 "477
-[e :U 1317 ]
+[e :U 1309 ]
 [; ;main.c: 478: opcaomenu = 1;
 "478
 [e = _opcaomenu -> -> 1 `i `uc ]
 [; ;main.c: 480: break;
 "480
-[e $U 1312  ]
+[e $U 1304  ]
 "481
 }
 [; ;main.c: 481: }
-[e $U 1312  ]
+[e $U 1304  ]
 "460
-[e :U 1313 ]
-[e [\ _opcaomenu , $ -> -> 1 `i `uc 1314
- , $ -> -> 2 `i `uc 1315
- 1317 ]
+[e :U 1305 ]
+[e [\ _opcaomenu , $ -> -> 1 `i `uc 1306
+ , $ -> -> 2 `i `uc 1307
+ 1309 ]
 "481
-[e :U 1312 ]
+[e :U 1304 ]
 [; ;main.c: 482: if (btPress(16)) opcaomenu++;
 "482
-[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1318  ]
+[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1310  ]
 [e ++ _opcaomenu -> -> 1 `i `uc ]
-[e :U 1318 ]
+[e :U 1310 ]
 [; ;main.c: 483: if (btPress(1)) opcaomenu--;
 "483
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1319  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1311  ]
 [e -- _opcaomenu -> -> 1 `i `uc ]
-[e :U 1319 ]
+[e :U 1311 ]
 [; ;main.c: 484: if (btPress(8)) {
 "484
-[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1320  ]
+[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1312  ]
 {
 [; ;main.c: 485: menu = 3;
 "485
 [e = _menu -> -> 3 `i `uc ]
 "486
 }
-[e :U 1320 ]
+[e :U 1312 ]
 "487
 }
 [; ;main.c: 486: }
 [; ;main.c: 487: } else
-[e $U 1321  ]
-[e :U 1311 ]
+[e $U 1313  ]
+[e :U 1303 ]
 [; ;main.c: 491: if (menu == 11) {
 "491
-[e $ ! == -> _menu `i -> 11 `i 1322  ]
+[e $ ! == -> _menu `i -> 11 `i 1314  ]
 {
 [; ;main.c: 492: switch (opcaomenu) {
 "492
-[e $U 1324  ]
+[e $U 1316  ]
 {
 [; ;main.c: 493: case 1:
 "493
-[e :U 1325 ]
+[e :U 1317 ]
 [; ;main.c: 494: line1[0] = '>';
 "494
 [e = *U + &U _line1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line1 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 495: if (btPress(64)) setRangeValor('+', &t_fim_fase1, 0, 30, 8);
 "495
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1326  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1318  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_fim_fase1 -> -> 0 `i `uc -> -> 30 `i `uc -> -> 8 `i `uc ]
-[e :U 1326 ]
+[e :U 1318 ]
 [; ;main.c: 496: if (btPress(32)) setRangeValor('-', &t_fim_fase1, 0, 30, 8);
 "496
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1327  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1319  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_fim_fase1 -> -> 0 `i `uc -> -> 30 `i `uc -> -> 8 `i `uc ]
-[e :U 1327 ]
+[e :U 1319 ]
 [; ;main.c: 497: break;
 "497
-[e $U 1323  ]
+[e $U 1315  ]
 [; ;main.c: 498: case 2:
 "498
-[e :U 1328 ]
+[e :U 1320 ]
 [; ;main.c: 499: line2[0] = '>';
 "499
 [e = *U + &U _line2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line2 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 500: if (btPress(64)) setRangeValor('+', &t_fim_fase2, 0, 30, 9);
 "500
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1329  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1321  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_fim_fase2 -> -> 0 `i `uc -> -> 30 `i `uc -> -> 9 `i `uc ]
-[e :U 1329 ]
+[e :U 1321 ]
 [; ;main.c: 501: if (btPress(32)) setRangeValor('-', &t_fim_fase2, 0, 30, 9);
 "501
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1330  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1322  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_fim_fase2 -> -> 0 `i `uc -> -> 30 `i `uc -> -> 9 `i `uc ]
-[e :U 1330 ]
+[e :U 1322 ]
 [; ;main.c: 502: break;
 "502
-[e $U 1323  ]
+[e $U 1315  ]
 [; ;main.c: 503: case 3:
 "503
-[e :U 1331 ]
+[e :U 1323 ]
 [; ;main.c: 504: line3[0] = '>';
 "504
 [e = *U + &U _line3 * -> -> -> 0 `i `ui `ux -> -> # *U &U _line3 `ui `ux -> -> 62 `ui `uc ]
 [; ;main.c: 505: if (btPress(64)) setRangeValor('+', &t_fim_fase3, 0, 30, 10);
 "505
-[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1332  ]
+[e $ ! != -> ( _btPress (1 -> -> 64 `i `uc `i -> -> -> 0 `i `uc `i 1324  ]
 [e ( _setRangeValor (4 , , , , -> -> 43 `ui `uc &U _t_fim_fase3 -> -> 0 `i `uc -> -> 30 `i `uc -> -> 10 `i `uc ]
-[e :U 1332 ]
+[e :U 1324 ]
 [; ;main.c: 506: if (btPress(32)) setRangeValor('-', &t_fim_fase3, 0, 30, 10);
 "506
-[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1333  ]
+[e $ ! != -> ( _btPress (1 -> -> 32 `i `uc `i -> -> -> 0 `i `uc `i 1325  ]
 [e ( _setRangeValor (4 , , , , -> -> 45 `ui `uc &U _t_fim_fase3 -> -> 0 `i `uc -> -> 30 `i `uc -> -> 10 `i `uc ]
-[e :U 1333 ]
+[e :U 1325 ]
 [; ;main.c: 507: break;
 "507
-[e $U 1323  ]
+[e $U 1315  ]
 [; ;main.c: 508: default: opcaomenu = 1;
 "508
-[e :U 1334 ]
+[e :U 1326 ]
 [e = _opcaomenu -> -> 1 `i `uc ]
 "509
 }
 [; ;main.c: 509: }
-[e $U 1323  ]
+[e $U 1315  ]
 "492
-[e :U 1324 ]
-[e [\ _opcaomenu , $ -> -> 1 `i `uc 1325
- , $ -> -> 2 `i `uc 1328
- , $ -> -> 3 `i `uc 1331
- 1334 ]
+[e :U 1316 ]
+[e [\ _opcaomenu , $ -> -> 1 `i `uc 1317
+ , $ -> -> 2 `i `uc 1320
+ , $ -> -> 3 `i `uc 1323
+ 1326 ]
 "509
-[e :U 1323 ]
+[e :U 1315 ]
 [; ;main.c: 510: if (btPress(16)) opcaomenu++;
 "510
-[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1335  ]
+[e $ ! != -> ( _btPress (1 -> -> 16 `i `uc `i -> -> -> 0 `i `uc `i 1327  ]
 [e ++ _opcaomenu -> -> 1 `i `uc ]
-[e :U 1335 ]
+[e :U 1327 ]
 [; ;main.c: 511: if (btPress(1)) opcaomenu--;
 "511
-[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1336  ]
+[e $ ! != -> ( _btPress (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1328  ]
 [e -- _opcaomenu -> -> 1 `i `uc ]
-[e :U 1336 ]
+[e :U 1328 ]
 [; ;main.c: 512: if (btPress(8)) {
 "512
-[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1337  ]
+[e $ ! != -> ( _btPress (1 -> -> 8 `i `uc `i -> -> -> 0 `i `uc `i 1329  ]
 {
 [; ;main.c: 513: menu = 2;
 "513
 [e = _menu -> -> 2 `i `uc ]
 "514
 }
-[e :U 1337 ]
+[e :U 1329 ]
 "515
 }
-[e :U 1322 ]
+[e :U 1314 ]
 "516
-[e :U 1321 ]
-[e :U 1310 ]
-[e :U 1256 ]
+[e :U 1313 ]
+[e :U 1302 ]
+[e :U 1248 ]
 [; ;main.c: 514: }
 [; ;main.c: 515: }
 [; ;main.c: 516: updateLeds();
@@ -11754,125 +11704,134 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _atualizaLCD (4 , , , &U _line1 &U _line2 &U _line3 &U _line4 ]
 "518
 }
-[e :U 1185 ]
-"154
-[e $U 1186  ]
-[e :U 1187 ]
+[e :U 1177 ]
+"152
+[e $U 1178  ]
+[e :U 1179 ]
 [; ;main.c: 518: }
 [; ;main.c: 519: }
 "519
-[e :UE 1174 ]
+[e :UE 1166 ]
 }
 [p f _sprintf 9207936 ]
 [p f _printf 8650880 ]
-[a 102C 80 49 50 58 37 52 100 32 124 0 ]
-[a 27C 65 99 99 101 112 116 0 ]
-[a 103C 82 69 68 69 58 37 115 0 ]
-[a 104C 83 69 78 72 65 58 37 115 0 ]
-[a 77C 70 97 115 101 32 126 32 37 115 0 ]
-[a 105C 78 83 58 32 37 115 0 ]
-[a 83C 77 79 68 79 58 32 37 115 0 ]
-[a 81C 70 65 83 69 58 32 37 115 0 ]
-[a 89C 65 76 65 82 77 69 58 32 37 115 0 ]
-[a 86C 84 82 65 86 65 58 32 37 115 0 ]
-[a 82C 67 76 73 77 65 58 32 37 115 0 ]
-[a 10C 37 115 0 ]
-[a 11C 37 115 0 ]
-[a 41C 37 115 0 ]
-[a 42C 37 115 0 ]
-[a 57C 37 115 0 ]
-[a 71C 37 115 0 ]
-[a 36C 102 105 109 115 116 114 0 ]
-[a 109C 77 117 114 99 104 97 109 101 110 116 111 58 32 37 100 32 104 114 0 ]
-[a 108C 65 109 97 114 101 108 97 99 97 111 32 58 32 37 100 32 104 114 0 ]
-[a 110C 83 101 99 46 32 70 111 108 104 97 32 58 32 37 100 32 104 114 0 ]
+[a 111C 80 49 50 58 37 52 100 32 124 0 ]
+[a 42C 112 119 0 ]
+[a 25C 65 99 99 101 112 116 0 ]
+[a 30C 65 99 99 101 112 116 0 ]
+[a 41C 115 115 0 ]
+[a 112C 82 69 68 69 58 37 115 0 ]
+[a 113C 83 69 78 72 65 58 37 115 0 ]
+[a 86C 70 97 115 101 32 126 32 37 115 0 ]
+[a 114C 78 83 58 32 37 115 0 ]
+[a 92C 77 79 68 79 58 32 37 115 0 ]
+[a 90C 70 65 83 69 58 32 37 115 0 ]
+[a 98C 65 76 65 82 77 69 58 32 37 115 0 ]
+[a 95C 84 82 65 86 65 58 32 37 115 0 ]
+[a 91C 67 76 73 77 65 58 32 37 115 0 ]
+[a 43C 37 115 0 ]
+[a 44C 37 115 0 ]
+[a 66C 37 115 0 ]
+[a 80C 37 115 0 ]
+[a 118C 77 117 114 99 104 97 109 101 110 116 111 58 32 37 100 32 104 114 0 ]
+[a 117C 65 109 97 114 101 108 97 99 97 111 32 58 32 37 100 32 104 114 0 ]
+[a 119C 83 101 99 46 32 70 111 108 104 97 32 58 32 37 100 32 104 114 0 ]
 [a 2C 77 117 114 99 104 97 109 101 110 116 111 0 ]
 [a 4C 83 101 99 46 32 84 97 108 111 0 ]
 [a 6C 85 109 105 100 111 0 ]
-[a 88C 68 101 115 116 114 97 118 97 100 111 0 ]
-[a 87C 84 114 97 118 97 100 111 0 ]
-[a 91C 68 101 115 108 105 103 97 100 111 0 ]
-[a 90C 76 105 103 97 100 111 0 ]
-[a 85C 65 117 116 111 109 97 116 105 99 111 0 ]
+[a 97C 68 101 115 116 114 97 118 97 100 111 0 ]
+[a 96C 84 114 97 118 97 100 111 0 ]
+[a 100C 68 101 115 108 105 103 97 100 111 0 ]
+[a 99C 76 105 103 97 100 111 0 ]
+[a 94C 65 117 116 111 109 97 116 105 99 111 0 ]
 [a 8C 83 101 99 111 0 ]
 [a 1C 65 109 97 114 101 108 97 99 97 111 0 ]
-[a 84C 77 97 110 117 97 108 0 ]
+[a 93C 77 97 110 117 97 108 0 ]
 [a 7C 78 111 114 109 97 108 0 ]
-[a 48C 108 105 110 107 0 ]
-[a 61C 115 97 118 101 0 ]
-[a 74C 124 83 101 110 115 111 114 124 65 106 117 115 116 101 0 ]
-[a 111C 42 48 32 110 97 111 32 112 97 115 115 97 32 102 97 115 101 0 ]
-[a 22C 67 111 110 101 99 116 101 45 115 101 32 97 32 114 101 100 101 32 101 0 ]
-[a 35C 115 115 105 100 0 ]
-[a 98C 80 52 58 37 52 100 32 124 32 32 80 56 58 37 52 100 0 ]
-[a 97C 80 51 58 37 52 100 32 124 32 32 80 55 58 37 52 100 0 ]
-[a 96C 80 50 58 37 52 100 32 124 32 32 80 54 58 37 52 100 0 ]
-[a 95C 80 49 58 37 52 100 32 124 32 32 80 53 58 37 52 100 0 ]
-[a 101C 80 49 49 58 37 52 100 32 124 32 80 49 53 58 37 52 100 0 ]
-[a 100C 80 49 48 58 37 52 100 32 124 32 80 49 52 58 37 52 100 0 ]
-[a 99C 80 57 32 58 37 52 100 32 124 32 80 49 51 58 37 52 100 0 ]
-[a 106C 83 69 78 72 65 32 82 69 77 79 84 65 58 32 37 100 0 ]
-[a 76C 85 77 73 68 32 32 124 32 32 37 51 100 32 124 32 37 51 100 32 37 99 0 ]
-[a 80C 85 77 73 68 65 68 69 58 32 37 100 32 37 99 0 ]
-[a 23C 97 99 101 115 115 101 32 111 32 73 80 32 112 97 114 97 0 ]
-[a 69C 32 84 69 67 72 78 79 87 32 84 101 99 110 111 108 111 103 105 97 0 ]
+[a 52C 108 105 110 107 0 ]
+[a 69C 115 97 118 101 0 ]
+[a 83C 124 83 101 110 115 111 114 124 65 106 117 115 116 101 0 ]
+[a 120C 42 48 32 110 97 111 32 112 97 115 115 97 32 102 97 115 101 0 ]
+[a 26C 67 111 110 101 99 116 101 45 115 101 32 97 32 114 101 100 101 32 101 0 ]
+[a 107C 80 52 58 37 52 100 32 124 32 32 80 56 58 37 52 100 0 ]
+[a 106C 80 51 58 37 52 100 32 124 32 32 80 55 58 37 52 100 0 ]
+[a 105C 80 50 58 37 52 100 32 124 32 32 80 54 58 37 52 100 0 ]
+[a 104C 80 49 58 37 52 100 32 124 32 32 80 53 58 37 52 100 0 ]
+[a 110C 80 49 49 58 37 52 100 32 124 32 80 49 53 58 37 52 100 0 ]
+[a 109C 80 49 48 58 37 52 100 32 124 32 80 49 52 58 37 52 100 0 ]
+[a 108C 80 57 32 58 37 52 100 32 124 32 80 49 51 58 37 52 100 0 ]
+[a 115C 83 69 78 72 65 32 82 69 77 79 84 65 58 32 37 100 0 ]
+[a 85C 85 77 73 68 32 32 124 32 32 37 51 100 32 124 32 37 51 100 32 37 99 0 ]
+[a 89C 85 77 73 68 65 68 69 58 32 37 100 32 37 99 0 ]
+[a 27C 97 99 101 115 115 101 32 111 32 73 80 32 112 97 114 97 0 ]
+[a 78C 32 84 69 67 72 78 79 87 32 84 101 99 110 111 108 111 103 105 97 0 ]
 [a 3C 83 101 99 46 32 70 111 108 104 97 0 ]
-[a 28C 67 79 78 78 69 67 84 0 ]
-[a 73C 69 82 82 79 32 69 69 80 82 79 77 0 ]
-[a 13C 79 75 0 ]
+[a 74C 65 80 77 0 ]
+[a 82C 69 82 82 79 32 69 69 80 82 79 77 0 ]
+[a 10C 65 76 76 0 ]
+[a 13C 65 76 76 0 ]
+[a 16C 65 76 76 0 ]
+[a 19C 65 76 76 0 ]
+[a 22C 65 76 76 0 ]
+[a 31C 65 76 76 0 ]
+[a 34C 65 76 76 0 ]
+[a 46C 65 76 76 0 ]
+[a 49C 65 76 76 0 ]
+[a 53C 65 76 76 0 ]
+[a 55C 65 76 76 0 ]
+[a 59C 65 76 76 0 ]
+[a 62C 65 76 76 0 ]
+[a 70C 65 76 76 0 ]
+[a 12C 79 75 0 ]
 [a 15C 79 75 0 ]
-[a 17C 79 75 0 ]
-[a 19C 79 75 0 ]
+[a 18C 79 75 0 ]
 [a 21C 79 75 0 ]
-[a 45C 79 75 0 ]
-[a 47C 79 75 0 ]
-[a 54C 79 75 0 ]
-[a 63C 79 75 0 ]
-[a 75C 84 69 77 80 32 32 124 32 32 37 51 100 32 124 32 37 51 100 32 70 0 ]
-[a 79C 84 69 77 80 69 82 65 84 85 82 65 58 32 37 100 32 70 0 ]
-[a 26C 43 73 80 68 0 ]
-[a 64C 67 76 79 83 69 68 0 ]
-[a 66C 77 65 67 0 ]
-[a 67C 77 65 67 0 ]
-[a 94C 67 79 78 70 73 71 32 65 86 65 78 67 65 68 65 83 32 62 62 0 ]
-[a 92C 84 69 77 80 79 32 70 73 77 32 70 65 83 69 32 32 32 62 62 0 ]
-[a 93C 67 79 78 70 73 71 32 87 73 70 73 32 32 32 32 32 32 62 62 0 ]
-[a 107C 67 79 78 70 73 71 85 82 65 82 32 32 32 32 32 32 32 62 62 0 ]
-[a 30C 62 0 ]
-[a 56C 62 0 ]
-[a 37C 115 115 105 100 61 0 ]
-[a 39C 115 101 110 104 97 61 0 ]
-[a 70C 86 101 114 115 97 111 32 83 111 102 116 46 58 0 ]
-[a 58C 78 111 118 32 48 57 32 50 48 49 57 0 ]
-[a 72C 78 111 118 32 48 57 32 50 48 49 57 0 ]
-[a 52C 52 0 ]
-[a 51C 50 0 ]
-[a 32C 60 104 116 109 108 62 60 104 101 97 100 62 60 116 105 116 108 101 62 87 73 70 73 60 47 116 105 116 108 101 62 60 115 116 121 108 101 62 42 123 102 111 110 116 45 115 105 122 101 58 32 51 53 112 120 59 102 111 110 116 45 102 97 109 105 108 121 58 115 97 110 115 45 115 101 114 105 102 59 125 102 111 114 109 123 104 101 105 103 104 116 58 52 53 48 112 120 59 100 105 115 112 108 97 121 58 102 108 101 120 59 102 108 101 120 45 100 105 114 101 99 116 105 111 110 58 99 111 108 117 109 110 59 106 117 115 116 105 102 121 45 99 111 110 116 101 110 116 58 115 112 97 99 101 45 97 114 111 117 110 100 59 97 108 105 103 110 45 105 116 101 109 115 58 99 101 110 116 101 114 59 109 97 114 103 105 110 58 48 32 97 117 116 111 59 125 98 117 116 116 111 110 123 119 105 100 116 104 58 50 56 48 112 120 59 104 101 105 103 104 116 58 54 48 112 120 59 99 111 108 111 114 58 87 104 105 116 101 59 98 97 99 107 103 114 111 117 110 100 45 99 111 108 111 114 58 35 52 70 67 69 48 48 59 98 111 114 100 101 114 58 32 50 112 120 32 114 103 98 40 50 49 44 32 49 57 54 44 32 50 49 41 32 115 111 108 105 100 59 98 111 114 100 101 114 45 114 97 100 105 117 115 58 53 112 120 59 125 105 110 112 117 116 123 104 101 105 103 104 116 58 54 48 112 120 59 119 105 100 116 104 58 54 48 48 112 120 59 32 98 111 114 100 101 114 45 114 97 100 105 117 115 58 53 112 120 59 98 111 114 100 101 114 58 32 51 112 120 32 114 103 98 40 49 51 50 44 32 49 51 54 44 32 49 51 56 41 32 115 111 108 105 100 59 125 98 111 100 121 123 98 97 99 107 103 114 111 117 110 100 58 35 70 52 70 55 70 53 59 125 60 47 115 116 121 108 101 62 60 47 104 101 97 100 62 60 98 111 100 121 62 60 102 111 114 109 32 97 99 116 105 111 110 61 34 47 119 105 102 105 34 109 101 116 104 111 100 61 34 112 111 115 116 34 62 60 104 49 62 67 111 110 102 105 103 117 114 97 231 227 111 32 87 105 102 105 60 47 104 49 62 78 79 77 69 32 68 79 32 87 73 70 73 58 60 105 110 112 117 116 32 116 121 112 101 61 34 116 101 120 116 34 110 97 109 101 61 34 115 115 105 100 34 32 114 101 113 117 105 114 101 100 62 83 69 78 72 65 32 68 79 32 87 73 70 73 58 60 105 110 112 117 116 32 116 121 112 101 61 34 116 101 120 116 34 110 97 109 101 61 34 115 101 110 104 97 34 62 60 105 110 112 117 116 32 116 121 112 101 61 34 104 105 100 100 101 110 34 32 110 97 109 101 61 34 102 105 109 115 116 114 34 62 60 98 117 116 116 111 110 32 116 121 112 101 61 34 115 117 98 109 105 116 34 62 79 75 60 47 98 117 116 116 111 110 62 60 47 102 111 114 109 62 60 47 98 111 100 121 62 60 47 104 116 109 108 62 13 10 13 10 92 48 0 ]
-[a 59C 71 69 84 32 47 100 101 118 105 99 101 47 105 110 116 101 103 114 97 116 105 111 110 63 105 61 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 115 124 37 100 124 37 115 124 37 100 38 112 61 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 38 107 61 49 122 52 100 102 54 56 105 119 49 102 112 53 32 72 84 84 80 47 49 46 49 13 10 72 111 115 116 58 32 49 56 46 50 50 56 46 49 53 52 46 50 52 56 13 10 13 10 92 48 0 ]
-[a 25C 49 48 46 49 46 49 46 49 58 56 48 56 48 0 ]
-[a 60C 50 48 48 0 ]
-[a 34C 65 103 117 97 114 100 97 110 100 111 46 46 46 0 ]
-[a 24C 99 111 110 102 105 103 117 114 97 114 32 111 32 87 73 70 73 46 46 46 0 ]
+[a 24C 79 75 0 ]
+[a 48C 79 75 0 ]
+[a 51C 79 75 0 ]
+[a 61C 79 75 0 ]
+[a 72C 79 75 0 ]
+[a 84C 84 69 77 80 32 32 124 32 32 37 51 100 32 124 32 37 51 100 32 70 0 ]
+[a 88C 84 69 77 80 69 82 65 84 85 82 65 58 32 37 100 32 70 0 ]
+[a 73C 67 76 79 83 69 68 0 ]
+[a 103C 67 79 78 70 73 71 32 65 86 65 78 67 65 68 65 83 32 62 62 0 ]
+[a 101C 84 69 77 80 79 32 70 73 77 32 70 65 83 69 32 32 32 62 62 0 ]
+[a 102C 67 79 78 70 73 71 32 87 73 70 73 32 32 32 32 32 32 62 62 0 ]
+[a 116C 67 79 78 70 73 71 85 82 65 82 32 32 32 32 32 32 32 62 62 0 ]
+[a 33C 62 0 ]
+[a 64C 62 0 ]
+[a 79C 86 101 114 115 97 111 32 83 111 102 116 46 58 0 ]
+[a 58C 52 0 ]
+[a 57C 50 0 ]
+[a 29C 49 48 46 49 46 49 46 49 0 ]
+[a 36C 60 104 116 109 108 62 60 115 116 121 108 101 62 100 105 118 123 109 97 114 103 105 110 58 50 53 112 120 32 97 117 116 111 59 109 97 120 45 119 105 100 116 104 58 51 53 48 112 120 59 100 105 115 112 108 97 121 58 102 108 101 120 59 102 108 101 120 45 100 105 114 101 99 116 105 111 110 58 99 111 108 117 109 110 59 125 105 110 112 117 116 44 98 117 116 116 111 110 123 112 97 100 100 105 110 103 58 55 112 120 59 109 97 114 103 105 110 45 98 111 116 116 111 109 58 50 53 112 120 59 98 111 114 100 101 114 58 49 112 120 32 115 111 108 105 100 32 35 55 55 55 59 125 60 47 115 116 121 108 101 62 60 98 111 100 121 62 60 100 105 118 62 32 60 104 50 62 67 111 110 102 105 103 117 114 97 231 227 111 32 87 105 102 105 60 47 104 50 62 32 83 83 73 68 58 32 60 105 110 112 117 116 32 105 100 61 39 115 39 62 83 101 110 104 97 58 32 60 105 110 112 117 116 32 105 100 61 39 112 39 62 60 98 117 116 116 111 110 32 111 110 99 108 105 99 107 61 39 115 40 41 39 62 67 111 110 102 105 114 109 97 114 60 47 98 117 116 116 111 110 62 60 47 100 105 118 62 60 47 98 111 100 121 62 60 47 104 116 109 108 62 60 115 99 114 105 112 116 62 102 117 110 99 116 105 111 110 32 115 40 41 123 102 101 116 99 104 40 39 47 39 44 123 109 101 116 104 111 100 58 39 112 111 115 116 39 44 98 111 100 121 58 74 83 79 78 46 115 116 114 105 110 103 105 102 121 40 123 39 36 35 39 58 39 39 44 115 115 58 100 111 99 117 109 101 110 116 46 113 117 101 114 121 83 101 108 101 99 116 111 114 40 39 35 115 39 41 46 118 97 108 117 101 44 112 119 58 100 111 99 117 109 101 110 116 46 113 117 101 114 121 83 101 108 101 99 116 111 114 40 39 35 112 39 41 46 118 97 108 117 101 44 39 39 58 39 35 36 39 125 41 125 41 125 60 47 115 99 114 105 112 116 62 13 10 13 10 92 48 0 ]
+[a 68C 71 69 84 32 47 100 101 118 105 99 101 47 105 110 116 101 103 114 97 116 105 111 110 63 105 61 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 115 124 37 100 124 37 115 124 37 100 38 112 61 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 124 37 100 38 107 61 49 122 52 100 102 54 56 105 119 49 102 112 53 32 72 84 84 80 47 49 46 49 13 10 72 111 115 116 58 32 49 56 46 50 50 56 46 49 53 52 46 50 52 56 13 10 13 10 92 48 0 ]
+[a 67C 74 117 108 32 49 52 32 50 48 50 48 0 ]
+[a 81C 74 117 108 32 49 52 32 50 48 50 48 0 ]
+[a 65C 50 48 48 0 ]
+[a 45C 79 75 32 114 101 105 110 105 99 105 97 110 100 111 46 46 46 0 ]
+[a 39C 65 103 117 97 114 100 97 110 100 111 46 46 46 0 ]
+[a 28C 99 111 110 102 105 103 117 114 97 114 32 111 32 87 73 70 73 46 46 46 0 ]
 [a 9C 45 45 0 ]
 [a 5C 45 32 45 0 ]
-[a 78C 32 42 70 65 76 84 65 32 68 69 32 69 78 69 82 71 73 65 42 0 ]
-[a 38C 38 0 ]
-[a 40C 38 0 ]
-[a 43C 79 75 46 46 46 32 32 32 32 32 32 32 32 0 ]
-[a 68C 65 84 43 82 83 84 13 10 0 ]
-[a 50C 65 84 43 67 73 80 83 84 65 84 85 83 13 10 0 ]
-[a 65C 65 84 43 67 73 70 83 82 13 10 0 ]
-[a 62C 65 84 43 67 73 80 67 76 79 83 69 13 10 0 ]
-[a 16C 65 84 43 67 87 83 65 80 61 34 67 79 78 84 82 79 76 65 68 79 82 34 44 34 34 44 49 49 44 48 44 52 13 10 0 ]
-[a 12C 65 84 43 67 87 77 79 68 69 61 50 13 10 0 ]
+[a 76C 67 44 0 ]
+[a 87C 32 42 70 65 76 84 65 32 68 69 32 69 78 69 82 71 73 65 42 0 ]
+[a 40C 35 36 0 ]
+[a 38C 36 35 0 ]
+[a 77C 65 84 43 82 83 84 13 10 0 ]
+[a 56C 65 84 43 67 73 80 83 84 65 84 85 83 13 10 0 ]
+[a 75C 65 84 43 67 73 70 83 82 13 10 0 ]
+[a 71C 65 84 43 67 73 80 67 76 79 83 69 13 10 0 ]
+[a 17C 65 84 43 67 87 83 65 80 61 34 67 79 78 84 82 79 76 65 68 79 82 34 44 34 34 44 49 49 44 48 44 52 13 10 0 ]
+[a 11C 65 84 43 67 87 77 79 68 69 61 50 13 10 0 ]
 [a 14C 65 84 43 67 73 80 77 85 88 61 49 13 10 0 ]
-[a 44C 65 84 43 67 87 77 79 68 69 61 49 13 10 0 ]
-[a 46C 65 84 43 67 73 80 77 85 88 61 48 13 10 0 ]
-[a 33C 65 84 43 67 73 80 67 76 79 83 69 61 48 13 10 0 ]
-[a 20C 65 84 43 67 73 80 83 69 82 86 69 82 61 49 44 56 48 56 48 13 10 0 ]
-[a 53C 65 84 43 67 73 80 83 84 65 82 84 61 34 84 67 80 34 44 34 49 56 46 50 50 56 46 49 53 52 46 50 52 56 34 44 56 48 13 10 0 ]
-[a 55C 65 84 43 67 73 80 83 69 78 68 69 88 61 50 54 48 13 10 0 ]
-[a 29C 65 84 43 67 73 80 83 69 78 68 69 88 61 48 44 56 48 48 13 10 0 ]
-[a 49C 65 84 43 67 87 74 65 80 61 34 37 115 34 44 34 37 115 34 13 10 0 ]
-[a 18C 65 84 43 67 73 80 65 80 61 34 49 48 46 49 46 49 46 49 34 13 10 0 ]
-[a 31C 72 84 84 80 32 49 46 49 47 50 48 48 32 79 75 13 10 67 111 110 116 101 110 116 45 116 121 112 101 58 32 116 101 120 116 47 104 116 109 108 13 10 13 10 0 ]
+[a 47C 65 84 43 67 87 77 79 68 69 61 49 13 10 0 ]
+[a 50C 65 84 43 67 73 80 77 85 88 61 48 13 10 0 ]
+[a 37C 65 84 43 67 73 80 67 76 79 83 69 61 48 13 10 0 ]
+[a 23C 65 84 43 67 73 80 83 69 82 86 69 82 61 49 44 56 48 13 10 0 ]
+[a 60C 65 84 43 67 73 80 83 84 65 82 84 61 34 84 67 80 34 44 34 49 56 46 50 50 56 46 49 53 52 46 50 52 56 34 44 56 48 13 10 0 ]
+[a 63C 65 84 43 67 73 80 83 69 78 68 69 88 61 50 54 48 13 10 0 ]
+[a 32C 65 84 43 67 73 80 83 69 78 68 69 88 61 48 44 56 48 48 13 10 0 ]
+[a 54C 65 84 43 67 87 74 65 80 61 34 37 115 34 44 34 37 115 34 13 10 0 ]
+[a 20C 65 84 43 67 73 80 65 80 61 34 49 48 46 49 46 49 46 49 34 13 10 0 ]
+[a 35C 72 84 84 80 32 49 46 49 47 50 48 48 32 79 75 13 10 67 111 110 116 101 110 116 45 116 121 112 101 58 32 116 101 120 116 47 104 116 109 108 13 10 13 10 0 ]

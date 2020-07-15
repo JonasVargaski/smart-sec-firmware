@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/main.c src/function.c src/I2C.c
+SOURCEFILES_QUOTED_IF_SPACED=src/main.c src/function.c src/I2C.c src/json.c src/serial.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/function.p1 ${OBJECTDIR}/src/I2C.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/function.p1.d ${OBJECTDIR}/src/I2C.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/function.p1 ${OBJECTDIR}/src/I2C.p1 ${OBJECTDIR}/src/json.p1 ${OBJECTDIR}/src/serial.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/function.p1.d ${OBJECTDIR}/src/I2C.p1.d ${OBJECTDIR}/src/json.p1.d ${OBJECTDIR}/src/serial.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/function.p1 ${OBJECTDIR}/src/I2C.p1
+OBJECTFILES=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/function.p1 ${OBJECTDIR}/src/I2C.p1 ${OBJECTDIR}/src/json.p1 ${OBJECTDIR}/src/serial.p1
 
 # Source Files
-SOURCEFILES=src/main.c src/function.c src/I2C.c
+SOURCEFILES=src/main.c src/function.c src/I2C.c src/json.c src/serial.c
 
 
 CFLAGS=
@@ -117,6 +117,22 @@ ${OBJECTDIR}/src/I2C.p1: src/I2C.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/src/I2C.d ${OBJECTDIR}/src/I2C.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/I2C.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/src/json.p1: src/json.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/json.p1.d 
+	@${RM} ${OBJECTDIR}/src/json.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/json.p1  src/json.c 
+	@-${MV} ${OBJECTDIR}/src/json.d ${OBJECTDIR}/src/json.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/json.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/src/serial.p1: src/serial.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/serial.p1.d 
+	@${RM} ${OBJECTDIR}/src/serial.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/serial.p1  src/serial.c 
+	@-${MV} ${OBJECTDIR}/src/serial.d ${OBJECTDIR}/src/serial.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/serial.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/src" 
@@ -141,6 +157,22 @@ ${OBJECTDIR}/src/I2C.p1: src/I2C.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/I2C.p1  src/I2C.c 
 	@-${MV} ${OBJECTDIR}/src/I2C.d ${OBJECTDIR}/src/I2C.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/I2C.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/src/json.p1: src/json.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/json.p1.d 
+	@${RM} ${OBJECTDIR}/src/json.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/json.p1  src/json.c 
+	@-${MV} ${OBJECTDIR}/src/json.d ${OBJECTDIR}/src/json.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/json.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/src/serial.p1: src/serial.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/serial.p1.d 
+	@${RM} ${OBJECTDIR}/src/serial.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/src/serial.p1  src/serial.c 
+	@-${MV} ${OBJECTDIR}/src/serial.d ${OBJECTDIR}/src/serial.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/serial.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

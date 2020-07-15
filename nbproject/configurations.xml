@@ -17,6 +17,8 @@
       <itemPath>src/USART.h</itemPath>
       <itemPath>src/conexaoWifi.h</itemPath>
       <itemPath>src/variaveisGlobais.h</itemPath>
+      <itemPath>src/json.h</itemPath>
+      <itemPath>src/serial.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,6 +30,8 @@
       <itemPath>src/main.c</itemPath>
       <itemPath>src/function.c</itemPath>
       <itemPath>src/I2C.c</itemPath>
+      <itemPath>src/json.c</itemPath>
+      <itemPath>src/serial.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -150,6 +154,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

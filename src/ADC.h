@@ -1,7 +1,7 @@
 #include "config.h"
 #include "function.h"
 #include "variaveisGlobais.h"
-#include "Controle.h "
+#include "controle.h "
 
 unsigned char media_adc = 0;
 float _temp[11] = 0;
