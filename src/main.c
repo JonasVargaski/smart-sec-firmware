@@ -133,6 +133,8 @@ void main() {
     char i = 0;
     for (i = 0; i < 15; i++) {
         ssid[i] = (char) readEEPROM_ext(40 + i);
+    }
+    for (i = 0; i < 15; i++) {
         senha[i] = (char) readEEPROM_ext(60 + i);
     }
     for (i = 0; i < 20; i++) {
