@@ -15,22 +15,6 @@
 unsigned char t_wifi_restart = 0;
 unsigned char f_wifi_processo = 0;
 
-void getMacAdress(char mac[], char var[]) {
-    unsigned char i = 0;
-    unsigned char j = 0;
-    unsigned char men = 0;
-    for (i = 0; i < strlen(mac); i++) {
-        if (mac[i] == '"' && men == 0) {
-            men = 1;
-        } else if (mac[i] == '"' && men == 1) {
-            var[j] = '\0';
-            return;
-        } else if (men && mac[i] != ':' && j < 12) {
-            var[j++] = mac[i];
-        }
-    }
-}
-
 void alterarDadosConexaoConfigWifi() {
     if (t_wifi_restart == 0) {
         menu = 8;
@@ -116,7 +100,7 @@ void alterarDadosConexaoConfigWifi() {
                 setKeyStartReceiveSerial("ALL");
                 printf("HTTP 1.1/200 OK\r\nContent-type: text/html\r\n\r\n");
                 delay(100);
-                printf("<html><style>div{margin:25px auto;max-width:350px;display:flex;flex-direction:column;}input,button{padding:7px;margin-bottom:25px;border:1px solid #777;}</style><body><div> <h2>Configuração Wifi</h2> SSID: <input id='s'>Senha: <input id='p'><button onclick='s()'>Confirmar</button></div></body></html><script>function s(){fetch('/',{method:'post',body:JSON.stringify({'$#':'',ss:document.querySelector('#s').value,pw:document.querySelector('#p').value,'':'#$'})})}</script>\r\n\r\n\\0");
+                printf("<html><style>div{margin:25px auto;max-width:350px;display:flex;flex-direction:column;}input,button{padding:7px;margin-bottom:25px;border:1px solid #888;border-radius:3px;}</style><body><div> <h2>Configuração Wifi</h2> SSID: <input id='s'> Senha: <input id='p'> <button onclick='s()'>Confirmar</button> Servidor: <input id='t' value='%s:%s'></div></body></html><script>function s(){const g=i=>document.querySelector('#' + i).value let sv=i('t').split(':');fetch('/',{method:'post',body:JSON.stringify({'$#':'',ss:i('#s'),pw:i('#p'),sv:[0],pt:sv[1],'':'#$'})})}</script>\r\n\r\n\\0", ipServer, portServer);
                 delay(800); // tempo para envio da pagina
                 printf("AT+CIPCLOSE=0\r\n");
                 delay(300);
@@ -129,9 +113,12 @@ void alterarDadosConexaoConfigWifi() {
                 if (findBufferSerial("#$")) { // FIM JSON
                     getStringJSON(bufferSerial, "ss", ssid);
                     getStringJSON(bufferSerial, "pw", senha);
+                    getStringJSON(bufferSerial, "ip", ipServer);
+                    getStringJSON(bufferSerial, "pt", portServer);
 
                     sprintf(line1, "%s", ssid);
                     sprintf(line2, "%s", senha);
+                    sprintf(line3, "%s:%s", ipServer, portServer);
                     sprintf(line4, "OK reiniciando...");
                     atualizaLCD(line1, line2, line3, line4);
 
@@ -139,9 +126,13 @@ void alterarDadosConexaoConfigWifi() {
                         unsigned char i = 0;
                         for (i = 0; i < 15; i++) {
                             writeEEPROM_ext((40 + i), ssid[i]);
-                        }
-                        for (i = 0; i < 15; i++) {
                             writeEEPROM_ext((60 + i), senha[i]);
+                        }
+                        for (i = 0; i < 20; i++) {
+                            writeEEPROM_ext((80 + i), ipServer[i]);
+                        }
+                        for (i = 0; i < 5; i++) {
+                            writeEEPROM_ext((105 + i), portServer[i]);
                         }
                     }
                     while (1) { // parta reiniciar o controlador. WATCHDOG
@@ -207,8 +198,7 @@ void enviaDadosWifi() {
                 break;
             case 8:
                 setKeyStartReceiveSerial("ALL");
-                //             printf("AT+CIPSTART=\"TCP\",\"192.168.0.125\",3333\r\n"); /// trocar servidor;
-                printf("AT+CIPSTART=\"TCP\",\"18.228.154.248\",80\r\n"); /// trocar servidor;
+                printf("AT+CIPSTART=\"TCP\",\"%s\",%d\r\n", ipServer, portServer);
                 f_wifi_processo++;
                 break;
             case 9:
@@ -260,13 +250,24 @@ void enviaDadosWifi() {
     } else {
         switch (f_wifi_processo) {
             case 0:
-                setKeyStartReceiveSerial("APM");
+                setKeyStartReceiveSerial("STAMAC");
                 printf("AT+CIFSR\r\n");
                 f_wifi_processo++;
                 break;
             case 1:
-                if (findBufferSerial("C,")) {
-                    getMacAdress(bufferSerial, wifi_MAC);
+                if (findBufferSerial("OK")) {
+                    unsigned char i = 0;
+                    unsigned char j = 0;
+                    unsigned char men = 0;
+                    for (i = 0; i < strlen(bufferSerial); i++) {
+                        if (bufferSerial[i] == '"' && men == 0) {
+                            men = 1;
+                        } else if (bufferSerial[i] == '"' && men == 1) {
+                            return;
+                        } else if (men && bufferSerial[i] != ':' && strlen(wifi_MAC) < 12) {
+                            wifi_MAC[j++] = bufferSerial[i];
+                        }
+                    }
                 }
                 break;
             default:

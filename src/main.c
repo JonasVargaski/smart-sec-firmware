@@ -133,9 +133,13 @@ void main() {
     char i = 0;
     for (i = 0; i < 15; i++) {
         ssid[i] = (char) readEEPROM_ext(40 + i);
-    }
-    for (i = 0; i < 15; i++) {
         senha[i] = (char) readEEPROM_ext(60 + i);
+    }
+    for (i = 0; i < 20; i++) {
+        ipServer[i] = (char) readEEPROM_ext(80 + i);
+    }
+    for (i = 0; i < 4; i++) {
+        portServer[i] = (char) readEEPROM_ext(105 + i);
     }
 
     i = readEEPROM_ext(30); // confere se esta fazendo a leitura correta da memoria externa, caso nao esteja entao nao deixa o controlador funcionar
@@ -155,12 +159,12 @@ void main() {
 
 
         /////////////////////////////// FIM ESPAÇO TESTEs //////////////////////////////////////////////
-        
+
         if (RCSTAbits.OERR) { // reset da serial caso travar
             RCSTAbits.CREN = 0;
             RCSTAbits.CREN = 1;
         }
-        
+
         asm("CLRWDT"); // WTD 5 segundos  
         getSensors(); //Leitura dos sensores
         controle(); // controle de saidas e logica

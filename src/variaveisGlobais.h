@@ -41,7 +41,8 @@ unsigned char wifi_MAC[12] = "?"; // Endereço MAC da placa wifi usado para conex
 unsigned int wifi_SENHA = 0; // Senha usada para conexao remota wifi
 unsigned char ssid[15] = "";
 unsigned char senha[15] = "";
-
+unsigned char ipServer[20] = "";
+unsigned char portServer[4] = "";
 
 unsigned char fase = 0; // Fases
 unsigned char clima = 0; // Climas 
