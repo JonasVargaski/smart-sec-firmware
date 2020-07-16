@@ -37,12 +37,12 @@ unsigned char h_subir_temp_automatica = 0; // histerise de diferenca para subir 
 
 
 unsigned char wifi_habilita_alteracao = 0; // variavel de controle para habilitar alterar configuraçao do controlador pela internet
-unsigned char wifi_MAC[12] = "?"; // Endereço MAC da placa wifi usado para conexao remota wifi
+unsigned char wifi_MAC[12] = "ERRO"; // Endereço MAC da placa wifi usado para conexao remota wifi
 unsigned int wifi_SENHA = 0; // Senha usada para conexao remota wifi
 unsigned char ssid[15] = "";
 unsigned char senha[15] = "";
 unsigned char ipServer[20] = "";
-unsigned char portServer[4] = "";
+unsigned int portServer = 0;
 
 unsigned char fase = 0; // Fases
 unsigned char clima = 0; // Climas 

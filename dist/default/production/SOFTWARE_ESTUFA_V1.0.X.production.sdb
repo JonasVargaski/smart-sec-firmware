@@ -64,7 +64,7 @@
 [v _getSensors getSensors `(i  1 e 2 0 ]
 "18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
 [v _alterarDadosConexaoConfigWifi alterarDadosConexaoConfigWifi `(v  1 e 1 0 ]
-"149
+"132
 [v _enviaDadosWifi enviaDadosWifi `(v  1 e 1 0 ]
 "39 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/controle.h
 [v _timer timer `(v  1 e 1 0 ]
@@ -77,6 +77,10 @@
 [v i2_writeEEPROM_ext writeEEPROM_ext `(v  1 e 1 0 ]
 "26
 [v _readEEPROM_ext readEEPROM_ext `(uc  1 e 1 0 ]
+"39
+[v _writeEEPROM16_ext writeEEPROM16_ext `(v  1 e 1 0 ]
+"46
+[v _readEEPROM16_ext readEEPROM16_ext `(ui  1 e 2 0 ]
 "8 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/FuncoesControlador.h
 [v _faseAtual faseAtual `(*.25uc  1 e 2 0 ]
 "34
@@ -108,7 +112,9 @@
 "46
 [v _I2C_Read I2C_Read `(us  1 e 2 0 ]
 [v i2_I2C_Read I2C_Read `(us  1 e 2 0 ]
-"48 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/json.c
+"5 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/json.c
+[v _getIntJSON getIntJSON `(i  1 e 2 0 ]
+"48
 [v _getStringJSON getStringJSON `(v  1 e 1 0 ]
 "17 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
 [v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
@@ -806,7 +812,7 @@
 "44
 [v _ipServer ipServer `[20]uc  1 e 20 0 ]
 "45
-[v _portServer portServer `[4]uc  1 e 4 0 ]
+[v _portServer portServer `ui  1 e 2 0 ]
 "47
 [v _fase fase `uc  1 e 1 0 ]
 "48
@@ -841,8 +847,8 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "133
-[v main@i i `uc  1 a 1 146 ]
-"524
+[v main@i i `uc  1 a 1 148 ]
+"522
 } 0
 "27 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Led_display.h
 [v _updateLeds updateLeds `(v  1 e 1 0 ]
@@ -893,7 +899,19 @@
 [v setRangeValor@_acao _acao `uc  1 a 1 13 ]
 "90
 } 0
-"26 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+"46 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+[v _readEEPROM16_ext readEEPROM16_ext `(ui  1 e 2 0 ]
+{
+[v readEEPROM16_ext@adress adress `uc  1 a 1 wreg ]
+"47
+[v readEEPROM16_ext@data data `ui  1 a 2 10 ]
+"46
+[v readEEPROM16_ext@adress adress `uc  1 a 1 wreg ]
+"48
+[v readEEPROM16_ext@adress adress `uc  1 a 1 12 ]
+"52
+} 0
+"26
 [v _readEEPROM_ext readEEPROM_ext `(uc  1 e 1 0 ]
 {
 [v readEEPROM_ext@adress adress `uc  1 a 1 wreg ]
@@ -1028,20 +1046,20 @@
 [v faseAtual@tp tp `uc  1 a 1 5 ]
 "32
 } 0
-"149 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
+"132 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
 [v _enviaDadosWifi enviaDadosWifi `(v  1 e 1 0 ]
 {
-"271
-[v enviaDadosWifi@i_1396 i `uc  1 a 1 121 ]
-"273
+"227
+[v enviaDadosWifi@i_1397 i `uc  1 a 1 121 ]
+"229
 [v enviaDadosWifi@men men `uc  1 a 1 119 ]
-"272
+"228
 [v enviaDadosWifi@j j `uc  1 a 1 118 ]
-"224
+"186
 [v enviaDadosWifi@AUX AUX `[15]uc  1 a 15 101 ]
-"223
+"185
 [v enviaDadosWifi@i i `uc  1 a 1 120 ]
-"290
+"247
 } 0
 "180 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/lcd.h
 [v _criaCaracteresCGRAM criaCaracteresCGRAM `(v  1 e 1 0 ]
@@ -1110,11 +1128,22 @@
 "18 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/conexaoWifi.h
 [v _alterarDadosConexaoConfigWifi alterarDadosConexaoConfigWifi `(v  1 e 1 0 ]
 {
-"126
-[v alterarDadosConexaoConfigWifi@i i `uc  1 a 1 128 ]
-"147
+"110
+[v alterarDadosConexaoConfigWifi@i i `uc  1 a 1 130 ]
+"99
+[v alterarDadosConexaoConfigWifi@port port `i  1 a 2 128 ]
+"130
 } 0
-"14 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+"39 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/Eeprom_ext.h
+[v _writeEEPROM16_ext writeEEPROM16_ext `(v  1 e 1 0 ]
+{
+[v writeEEPROM16_ext@adress adress `uc  1 a 1 wreg ]
+[v writeEEPROM16_ext@adress adress `uc  1 a 1 wreg ]
+[v writeEEPROM16_ext@data data `ui  1 p 2 5 ]
+[v writeEEPROM16_ext@adress adress `uc  1 a 1 7 ]
+"43
+} 0
+"14
 [v _writeEEPROM_ext writeEEPROM_ext `(v  1 e 1 0 ]
 {
 [v writeEEPROM_ext@adress adress `uc  1 a 1 wreg ]
@@ -1171,9 +1200,9 @@
 "13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
-[s S1796 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1804 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "21
-[v printf@pb pb `S1796  1 a 4 95 ]
+[v printf@pb pb `S1804  1 a 4 95 ]
 "15
 [v printf@ap ap `[1]*.39v  1 a 2 93 ]
 "13
@@ -1208,12 +1237,39 @@
 [v getStringJSON@F292 F292 `[20]uc  1 s 20 F292 ]
 "89
 } 0
+"5
+[v _getIntJSON getIntJSON `(i  1 e 2 0 ]
+{
+"9
+[v getIntJSON@attr attr `[20]uc  1 a 20 85 ]
+"10
+[v getIntJSON@expected expected `[20]uc  1 a 20 55 ]
+"8
+[v getIntJSON@aux aux `[10]uc  1 a 10 75 ]
+"7
+[v getIntJSON@i i `i  1 a 2 110 ]
+[v getIntJSON@j j `i  1 a 2 108 ]
+"12
+[v getIntJSON@value value `i  1 a 2 105 ]
+"11
+[v getIntJSON@find find `uc  1 a 1 107 ]
+"5
+[v getIntJSON@buff buff `*.39uc  1 p 2 49 ]
+[v getIntJSON@key key `*.25uc  1 p 2 51 ]
+"7
+[v getIntJSON@F274 F274 `[10]uc  1 s 10 F274 ]
+"8
+[v getIntJSON@F276 F276 `[20]uc  1 s 20 F276 ]
+"9
+[v getIntJSON@F278 F278 `[20]uc  1 s 20 F278 ]
+"46
+} 0
 "13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S1796 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1804 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "29
-[v sprintf@pb pb `S1796  1 a 4 45 ]
+[v sprintf@pb pb `S1804  1 a 4 45 ]
 "28
 [v sprintf@ap ap `[1]*.39v  1 a 2 43 ]
 "13
@@ -1238,9 +1294,9 @@
 [v __doprnt@flag flag `uc  1 a 1 23 ]
 "506
 [v __doprnt@prec prec `c  1 a 1 22 ]
-[s S1796 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
+[s S1804 __prbuf 4 `*.39uc 1 ptr 2 0 `*.37(v 1 func 2 2 ]
 "458
-[v __doprnt@pb pb `*.39S1796  1 p 2 12 ]
+[v __doprnt@pb pb `*.39S1804  1 p 2 12 ]
 [v __doprnt@f f `*.25Cuc  1 p 2 14 ]
 [v __doprnt@ap ap `*.39*.39v  1 p 2 16 ]
 "1541
@@ -1252,25 +1308,6 @@
 [v putch@c c `uc  1 a 1 wreg ]
 [v putch@c c `uc  1 a 1 0 ]
 "39
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\isdigit.c
-[v _isdigit isdigit `(b  1 e 0 0 ]
-{
-[v isdigit@c c `uc  1 a 1 wreg ]
-[v isdigit@c c `uc  1 a 1 wreg ]
-"14
-[v isdigit@c c `uc  1 a 1 2 ]
-"15
-} 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -1293,6 +1330,36 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 0 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
 "31
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+"7
+[v atoi@a a `i  1 a 2 11 ]
+"8
+[v atoi@sign sign `uc  1 a 1 10 ]
+"5
+[v atoi@s s `*.39Cuc  1 p 2 6 ]
+"24
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 2 ]
+"15
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
 } 0
 "33 C:\Users\jonas\MPLABXProjects\SOFTWARE_ESTUFA_V1.0.X\src/serial.c
 [v _findBufferSerial findBufferSerial `(uc  1 e 1 0 ]

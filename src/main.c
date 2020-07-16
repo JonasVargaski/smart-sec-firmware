@@ -140,9 +140,7 @@ void main() {
     for (i = 0; i < 20; i++) {
         ipServer[i] = (char) readEEPROM_ext(80 + i);
     }
-    for (i = 0; i < 4; i++) {
-        portServer[i] = (char) readEEPROM_ext(105 + i);
-    }
+    portServer = readEEPROM16_ext(105);
 
     i = readEEPROM_ext(30); // confere se esta fazendo a leitura correta da memoria externa, caso nao esteja entao nao deixa o controlador funcionar
     if (i != 187) { // numero aleatorio

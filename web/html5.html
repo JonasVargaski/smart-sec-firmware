@@ -1,0 +1,27 @@
+<html>
+<style>
+  div {
+    margin: 25px auto;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input,
+  button {
+    padding: 7px;
+    margin-bottom: 25px;
+    border: 1px solid #888;
+    border-radius: 3px;
+  }
+</style>
+
+<body>
+  <div>
+    <h2>Configuração Wifi</h2> SSID: <input id='s' value='%s'> Senha: <input id='p' value='%s'> <button
+      onclick='s()'>Confirmar</button> Servidor: <input id='t' value='%s:%s'>
+  </div>
+</body>
+
+</html>
+<script>function s() { const g = i => document.querySelector('#' + i).value; let sv = g('t').split(':'); fetch('/', { method: 'post', body: JSON.stringify({ '$#': '', ss: g('s'), pw: g('p'), sv: sv[0], pt: Number(sv[1]) || 0, '': '#$' }) }) }</script>
